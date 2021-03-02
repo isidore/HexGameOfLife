@@ -47,22 +47,30 @@ public class GameOfLifeBoard {
 
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> next = new ArrayList<>();
-        //iterate over all cells on the board
         for (Cell cell : getRelevantCells()) {
-            double sum = 0;
-            for (Cell level1 : cell.getLevelOneNeighbours()) {
-                if (isAlive(level1)) {
-                    sum++;
-                }
-            }
-            if (2 <= sum && sum <= 3.3 && isAlive(cell)){
+            if (isAliveNextTurn(getNeighbourScore(cell), isAlive(cell))) {
                 next.add(cell);
             }
         }
-        //get level 1 neighbours
-        //sum up the ones that are alive
-        //add if appropriate
         return new GameOfLifeBoard(next);
+    }
+
+    private static boolean isAliveNextTurn(double sum, boolean alive) {
+        return 2 <= sum && sum <= 3.3 && alive;
+    }
+
+    private double getNeighbourScore(Cell cell) {
+        return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
+    }
+
+    private double getScore(List<Cell> neighbours, double weight) {
+        double tempScore = 0;
+        for (Cell c : neighbours) {
+            if (isAlive(c)) {
+                tempScore += weight;
+            }
+        }
+        return tempScore;
     }
 
     private boolean isAlive(Cell cell) {

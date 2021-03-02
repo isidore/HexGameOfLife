@@ -56,27 +56,22 @@ public class BoardTest {
         Cell cell = new Cell(4, 4);
         List<Cell> level1 = cell.getLevelOneNeighbours();
         List<Cell> level2 = cell.getLevelTwoNeighbours();
+        String timeline = "";
 
         for (int l1 = 0; l1 < level1.size(); l1++) {
             for (int l2 = 0; l2 < level2.size(); l2++) {
-                try (NamedEnvironment namedEnvironment = NamerFactory.withParameters(l1, l2)) {
-                    ArrayList<Cell> cells = new ArrayList<>();
-                    cells.add(cell);
-                    cells.addAll(level1.subList(0, l1));
-                    cells.addAll(level2.subList(0, l2));
-                    GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard(cells);
-                    String timeline = "";
-                    timeline += gameOfLifeBoard;
-                    timeline += "\n NEXT TURN \n";
+                timeline += String.format("\n\nNeighbours(Level 1 , Level 2) = (%s, %s) => \n", l1, l2);
+                ArrayList<Cell> cells = new ArrayList<>();
+                cells.add(cell);
+                cells.addAll(level1.subList(0, l1));
+                cells.addAll(level2.subList(0, l2));
+                GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard(cells);
+                timeline += gameOfLifeBoard;
+                timeline += "\n NEXT TURN \n";
 
-                    timeline += gameOfLifeBoard.advanceTurn();
-                    try {
-                        Approvals.verify(timeline);
-                    } catch (Throwable t) { //nothing
-                    }
-
-                }
+                timeline += gameOfLifeBoard.advanceTurn();
             }
         }
+        Approvals.verify(timeline);
     }
 }
