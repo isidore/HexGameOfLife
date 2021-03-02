@@ -64,16 +64,17 @@ public class BoardTest {
 
         for (int l1 = 0; l1 < level1.size(); l1++) {
             for (int l2 = 0; l2 < level2.size(); l2++) {
-                timeline += String.format("\n\nNeighbours(Level 1 , Level 2) = (%s, %s) => \n", l1, l2);
+                timeline += String.format("Neighbours(Level 1 , Level 2) = (%s, %s) => \n", l1, l2);
                 ArrayList<Cell> cells = new ArrayList<>();
                 cells.add(cell);
                 cells.addAll(level1.subList(0, l1));
                 cells.addAll(level2.subList(0, l2));
                 GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard(cells);
-                timeline += gameOfLifeBoard;
+                timeline += HexPrinter.print(gameOfLifeBoard);
                 timeline += "\n NEXT TURN \n";
 
-                timeline += gameOfLifeBoard.advanceTurn();
+                timeline += HexPrinter.print(gameOfLifeBoard.advanceTurn());
+                timeline += "\n\n\n\n";
             }
         }
         Approvals.verify(timeline);
