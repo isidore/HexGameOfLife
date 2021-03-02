@@ -15,7 +15,15 @@ public class BoardTest {
     @Test
     void printEmptyBoard() {
         Approvals.verify(new GameOfLifeBoard());
-    }
+        // maybe
+        /**
+         *          ___
+         *      ___/   \___
+         *     /   \___/   \
+         *     \___/   \___/
+         *         \___/
+         */
+     }
     @Test
     void printEmptyBoardAsHex() {
         Approvals.verify(HexPrinter.print(new GameOfLifeBoard()));
