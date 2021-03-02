@@ -36,6 +36,11 @@ public class BoardTest {
     }
 
     @Test
+    void printBoardWithCellAsHex() {
+        Approvals.verify(HexPrinter.print(new GameOfLifeBoard(new Cell[]{new Cell(4, 4)})));
+    }
+
+    @Test
     void printWithCellsAtSpecifiedPosititon() {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(4, 4));
