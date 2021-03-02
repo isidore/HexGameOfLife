@@ -16,6 +16,10 @@ public class BoardTest {
     void printEmptyBoard() {
         Approvals.verify(new GameOfLifeBoard());
     }
+    @Test
+    void printEmptyBoardAsHex() {
+        Approvals.verify(HexPrinter.print(new GameOfLifeBoard()));
+    }
 
     @Test
     void printWithCellsAtSpecifiedPosititon() {
@@ -44,10 +48,10 @@ public class BoardTest {
         gameOfLife.setAlive(3, 5);
         gameOfLife.setAlive(4, 6);
         gameOfLife.setAlive(5, 5);
-        timeline += gameOfLife;
+        timeline += HexPrinter.print(gameOfLife);
         GameOfLifeBoard gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
-        timeline += gameOfLife2;
+        timeline += HexPrinter.print(gameOfLife2);
         Approvals.verify(timeline);
     }
 

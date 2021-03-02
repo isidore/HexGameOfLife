@@ -73,7 +73,7 @@ public class GameOfLifeBoard {
         return tempScore;
     }
 
-    private boolean isAlive(Cell cell) {
+    public boolean isAlive(Cell cell) {
         return cells.contains(cell);
     }
 
