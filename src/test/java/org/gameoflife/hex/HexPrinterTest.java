@@ -10,7 +10,7 @@ class HexPrinterTest {
 
         for (int x = 0; x < 10; x++) {
             for (int y = 0; y < 10; y++) {
-                if(isValidCoordinates(x, y)){
+                if(Cell.isValid(x, y)){
                     GameOfLifeBoard board = new GameOfLifeBoard();
                     board.setAlive(x,y);
 
@@ -23,7 +23,4 @@ class HexPrinterTest {
         Approvals.verify(result);
     }
 
-    private boolean isValidCoordinates(int x, int y) {
-        return x % 2 == y % 2;
-    }
 }
