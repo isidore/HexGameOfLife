@@ -3,8 +3,6 @@ package org.gameoflife.hex;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class HexPrinterTest {
     @Test
     void testPrintInCorrectLocation() {
@@ -12,7 +10,7 @@ class HexPrinterTest {
 
         for (int x = 0; x < 10; x++) {
             for (int y = 0; y < 10; y++) {
-                if(isValidCoordingates(x, y)){
+                if(isValidCoordinates(x, y)){
                     GameOfLifeBoard board = new GameOfLifeBoard();
                     board.setAlive(x,y);
 
@@ -25,7 +23,7 @@ class HexPrinterTest {
         Approvals.verify(result);
     }
 
-    private boolean isValidCoordingates(int x, int y) {
+    private boolean isValidCoordinates(int x, int y) {
         return x % 2 == y % 2;
     }
 }
