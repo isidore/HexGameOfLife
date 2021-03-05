@@ -26,6 +26,6 @@ class HexPrinterTest {
     }
 
     private boolean isValidCoordingates(int x, int y) {
-        return (x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1);
+        return x % 2 == y % 2;
     }
 }
