@@ -12,7 +12,7 @@ class HexPrinterTest {
 
         for (int x = 0; x < 10; x++) {
             for (int y = 0; y < 10; y++) {
-                if((x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1)){
+                if(isValidCoordingates(x, y)){
                     GameOfLifeBoard board = new GameOfLifeBoard();
                     board.setAlive(x,y);
 
@@ -23,5 +23,9 @@ class HexPrinterTest {
         }
 
         Approvals.verify(result);
+    }
+
+    private boolean isValidCoordingates(int x, int y) {
+        return (x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1);
     }
 }
