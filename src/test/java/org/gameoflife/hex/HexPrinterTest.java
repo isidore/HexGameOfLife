@@ -15,7 +15,8 @@ class HexPrinterTest {
                     board.setAlive(x,y);
 
                     result.append(String.format("\n X: %s, Y: %s\n", x, y));
-                    result.append(HexPrinter.print(board));
+                    String hexBoard = HexPrinter.print(board);
+                    result.append(hexBoard);
                 }
             }
         }
