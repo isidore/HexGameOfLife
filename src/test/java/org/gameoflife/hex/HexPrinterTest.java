@@ -11,11 +11,13 @@ class HexPrinterTest {
         for (int x = 0; x < 10; x++) {
             for (int y = 0; y < 10; y++) {
                 if(Cell.isValid(x, y)){
-                    StringBuilder result1 = result;
+                    StringBuilder result1 = new StringBuilder();
                     String hexBoard = setUpBoardWithLiveCellAtCoordinates(x, y);
 
                     result1.append(String.format("\n X: %s, Y: %s\n", x, y));
                     result1.append(hexBoard);
+
+                    result.append(result1);
                 }
             }
         }
