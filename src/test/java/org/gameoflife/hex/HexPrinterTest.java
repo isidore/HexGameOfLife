@@ -32,6 +32,7 @@ class HexPrinterTest {
     private String setUpBoardWithLiveCellAtCoordinates(int x, int y) {
         GameOfLifeBoard board = new GameOfLifeBoard();
         board.setAlive(x, y);
+
         return HexPrinter.print(board);
     }
 
