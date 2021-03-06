@@ -20,12 +20,12 @@ class HexPrinterTest {
     }
 
     private StringBuilder createTestOutputForBoardWithCellAtCoords(int x, int y) {
-        StringBuilder result1 = new StringBuilder();
+        StringBuilder testOutput = new StringBuilder();
         String hexBoard = setUpBoardWithLiveCellAtCoordinates(x, y);
 
-        result1.append(String.format("\n X: %s, Y: %s\n", x, y));
-        result1.append(hexBoard);
-        return result1;
+        testOutput.append(String.format("\n X: %s, Y: %s\n", x, y));
+        testOutput.append(hexBoard);
+        return testOutput;
     }
 
     private String setUpBoardWithLiveCellAtCoordinates(int x, int y) {
