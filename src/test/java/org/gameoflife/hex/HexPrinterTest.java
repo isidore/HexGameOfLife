@@ -13,9 +13,9 @@ class HexPrinterTest {
                 if(Cell.isValid(x, y)){
                     GameOfLifeBoard board = new GameOfLifeBoard();
                     board.setAlive(x,y);
+                    String hexBoard = HexPrinter.print(board);
 
                     result.append(String.format("\n X: %s, Y: %s\n", x, y));
-                    String hexBoard = HexPrinter.print(board);
                     result.append(hexBoard);
                 }
             }
