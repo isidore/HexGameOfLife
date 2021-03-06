@@ -13,9 +13,7 @@ class HexPrinterTest {
                 if(Cell.isValid(x, y)){
                     String hexBoard = setUpBoardWithLiveCellAtCoordinates(x, y);
 
-                    String format = String.format("\n X: %s, Y: %s\n", x, y);
-                    result.append(format);
-                    result.append(hexBoard);
+                    result.append(String.format("\n X: %s, Y: %s\n", x, y) + hexBoard);
                 }
             }
         }
