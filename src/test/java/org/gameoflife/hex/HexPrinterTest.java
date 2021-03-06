@@ -11,9 +11,7 @@ class HexPrinterTest {
         for (int x = 0; x < 10; x++) {
             for (int y = 0; y < 10; y++) {
                 if(Cell.isValid(x, y)){
-                    GameOfLifeBoard board = new GameOfLifeBoard();
-                    board.setAlive(x,y);
-                    String hexBoard = HexPrinter.print(board);
+                    String hexBoard = setUpBoardWithLiveCellAtCoordinates(x, y);
 
                     result.append(String.format("\n X: %s, Y: %s\n", x, y));
                     result.append(hexBoard);
@@ -22,6 +20,13 @@ class HexPrinterTest {
         }
 
         Approvals.verify(result);
+    }
+
+    private String setUpBoardWithLiveCellAtCoordinates(int x, int y) {
+        GameOfLifeBoard board = new GameOfLifeBoard();
+        board.setAlive(x, y);
+        String hexBoard = HexPrinter.print(board);
+        return hexBoard;
     }
 
 }
