@@ -20,9 +20,9 @@ class HexPrinterTest {
     }
 
     private StringBuilder createTestOutputForBoardWithCellAtCoords(int x, int y) {
-        StringBuilder testOutput = new StringBuilder();
         String hexBoard = setUpBoardWithLiveCellAtCoordinates(x, y);
 
+        StringBuilder testOutput = new StringBuilder();
         testOutput.append(String.format("\n X: %s, Y: %s\n", x, y));
         testOutput.append(hexBoard);
         return testOutput;
