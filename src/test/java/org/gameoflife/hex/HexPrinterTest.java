@@ -25,6 +25,7 @@ class HexPrinterTest {
         StringBuilder testOutput = new StringBuilder();
         testOutput.append(String.format("\n X: %s, Y: %s\n", x, y));
         testOutput.append(hexBoard);
+
         return testOutput;
     }
 
