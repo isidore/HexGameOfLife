@@ -70,8 +70,8 @@ public class BoardTest {
         List<Cell> level2 = cell.getLevelTwoNeighbours();
         String timeline = "";
 
-        for (int l1 = 0; l1 < level1.size(); l1++) {
-            for (int l2 = 0; l2 < level2.size(); l2++) {
+        for (int l1 = 0; l1 <= level1.size(); l1++) {
+            for (int l2 = 0; l2 <= level2.size(); l2++) {
                 timeline += String.format("Neighbours(Level 1 , Level 2) = (%s, %s) => \n", l1, l2);
                 ArrayList<Cell> cells = new ArrayList<>();
                 cells.add(cell);
