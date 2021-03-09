@@ -22,7 +22,7 @@ public class GameOfLifeBoard {
         this.cells = cells;
     }
 
-    public static boolean isValid(int x, int y) {
+    public static boolean isValidCoordinate(int x, int y) {
         boolean xIsEven = x%2 == 0;
         boolean yIsEven = y%2 == 0;
 
@@ -30,7 +30,7 @@ public class GameOfLifeBoard {
     }
 
     private String printCell(Integer x, Integer y) {
-        if (isValid(x, y)) {
+        if (isValidCoordinate(x, y)) {
             if (cells.contains(new Cell(x, y))) {
                 return "X";
             }
@@ -45,7 +45,7 @@ public class GameOfLifeBoard {
     }
 
     public void setAlive(int x, int y) {
-        if (!isValid(x, y)) {
+        if (!isValidCoordinate(x, y)) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
