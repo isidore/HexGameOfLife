@@ -24,16 +24,6 @@ public class GameOfLifeBoard {
         return yIsEven == xIsEven;
     }
 
-    private String printCell(Integer x, Integer y) {
-        if (isValidCoordinate(x, y)) {
-            if (cells.contains(new Cell(x, y))) {
-                return "X";
-            }
-            return "_";
-        }
-        return " ";
-    }
-
     @Override
     public String toString() {
         return HexPrinter.print(this);
