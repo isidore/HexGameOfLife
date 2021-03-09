@@ -47,6 +47,14 @@ public class Cell {
         return neighbours;
     }
 
+    public List<Cell> getLevelOneNeighbours() {
+        return getLevelOneNeighbours(x,y);
+    }
+
+    public List<Cell> getLevelTwoNeighbours() {
+        return getLevelTwoNeighbours(x, y);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,11 +68,4 @@ public class Cell {
         return Objects.hash(x, y);
     }
 
-    public List<Cell> getLevelOneNeighbours() {
-        return getLevelOneNeighbours(x,y);
-    }
-
-    public List<Cell> getLevelTwoNeighbours() {
-        return getLevelTwoNeighbours(x, y);
-    }
 }
