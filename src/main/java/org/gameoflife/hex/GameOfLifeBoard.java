@@ -1,20 +1,19 @@
 package org.gameoflife.hex;
 
 import com.spun.util.FormattedException;
-import org.lambda.utils.Grid;
 
 import java.util.*;
 
 public class GameOfLifeBoard {
-    private List<Cell> cells;
+    private List<Cell> liveCells;
 
     public GameOfLifeBoard() {
-        cells = new ArrayList<>();
+        liveCells = new ArrayList<>();
     }
 
-    public GameOfLifeBoard(List<Cell> cells) {
+    public GameOfLifeBoard(List<Cell> liveCells) {
 
-        this.cells = cells;
+        this.liveCells = liveCells;
     }
 
     public static boolean isValidCoordinate(int x, int y) {
@@ -29,7 +28,7 @@ public class GameOfLifeBoard {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
-        cells.add(new Cell(x, y));
+        liveCells.add(new Cell(x, y));
     }
 
     @Override
@@ -67,16 +66,16 @@ public class GameOfLifeBoard {
     }
 
     public boolean isAlive(Cell cell) {
-        return cells.contains(cell);
+        return liveCells.contains(cell);
     }
 
     private Set<Cell> getRelevantCells() {
-        HashSet<Cell> cells2 = new HashSet<>();
-        cells2.addAll(cells);
-        for (Cell cell : cells) {
-            cells2.addAll(cell.getLevelOneNeighbours());
-            cells2.addAll(cell.getLevelTwoNeighbours());
+        HashSet<Cell> liveCellsAndNeighbours = new HashSet<>();
+        liveCellsAndNeighbours.addAll(liveCells);
+        for (Cell cell : liveCells) {
+            liveCellsAndNeighbours.addAll(cell.getLevelOneNeighbours());
+            liveCellsAndNeighbours.addAll(cell.getLevelTwoNeighbours());
         }
-        return cells2;
+        return liveCellsAndNeighbours;
     }
 }
