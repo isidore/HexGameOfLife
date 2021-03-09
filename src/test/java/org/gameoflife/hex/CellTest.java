@@ -16,13 +16,12 @@ public class CellTest {
 
     @Test
     void getLevelOneNeighbours() {
-        GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard(Cell.getLevelOneNeighbours(2, 4));
+        GameOfLifeBoard gameOfLifeBoard = BoardTest.createBoardWithNeighbours(6, 0);
         Approvals.verify(HexPrinter.print(gameOfLifeBoard));
     }
     @Test
     void getLevelTwoNeighbours() {
-        GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard(Cell.getLevelTwoNeighbours(6,4));
-        gameOfLifeBoard.setAlive(6,4);
+        GameOfLifeBoard gameOfLifeBoard = BoardTest.createBoardWithNeighbours(0, 6);
         Approvals.verify(HexPrinter.print(gameOfLifeBoard));
     }
 
