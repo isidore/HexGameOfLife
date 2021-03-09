@@ -16,18 +16,6 @@ public class Cell {
         return new Cell(x,y);
     }
 
-    public static List<Cell> getLevelOneNeighbours(int x, int y) {
-        List<Cell> cells = new ArrayList<>();
-        cells.add(new Cell(x - 1, y-1));
-        cells.add(new Cell(x - 1, y+1));
-        cells.add(new Cell(x , y-2));
-        cells.add(new Cell(x , y+2));
-        cells.add(new Cell(x +1, y-1));
-        cells.add(new Cell(x + 1, y+1));
-
-        return cells;
-    }
-
     public static List<Cell> getLevelTwoNeighbours(int x, int y) {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(x-2, y));
@@ -48,7 +36,15 @@ public class Cell {
     }
 
     public List<Cell> getLevelOneNeighbours() {
-        return getLevelOneNeighbours(x,y);
+        List<Cell> cells = new ArrayList<>();
+        cells.add(new Cell(x - 1, y -1));
+        cells.add(new Cell(x - 1, y +1));
+        cells.add(new Cell(x, y -2));
+        cells.add(new Cell(x, y +2));
+        cells.add(new Cell(x +1, y -1));
+        cells.add(new Cell(x + 1, y +1));
+
+        return cells;
     }
 
     public List<Cell> getLevelTwoNeighbours() {
