@@ -25,24 +25,24 @@ public class Cell {
 
     public List<Cell> getLevelOneNeighbours() {
         List<Cell> cells = new ArrayList<>();
-        cells.add(new Cell(x - 1, y -1));
-        cells.add(new Cell(x - 1, y +1));
-        cells.add(new Cell(x, y -2));
-        cells.add(new Cell(x, y +2));
-        cells.add(new Cell(x +1, y -1));
-        cells.add(new Cell(x + 1, y +1));
+        cells.add(new Cell(x - 1, y - 1));
+        cells.add(new Cell(x - 1, y + 1));
+        cells.add(new Cell(x, y - 2));
+        cells.add(new Cell(x, y + 2));
+        cells.add(new Cell(x + 1, y - 1));
+        cells.add(new Cell(x + 1, y + 1));
 
         return cells;
     }
 
     public List<Cell> getLevelTwoNeighbours() {
         List<Cell> cells = new ArrayList<>();
-        cells.add(new Cell(x -2, y));
-        cells.add(new Cell(x -1, y +3));
-        cells.add(new Cell(x - 1, y -3));
-        cells.add(new Cell(x + 1, y +3));
-        cells.add(new Cell(x +1, y -3));
-        cells.add(new Cell(x +2 , y));
+        cells.add(new Cell(x - 2, y));
+        cells.add(new Cell(x - 1, y + 3));
+        cells.add(new Cell(x - 1, y - 3));
+        cells.add(new Cell(x + 1, y + 3));
+        cells.add(new Cell(x + 1, y - 3));
+        cells.add(new Cell(x + 2 , y));
 
         return cells;
     }
