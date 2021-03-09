@@ -42,6 +42,8 @@ public class Cell {
 
     public Set<Cell> getAllNeighbours(Cell cell) {
         Set<Cell> neighbours = new HashSet<>();
+        neighbours.addAll(getLevelOneNeighbours());
+        neighbours.addAll(getLevelTwoNeighbours());
         neighbours.addAll(cell.getLevelOneNeighbours());
         neighbours.addAll(cell.getLevelTwoNeighbours());
         return neighbours;
