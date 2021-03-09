@@ -23,7 +23,8 @@ public class BoardTest {
          *     \___/   \___/
          *         \___/
          */
-     }
+    }
+
     @Test
     void printEmptyBoardAsHex() {
         Approvals.verify(HexPrinter.print(new GameOfLifeBoard()));
@@ -65,13 +66,14 @@ public class BoardTest {
 
     @Test
     void testEverything() {
-        Cell cell = new Cell(4, 4);
-        List<Cell> level1 = cell.getLevelOneNeighbours();
-        List<Cell> level2 = cell.getLevelTwoNeighbours();
-        String timeline = "";
+        String fullTimeline = "";
 
-        for (int l1 = 0; l1 <= level1.size(); l1++) {
-            for (int l2 = 0; l2 <= level2.size(); l2++) {
+        for (int l1 = 0; l1 <= 6; l1++) {
+            for (int l2 = 0; l2 <= 6; l2++) {
+                Cell cell = new Cell(4, 4);
+                List<Cell> level1 = cell.getLevelOneNeighbours();
+                List<Cell> level2 = cell.getLevelTwoNeighbours();
+                String timeline = "";
                 timeline += String.format("Neighbours(Level 1 , Level 2) = (%s, %s) => \n", l1, l2);
                 ArrayList<Cell> cells = new ArrayList<>();
                 cells.add(cell);
@@ -82,9 +84,9 @@ public class BoardTest {
                 timeline += "\n NEXT TURN \n";
 
                 timeline += HexPrinter.print(gameOfLifeBoard.advanceTurn());
-                timeline += "\n\n\n\n";
+                fullTimeline += timeline + "\n\n\n\n";
             }
         }
-        Approvals.verify(timeline);
+        Approvals.verify(fullTimeline);
     }
 }
