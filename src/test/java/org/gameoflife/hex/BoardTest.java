@@ -7,10 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardTest {
-    @Test
-    void printEmptyBoard() {
-        Approvals.verify(new GameOfLifeBoard());
-    }
 
     @Test
     void printEmptyBoardAsHex() {
