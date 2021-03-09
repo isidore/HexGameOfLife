@@ -10,14 +10,6 @@ public class BoardTest {
     @Test
     void printEmptyBoard() {
         Approvals.verify(new GameOfLifeBoard());
-        // maybe
-        /**
-         *          ___
-         *      ___/   \___
-         *     /   \___/   \
-         *     \___/   \___/
-         *         \___/
-         */
     }
 
     @Test
