@@ -39,7 +39,7 @@ public class GameOfLifeBoard {
 
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> nextLivingCells = new ArrayList<>();
-        for (Cell cell : getRelevantCells()) {
+        for (Cell cell : getLiveCellsAndNeighbours()) {
             if (isAliveNextTurn(getNeighbourScore(cell), isAlive(cell))) {
                 nextLivingCells.add(cell);
             }
@@ -69,7 +69,7 @@ public class GameOfLifeBoard {
         return liveCells.contains(cell);
     }
 
-    private Set<Cell> getRelevantCells() {
+    private Set<Cell> getLiveCellsAndNeighbours() {
         Set<Cell> liveCellsAndNeighbours = new HashSet<>(liveCells);
         for (Cell cell : liveCells) {
             liveCellsAndNeighbours.addAll(cell.getLevelOneNeighbours());
