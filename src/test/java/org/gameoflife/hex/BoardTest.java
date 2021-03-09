@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BoardTest {
 
     @Test
-    static void oddsGoTogether() {
+    void oddsGoTogether() {
         assertEquals(true, GameOfLifeBoard.isValidCoordinate(1,1));
         assertEquals(true, GameOfLifeBoard.isValidCoordinate(2,2));
         assertEquals(false, GameOfLifeBoard.isValidCoordinate(2,1));
