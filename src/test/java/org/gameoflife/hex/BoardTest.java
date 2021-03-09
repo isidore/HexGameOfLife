@@ -27,7 +27,10 @@ public class BoardTest {
 
     @Test
     void printWithCellsAtSpecifiedPosititon() {
-        GameOfLifeBoard game = new GameOfLifeBoard(new Cell[]{new Cell(4, 4)});
+        List<Cell> cells = new ArrayList<>();
+        cells.add(new Cell(4, 4));
+
+        GameOfLifeBoard game = new GameOfLifeBoard(cells);
 
         Approvals.verify(game);
     }
