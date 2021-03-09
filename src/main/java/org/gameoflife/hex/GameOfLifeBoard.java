@@ -22,8 +22,15 @@ public class GameOfLifeBoard {
         this.cells = cells;
     }
 
+    public static boolean isValid(int x, int y) {
+        boolean xIsEven = x%2 == 0;
+        boolean yIsEven = y%2 == 0;
+
+        return yIsEven == xIsEven;
+    }
+
     private String printCell(Integer x, Integer y) {
-        if (Cell.isValid(x, y)) {
+        if (isValid(x, y)) {
             if (cells.contains(new Cell(x, y))) {
                 return "X";
             }
@@ -38,7 +45,7 @@ public class GameOfLifeBoard {
     }
 
     public void setAlive(int x, int y) {
-        if (!Cell.isValid(x, y)) {
+        if (!isValid(x, y)) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 

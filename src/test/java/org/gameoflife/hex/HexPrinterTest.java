@@ -10,7 +10,7 @@ class HexPrinterTest {
 
         for (int x = 0; x < 10; x++) {
             for (int y = 0; y < 10; y++) {
-                if(Cell.isValid(x, y)){
+                if(GameOfLifeBoard.isValid(x, y)){
                     result.append(createTestOutputForBoardWithCellAtCoords(x, y));
                 }
             }

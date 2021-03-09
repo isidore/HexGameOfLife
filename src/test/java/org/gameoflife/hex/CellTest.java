@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CellTest {
     @Test
     void oddsGoTogether() {
-        assertEquals(true, Cell.isValid(1,1));
-        assertEquals(true, Cell.isValid(2,2));
-        assertEquals(false, Cell.isValid(2,1));
-        assertEquals(false, Cell.isValid(1,2));
+        assertEquals(true, GameOfLifeBoard.isValid(1,1));
+        assertEquals(true, GameOfLifeBoard.isValid(2,2));
+        assertEquals(false, GameOfLifeBoard.isValid(2,1));
+        assertEquals(false, GameOfLifeBoard.isValid(1,2));
     }
 
     @Test

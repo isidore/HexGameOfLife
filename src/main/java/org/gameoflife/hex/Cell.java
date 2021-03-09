@@ -19,13 +19,6 @@ public class Cell {
         return new Cell(x,y);
     }
 
-    public static boolean isValid(int x, int y) {
-        boolean xIsEven = x%2 == 0;
-        boolean yIsEven = y%2 == 0;
-
-        return yIsEven == xIsEven;
-    }
-
     public static List<Cell> getLevelOneNeighbours(int x, int y) {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(x - 1, y-1));
