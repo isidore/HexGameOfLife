@@ -8,11 +8,6 @@ import java.util.*;
 public class GameOfLifeBoard {
     private List<Cell> cells;
 
-    public GameOfLifeBoard(Cell[] cells) {
-
-        this.cells = Arrays.asList(cells);
-    }
-
     public GameOfLifeBoard() {
         cells = new ArrayList<>();
     }
