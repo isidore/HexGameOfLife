@@ -36,7 +36,7 @@ public class GameOfLifeBoard {
 
     @Override
     public String toString() {
-        return Grid.print(10, 10, this::printCell);
+        return HexPrinter.print(this);
     }
 
     public void setAlive(int x, int y) {
