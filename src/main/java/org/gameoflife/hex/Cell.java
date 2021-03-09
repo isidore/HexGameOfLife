@@ -41,10 +41,10 @@ public class Cell {
     }
 
     public Set<Cell> getAllNeighbours(Cell cell) {
-        Set<Cell> temp = new HashSet<>();
-        temp.addAll(cell.getLevelOneNeighbours());
-        temp.addAll(cell.getLevelTwoNeighbours());
-        return temp;
+        Set<Cell> neighbours = new HashSet<>();
+        neighbours.addAll(cell.getLevelOneNeighbours());
+        neighbours.addAll(cell.getLevelTwoNeighbours());
+        return neighbours;
     }
 
     @Override
