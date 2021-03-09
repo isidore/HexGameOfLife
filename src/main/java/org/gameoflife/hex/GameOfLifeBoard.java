@@ -70,8 +70,7 @@ public class GameOfLifeBoard {
     }
 
     private Set<Cell> getRelevantCells() {
-        Set<Cell> liveCellsAndNeighbours = new HashSet<>();
-        liveCellsAndNeighbours.addAll(liveCells);
+        Set<Cell> liveCellsAndNeighbours = new HashSet<>(liveCells);
         for (Cell cell : liveCells) {
             liveCellsAndNeighbours.addAll(cell.getLevelOneNeighbours());
             liveCellsAndNeighbours.addAll(cell.getLevelTwoNeighbours());
