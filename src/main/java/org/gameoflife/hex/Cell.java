@@ -1,9 +1,6 @@
 package org.gameoflife.hex;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Cell {
     private int x;
@@ -41,6 +38,13 @@ public class Cell {
         cells.add(new Cell(x+2 , y));
 
         return cells;
+    }
+
+    public static Set<Cell> getAllNeighbours(Cell cell) {
+        Set<Cell> temp = new HashSet<>();
+        temp.addAll(cell.getLevelOneNeighbours());
+        temp.addAll(cell.getLevelTwoNeighbours());
+        return temp;
     }
 
     @Override
