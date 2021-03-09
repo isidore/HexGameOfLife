@@ -9,13 +9,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CellTest {
-    @Test
-    static void oddsGoTogether() {
-        assertEquals(true, GameOfLifeBoard.isValidCoordinate(1,1));
-        assertEquals(true, GameOfLifeBoard.isValidCoordinate(2,2));
-        assertEquals(false, GameOfLifeBoard.isValidCoordinate(2,1));
-        assertEquals(false, GameOfLifeBoard.isValidCoordinate(1,2));
-    }
 
     @Test
     void getLevelOneNeighbours() {
