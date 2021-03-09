@@ -24,11 +24,6 @@ public class GameOfLifeBoard {
         return yIsEven == xIsEven;
     }
 
-    @Override
-    public String toString() {
-        return HexPrinter.print(this);
-    }
-
     public void setAlive(int x, int y) {
         if (!isValidCoordinate(x, y)) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
@@ -36,6 +31,12 @@ public class GameOfLifeBoard {
 
         cells.add(new Cell(x, y));
     }
+
+    @Override
+    public String toString() {
+        return HexPrinter.print(this);
+    }
+
 
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> next = new ArrayList<>();
