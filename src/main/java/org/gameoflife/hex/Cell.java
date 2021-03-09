@@ -40,7 +40,7 @@ public class Cell {
         return cells;
     }
 
-    public Set<Cell> getAllNeighbours(Cell cell) {
+    public Set<Cell> getAllNeighbours() {
         Set<Cell> neighbours = new HashSet<>();
         neighbours.addAll(getLevelOneNeighbours());
         neighbours.addAll(getLevelTwoNeighbours());
