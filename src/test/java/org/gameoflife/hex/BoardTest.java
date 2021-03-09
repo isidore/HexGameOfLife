@@ -6,16 +6,16 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardTest {
 
     @Test
     void oddsGoTogether() {
-        assertEquals(true, GameOfLifeBoard.isValidCoordinate(1,1));
-        assertEquals(true, GameOfLifeBoard.isValidCoordinate(2,2));
-        assertEquals(false, GameOfLifeBoard.isValidCoordinate(2,1));
-        assertEquals(false, GameOfLifeBoard.isValidCoordinate(1,2));
+        assertTrue(GameOfLifeBoard.isValidCoordinate(1, 1));
+        assertTrue(GameOfLifeBoard.isValidCoordinate(2, 2));
+        assertFalse(GameOfLifeBoard.isValidCoordinate(2, 1));
+        assertFalse(GameOfLifeBoard.isValidCoordinate(1, 2));
     }
 
     @Test
