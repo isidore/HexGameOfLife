@@ -61,8 +61,8 @@ public class GameOfLifeBoard {
 
     private double getScore(List<Cell> neighbours, double weight) {
         double tempScore = 0;
-        for (Cell c : neighbours) {
-            if (isAlive(c)) {
+        for (Cell cell : neighbours) {
+            if (isAlive(cell)) {
                 tempScore += weight;
             }
         }
