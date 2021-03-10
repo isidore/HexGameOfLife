@@ -23,6 +23,10 @@ public class GameOfLifeBoard {
         return yIsEven == xIsEven;
     }
 
+    public boolean isAlive(Cell cell) {
+        return liveCells.contains(cell);
+    }
+
     public void setAlive(int x, int y) {
         if (!isValidCoordinate(x, y)) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
@@ -65,9 +69,6 @@ public class GameOfLifeBoard {
         return tempScore;
     }
 
-    public boolean isAlive(Cell cell) {
-        return liveCells.contains(cell);
-    }
 
     private Set<Cell> getLiveCellsAndNeighbours() {
         Set<Cell> liveCellsAndNeighbours = new HashSet<>(liveCells);
