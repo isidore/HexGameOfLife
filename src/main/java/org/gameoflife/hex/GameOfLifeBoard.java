@@ -29,7 +29,7 @@ public class GameOfLifeBoard {
     private List<Cell> liveCells;
 
     public GameOfLifeBoard() {
-        liveCells = new ArrayList<>();
+        this.liveCells = new ArrayList<>();
     }
 
     public GameOfLifeBoard(List<Cell> liveCells) {
