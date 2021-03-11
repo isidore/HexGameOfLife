@@ -20,7 +20,6 @@ public class GameOfLifeBoard {
     }
 
     public GameOfLifeBoard(List<Cell> liveCells) {
-
         setLiveCells(liveCells);
     }
 
