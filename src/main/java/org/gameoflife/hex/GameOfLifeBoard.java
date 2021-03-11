@@ -43,14 +43,14 @@ public class GameOfLifeBoard {
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> nextLivingCells = new ArrayList<>();
         for (Cell cell : liveCells) {
-            if (survivesToNextTurn(getNeighbourScore(cell))) {
+            if (survivesToNextTurn(getNeighbourScore(cell), cell)) {
                 nextLivingCells.add(cell);
             }
         }
         return new GameOfLifeBoard(nextLivingCells);
     }
 
-    private static boolean survivesToNextTurn(double sum) {
+    private static boolean survivesToNextTurn(double sum, Cell cell) {
         return 2 <= sum && sum <= 3.3;
     }
 
