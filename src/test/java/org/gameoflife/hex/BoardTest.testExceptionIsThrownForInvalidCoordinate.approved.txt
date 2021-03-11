@@ -1,0 +1,1 @@
+com.spun.util.FormattedException: Invalid Location for (1, 2)
