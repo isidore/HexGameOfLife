@@ -40,10 +40,9 @@ public class GameOfLifeBoard {
         return HexPrinter.print(this);
     }
 
-
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> nextLivingCells = new ArrayList<>();
-        for (Cell cell : getLiveCellsAndNeighbours()) {
+        for (Cell cell : liveCells) {
             if (isAliveNextTurn(getNeighbourScore(cell), isAlive(cell))) {
                 nextLivingCells.add(cell);
             }
