@@ -6,6 +6,8 @@ import java.util.*;
 
 public class GameOfLifeBoard {
     public class Board {
+        private List<Cell> liveCells;
+
         public List<Cell> getLiveCells() {
             return liveCells;
         }
@@ -14,7 +16,6 @@ public class GameOfLifeBoard {
             this.liveCells = liveCells;
         }
 
-        private List<Cell> liveCells;
     }
 
     public List<Cell> getLiveCells() {
