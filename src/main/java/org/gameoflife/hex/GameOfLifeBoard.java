@@ -33,7 +33,7 @@ public class GameOfLifeBoard {
     }
 
     public GameOfLifeBoard(List<Cell> liveCells) {
-        setLiveCells(liveCells);
+        this.liveCells = liveCells;
     }
 
     public static boolean isValidCoordinate(int x, int y) {
