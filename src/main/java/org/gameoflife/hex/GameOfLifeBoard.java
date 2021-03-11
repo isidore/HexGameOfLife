@@ -43,25 +43,25 @@ public class GameOfLifeBoard {
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> nextLivingCells = new ArrayList<>();
         for (Cell cell : liveCells) {
-            if (survivesToNextTurn(getNeighbourScore(this, cell), cell)) {
+            if (survivesToNextTurn(getNeighbourScore(cell))) {
                 nextLivingCells.add(cell);
             }
         }
         return new GameOfLifeBoard(nextLivingCells);
     }
 
-    private static boolean survivesToNextTurn(double sum, Cell cell) {
+    private static boolean survivesToNextTurn(double sum) {
         return 2 <= sum && sum <= 3.3;
     }
 
-    private static double getNeighbourScore(GameOfLifeBoard gameOfLifeBoard, Cell cell) {
-        return getScore(gameOfLifeBoard, cell.getLevelOneNeighbours(), 1) + getScore(gameOfLifeBoard, cell.getLevelTwoNeighbours(), 0.3);
+    private double getNeighbourScore(Cell cell) {
+        return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
     }
 
-    private static double getScore(GameOfLifeBoard gameOfLifeBoard, List<Cell> neighbours, double weight) {
+    private double getScore(List<Cell> neighbours, double weight) {
         double tempScore = 0;
         for (Cell cell : neighbours) {
-            if (gameOfLifeBoard.isAlive(cell)) {
+            if (isAlive(cell)) {
                 tempScore += weight;
             }
         }
