@@ -30,11 +30,11 @@ public class GameOfLifeBoard {
     private Board board = new Board();
 
     public GameOfLifeBoard() {
-        this.liveCells = new ArrayList<>();
+        setLiveCells(new ArrayList<>());
     }
 
     public GameOfLifeBoard(List<Cell> liveCells) {
-        this.liveCells = liveCells;
+        setLiveCells(liveCells);
     }
 
     public static boolean isValidCoordinate(int x, int y) {
