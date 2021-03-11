@@ -21,7 +21,7 @@ public class GameOfLifeBoard {
 
     public GameOfLifeBoard(List<Cell> liveCells) {
 
-        this.liveCells = liveCells;
+        setLiveCells(liveCells);
     }
 
     public static boolean isValidCoordinate(int x, int y) {
