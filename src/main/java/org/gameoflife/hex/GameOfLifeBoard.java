@@ -18,18 +18,14 @@ public class GameOfLifeBoard {
 
     }
 
-    public void setLiveCells(List<Cell> liveCells) {
-        this.board.setLiveCells(liveCells);
-    }
-
     private Board board = new Board();
 
     public GameOfLifeBoard() {
-        setLiveCells(new ArrayList<>());
+        this.board.setLiveCells(new ArrayList<Cell>());
     }
 
     public GameOfLifeBoard(List<Cell> liveCells) {
-        setLiveCells(liveCells);
+        this.board.setLiveCells(liveCells);
     }
 
     public static boolean isValidCoordinate(int x, int y) {
