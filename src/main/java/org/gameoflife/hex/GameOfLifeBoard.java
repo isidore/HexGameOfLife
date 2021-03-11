@@ -26,7 +26,6 @@ public class GameOfLifeBoard {
         this.board.setLiveCells(liveCells);
     }
 
-    private List<Cell> liveCells;
     private Board board = new Board();
 
     public GameOfLifeBoard() {
