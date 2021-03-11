@@ -55,13 +55,13 @@ public class GameOfLifeBoard {
     }
 
     private double getNeighbourScore(Cell cell) {
-        return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
+        return getScore(this, cell.getLevelOneNeighbours(), 1) + getScore(this, cell.getLevelTwoNeighbours(), 0.3);
     }
 
-    private double getScore(List<Cell> neighbours, double weight) {
+    private static double getScore(GameOfLifeBoard gameOfLifeBoard, List<Cell> neighbours, double weight) {
         double tempScore = 0;
         for (Cell cell : neighbours) {
-            if (isAlive(cell)) {
+            if (gameOfLifeBoard.isAlive(cell)) {
                 tempScore += weight;
             }
         }
