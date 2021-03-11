@@ -86,7 +86,7 @@ public class BoardTest {
 
     private String advanceBoardWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours) {
         String title = String.format("Neighbours(Level 1 , Level 2) = (%s, %s) => \n", numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours);
-        GameOfLifeBoard gameOfLifeBoard = createBoardWithNeighbours(numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours);
+        GameOfLifeBoard gameOfLifeBoard = createBoardWithNeighbours(numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours, true);
         return printAdvanceBoard(title, gameOfLifeBoard);
     }
 
@@ -101,10 +101,19 @@ public class BoardTest {
         return timeline;
     }
 
-    public static GameOfLifeBoard createBoardWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours) {
+    @Test
+    void testCentreComesAlive() {
+        GameOfLifeBoard boardWithNeighbours = createBoardWithNeighbours(2, 3, false);
+        Approvals.verify(printAdvanceBoard("Centre comes alive\n", boardWithNeighbours));
+    }
+
+    public static GameOfLifeBoard createBoardWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours, boolean includeCentre) {
         Cell centre = new Cell(4, 4);
         ArrayList<Cell> cells = new ArrayList<>();
-        cells.add(centre);
+
+        if (includeCentre) {
+            cells.add(centre);
+        }
 
         List<Cell> level1 = centre.getLevelOneNeighbours().subList(0, numberOfLevelOneNeighbours);
         cells.addAll(level1);

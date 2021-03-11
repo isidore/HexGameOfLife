@@ -54,16 +54,18 @@ public class GameOfLifeBoard {
 
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> nextLivingCells = new ArrayList<>();
-        for (Cell cell : board.getLiveCells()) {
-            if (survivesToNextTurn(getNeighbourScore(cell))) {
+        for (Cell cell : getLiveCellsAndNeighbours()) {
+            if (survivesToNextTurn(getNeighbourScore(cell), isAlive(cell))) {
                 nextLivingCells.add(cell);
             }
         }
         return new GameOfLifeBoard(nextLivingCells);
     }
 
-    private static boolean survivesToNextTurn(double sum) {
-        return 2 <= sum && sum <= 3.3;
+    private static boolean survivesToNextTurn(double sum, boolean alive) {
+        boolean survives = 2 <= sum && sum <= 3.3 && alive;
+        boolean born = 2.3 <= sum && sum <= 2.9;
+        return survives || born;
     }
 
     private double getNeighbourScore(Cell cell) {
