@@ -27,6 +27,7 @@ public class GameOfLifeBoard {
     }
 
     private List<Cell> liveCells;
+    private Board board;
 
     public GameOfLifeBoard() {
         this.liveCells = new ArrayList<>();
