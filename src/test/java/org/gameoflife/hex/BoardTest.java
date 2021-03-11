@@ -19,6 +19,17 @@ public class BoardTest {
     }
 
     @Test
+    void testExceptionIsThrownForInvalidCoordinate() {
+        try {
+            GameOfLifeBoard board = new GameOfLifeBoard();
+            board.setAlive(1,2);
+            fail("Coordinates were invalid, expected exception");
+        }catch (Exception e) {
+            Approvals.verify(e);
+        }
+    }
+
+    @Test
     void printEmptyBoardAsHex() {
         Approvals.verify(HexPrinter.print(new GameOfLifeBoard()));
     }
