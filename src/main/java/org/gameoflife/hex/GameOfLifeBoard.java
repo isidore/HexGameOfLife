@@ -54,10 +54,8 @@ public class GameOfLifeBoard {
     }
 
     public GameOfLifeBoard advanceTurn() {
-        ArrayList<Cell> nextLivingCells = new ArrayList<>();
-        getLiveCellsAndNeighbours()
-                .where(c -> survivesToNextTurn(getNeighbourScore(c), isAlive(c)))
-                .forEach(c -> nextLivingCells.add(c));
+        Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
+                .where(c -> survivesToNextTurn(getNeighbourScore(c), isAlive(c)));
         return new GameOfLifeBoard(nextLivingCells);
     }
 
