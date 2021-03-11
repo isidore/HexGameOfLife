@@ -19,7 +19,7 @@ public class GameOfLifeBoard {
     }
 
     public List<Cell> getLiveCells() {
-        return liveCells;
+        return board.getLiveCells();
     }
 
     public void setLiveCells(List<Cell> liveCells) {
