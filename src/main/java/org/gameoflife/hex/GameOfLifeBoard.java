@@ -51,7 +51,7 @@ public class GameOfLifeBoard {
     }
 
     private static boolean isAliveNextTurn(double sum, boolean alive) {
-        return 2 <= sum && sum <= 3.3 && alive;
+        return 2 <= sum && sum <= 3.3;
     }
 
     private double getNeighbourScore(Cell cell) {
