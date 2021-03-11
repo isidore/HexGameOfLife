@@ -1,6 +1,7 @@
 package org.gameoflife.hex;
 
 import com.spun.util.FormattedException;
+import org.lambda.query.Queryable;
 
 import java.util.*;
 
@@ -29,8 +30,8 @@ public class GameOfLifeBoard {
     }
 
     public static boolean isValidCoordinate(int x, int y) {
-        boolean xIsEven = x%2 == 0;
-        boolean yIsEven = y%2 == 0;
+        boolean xIsEven = x % 2 == 0;
+        boolean yIsEven = y % 2 == 0;
 
         return yIsEven == xIsEven;
     }
@@ -54,11 +55,8 @@ public class GameOfLifeBoard {
 
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> nextLivingCells = new ArrayList<>();
-        for (Cell cell : getLiveCellsAndNeighbours()) {
-            if (survivesToNextTurn(getNeighbourScore(cell), isAlive(cell))) {
-                nextLivingCells.add(cell);
-            }
-        }
+        getLiveCellsAndNeighbours().where(c ->
+                survivesToNextTurn(getNeighbourScore(c), isAlive(c))).forEach(c -> nextLivingCells.add(c));
         return new GameOfLifeBoard(nextLivingCells);
     }
 
@@ -83,14 +81,14 @@ public class GameOfLifeBoard {
     }
 
 
-    private Set<Cell> getLiveCellsAndNeighbours() {
+    private Queryable<Cell> getLiveCellsAndNeighbours() {
         Set<Cell> liveCellsAndNeighbours = new HashSet<>(board.getLiveCells());
 
         for (Cell cell : board.getLiveCells()) {
             liveCellsAndNeighbours.addAll(cell.getAllNeighbours());
         }
 
-        return liveCellsAndNeighbours;
+        return Queryable.as(new ArrayList<>(liveCellsAndNeighbours));
     }
 
 }
