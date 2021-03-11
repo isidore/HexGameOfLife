@@ -18,10 +18,6 @@ public class GameOfLifeBoard {
 
     }
 
-    public List<Cell> getLiveCells() {
-        return board.getLiveCells();
-    }
-
     public void setLiveCells(List<Cell> liveCells) {
         this.board.setLiveCells(liveCells);
     }
@@ -44,7 +40,7 @@ public class GameOfLifeBoard {
     }
 
     public boolean isAlive(Cell cell) {
-        return getLiveCells().contains(cell);
+        return board.getLiveCells().contains(cell);
     }
 
     public void setAlive(int x, int y) {
@@ -52,7 +48,7 @@ public class GameOfLifeBoard {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
-        getLiveCells().add(new Cell(x, y));
+        board.getLiveCells().add(new Cell(x, y));
     }
 
     @Override
@@ -62,7 +58,7 @@ public class GameOfLifeBoard {
 
     public GameOfLifeBoard advanceTurn() {
         ArrayList<Cell> nextLivingCells = new ArrayList<>();
-        for (Cell cell : getLiveCells()) {
+        for (Cell cell : board.getLiveCells()) {
             if (survivesToNextTurn(getNeighbourScore(cell))) {
                 nextLivingCells.add(cell);
             }
@@ -90,9 +86,9 @@ public class GameOfLifeBoard {
 
 
     private Set<Cell> getLiveCellsAndNeighbours() {
-        Set<Cell> liveCellsAndNeighbours = new HashSet<>(getLiveCells());
+        Set<Cell> liveCellsAndNeighbours = new HashSet<>(board.getLiveCells());
 
-        for (Cell cell : getLiveCells()) {
+        for (Cell cell : board.getLiveCells()) {
             liveCellsAndNeighbours.addAll(cell.getAllNeighbours());
         }
 
