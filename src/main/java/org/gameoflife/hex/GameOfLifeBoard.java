@@ -5,6 +5,18 @@ import com.spun.util.FormattedException;
 import java.util.*;
 
 public class GameOfLifeBoard {
+    public class Board {
+        public List<Cell> getLiveCells() {
+            return liveCells;
+        }
+
+        public void setLiveCells(List<Cell> liveCells) {
+            this.liveCells = liveCells;
+        }
+
+        private List<Cell> liveCells;
+    }
+
     public List<Cell> getLiveCells() {
         return liveCells;
     }
