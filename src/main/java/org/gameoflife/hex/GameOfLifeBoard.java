@@ -5,7 +5,7 @@ import org.lambda.query.Queryable;
 
 import java.util.*;
 
-public class GameOfLifeBoard extends TurnHelper {
+public class GameOfLifeBoard {
 
     private final Board board;
 
@@ -45,7 +45,7 @@ public class GameOfLifeBoard extends TurnHelper {
 
     public GameOfLifeBoard advanceTurn() {
         Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
-                .use(GameOfLifeBoard.class).getNextCells(this);
+                .use(TurnHelper.class).getNextCells(this);
         return new GameOfLifeBoard(nextLivingCells);
     }
 
