@@ -13,26 +13,15 @@ public class GameOfLifeBoard implements org.lambda.Extendable<java.util.List<org
         this.caller = (Queryable<Cell>) caller;
     }
 
-    public class Board {
-        private List<Cell> liveCells;
-
-        public List<Cell> getLiveCells() {
-            return liveCells;
-        }
-
-        public void setLiveCells(List<Cell> liveCells) {
-            this.liveCells = liveCells;
-        }
-
-    }
-
-    private Board board = new Board();
+    private final Board board;
 
     public GameOfLifeBoard() {
-        this.board.setLiveCells(new ArrayList<Cell>());
+        this.board = new Board();
+        board.setLiveCells(new ArrayList<>());
     }
 
     public GameOfLifeBoard(List<Cell> liveCells) {
+        this.board = new Board();
         this.board.setLiveCells(liveCells);
     }
 
@@ -61,13 +50,13 @@ public class GameOfLifeBoard implements org.lambda.Extendable<java.util.List<org
     }
 
     public GameOfLifeBoard advanceTurn() {
-        Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours().use(GameOfLifeBoard.class).getNextCells();
-//                .where(c -> survivesToNextTurn(getNeighbourScore(c), isAlive(c)));
+        Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
+                .use(GameOfLifeBoard.class).getNextCells(this);
         return new GameOfLifeBoard(nextLivingCells);
     }
 
-    private Queryable<Cell> getNextCells() {
-        return caller.where(c -> survivesToNextTurn(getNeighbourScore(c), isAlive(c)));
+    private /*static*/ Queryable<Cell> getNextCells(/*this Queryable<Cell> caller,*/GameOfLifeBoard board) {
+        return caller.where(c -> survivesToNextTurn(board.getNeighbourScore(c), board.isAlive(c)));
     }
 
     private static boolean survivesToNextTurn(double sum, boolean alive) {
