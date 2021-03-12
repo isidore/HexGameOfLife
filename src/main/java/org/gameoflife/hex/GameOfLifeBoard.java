@@ -5,13 +5,7 @@ import org.lambda.query.Queryable;
 
 import java.util.*;
 
-public class GameOfLifeBoard implements org.lambda.Extendable<java.util.List<org.gameoflife.hex.Cell>>{
-    private Queryable<Cell> caller;
-
-    @Override
-    public void setCaller(List<Cell> caller) {
-        this.caller = (Queryable<Cell>) caller;
-    }
+public class GameOfLifeBoard extends TurnHelper {
 
     private final Board board;
 
@@ -55,17 +49,13 @@ public class GameOfLifeBoard implements org.lambda.Extendable<java.util.List<org
         return new GameOfLifeBoard(nextLivingCells);
     }
 
-    private /*static*/ Queryable<Cell> getNextCells(/*this Queryable<Cell> caller,*/GameOfLifeBoard board) {
-        return caller.where(c -> survivesToNextTurn(board.getNeighbourScore(c), board.isAlive(c)));
-    }
-
-    private static boolean survivesToNextTurn(double sum, boolean alive) {
+    public static boolean survivesToNextTurn(double sum, boolean alive) {
         boolean survives = 2 <= sum && sum <= 3.3 && alive;
         boolean born = 2.3 <= sum && sum <= 2.9;
         return survives || born;
     }
 
-    private double getNeighbourScore(Cell cell) {
+    public double getNeighbourScore(Cell cell) {
         return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
     }
 
