@@ -7,7 +7,7 @@ import java.util.*;
 
 public class GameOfLifeBoard {
 
-    private final Board board;
+    final Board board;
 
     public GameOfLifeBoard() {
         this(new ArrayList<>());
@@ -23,10 +23,6 @@ public class GameOfLifeBoard {
         boolean yIsEven = y % 2 == 0;
 
         return yIsEven == xIsEven;
-    }
-
-    public boolean isAlive(Cell cell) {
-        return board.getLiveCells().contains(cell);
     }
 
     public void setAlive(int x, int y) {
@@ -66,7 +62,7 @@ public class GameOfLifeBoard {
     private double getScore(List<Cell> neighbours, double weight) {
         double tempScore = 0;
         for (Cell cell : neighbours) {
-            if (isAlive(cell)) {
+            if (board.isAlive(cell, this)) {
                 tempScore += weight;
             }
         }
@@ -86,4 +82,19 @@ public class GameOfLifeBoard {
 //                .use(QueryableHelper.class).unique();
     }
 
+    public static class Board {
+        private List<Cell> liveCells;
+
+        public List<Cell> getLiveCells() {
+            return liveCells;
+        }
+
+        public void setLiveCells(List<Cell> liveCells) {
+            this.liveCells = liveCells;
+        }
+
+        public boolean isAlive(Cell cell, GameOfLifeBoard gameOfLifeBoard) {
+            return getLiveCells().contains(cell);
+        }
+    }
 }
