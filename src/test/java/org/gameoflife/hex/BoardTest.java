@@ -22,7 +22,7 @@ public class BoardTest {
     void testExceptionIsThrownForInvalidCoordinate() {
         try {
             GameOfLifeBoard board = new GameOfLifeBoard();
-            board.setAlive(1,2);
+            board.board.setAlive(1,2);
             fail("Coordinates were invalid, expected exception");
         }catch (Exception e) {
             Approvals.verify(e);
@@ -48,7 +48,7 @@ public class BoardTest {
     void testZeroDies() {
         String timeline = "";
         GameOfLifeBoard gameOfLife = new GameOfLifeBoard();
-        gameOfLife.setAlive(4, 4);
+        gameOfLife.board.setAlive(4, 4);
         timeline += gameOfLife;
         GameOfLifeBoard gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
@@ -60,10 +60,10 @@ public class BoardTest {
     void testTwoFirstLevelNeighbours() {
         String timeline = "";
         GameOfLifeBoard gameOfLife = new GameOfLifeBoard();
-        gameOfLife.setAlive(4, 4);
-        gameOfLife.setAlive(3, 5);
-        gameOfLife.setAlive(4, 6);
-        gameOfLife.setAlive(5, 5);
+        gameOfLife.board.setAlive(4, 4);
+        gameOfLife.board.setAlive(3, 5);
+        gameOfLife.board.setAlive(4, 6);
+        gameOfLife.board.setAlive(5, 5);
         timeline += HexPrinter.print(gameOfLife);
         GameOfLifeBoard gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";

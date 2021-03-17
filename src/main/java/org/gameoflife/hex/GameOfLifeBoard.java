@@ -25,14 +25,6 @@ public class GameOfLifeBoard {
         return yIsEven == xIsEven;
     }
 
-    public void setAlive(int x, int y) {
-        if (!isValidCoordinate(x, y)) {
-            throw new FormattedException("Invalid Location for (%s, %s)", x, y);
-        }
-
-        board.getLiveCells().add(new Cell(x, y));
-    }
-
     @Override
     public String toString() {
         return HexPrinter.print(this);
@@ -95,6 +87,14 @@ public class GameOfLifeBoard {
 
         public boolean isAlive(Cell cell, GameOfLifeBoard gameOfLifeBoard) {
             return getLiveCells().contains(cell);
+        }
+
+        public void setAlive(int x, int y) {
+            if (!isValidCoordinate(x, y)) {
+                throw new FormattedException("Invalid Location for (%s, %s)", x, y);
+            }
+
+            getLiveCells().add(new Cell(x, y));
         }
     }
 }
