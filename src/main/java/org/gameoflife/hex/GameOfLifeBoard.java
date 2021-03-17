@@ -18,13 +18,6 @@ public class GameOfLifeBoard {
         this.board.setLiveCells(liveCells);
     }
 
-    public static boolean isValidCoordinate(int x, int y) {
-        boolean xIsEven = x % 2 == 0;
-        boolean yIsEven = y % 2 == 0;
-
-        return yIsEven == xIsEven;
-    }
-
     @Override
     public String toString() {
         return HexPrinter.print(this);
@@ -76,6 +69,13 @@ public class GameOfLifeBoard {
 
     public static class Board {
         private List<Cell> liveCells;
+
+        public static boolean isValidCoordinate(int x, int y) {
+            boolean xIsEven = x % 2 == 0;
+            boolean yIsEven = y % 2 == 0;
+
+            return yIsEven == xIsEven;
+        }
 
         public List<Cell> getLiveCells() {
             return liveCells;

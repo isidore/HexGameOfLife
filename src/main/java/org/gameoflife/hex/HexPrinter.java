@@ -9,7 +9,7 @@ public class HexPrinter {
         int size = 10;
         for (int x = 0; x < size; x++) {
             for (int y = 0; y < size; y++) {
-                if (GameOfLifeBoard.isValidCoordinate(x, y)) {
+                if (GameOfLifeBoard.Board.isValidCoordinate(x, y)) {
                     if (gameOfLifeBoard.board.isAlive(new Cell(x, y), gameOfLifeBoard)) {
                         board.printHex( "X",  "X", 'X', translateX(x), translateY(x, y));
                     } else {
