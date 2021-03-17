@@ -10,8 +10,7 @@ public class GameOfLifeBoard {
     private final Board board;
 
     public GameOfLifeBoard() {
-        this.board = new Board();
-        board.setLiveCells(new ArrayList<>());
+        this(new ArrayList<>());
     }
 
     public GameOfLifeBoard(List<Cell> liveCells) {
