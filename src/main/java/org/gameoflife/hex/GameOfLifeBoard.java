@@ -99,7 +99,7 @@ public class GameOfLifeBoard {
 
         @Override
         public String toString() {
-            return "";
+            return HexPrinter.print(this);
         }
     }
 }
