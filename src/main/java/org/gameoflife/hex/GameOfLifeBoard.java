@@ -96,5 +96,10 @@ public class GameOfLifeBoard {
 
             getLiveCells().add(new Cell(x, y));
         }
+
+        @Override
+        public String toString() {
+            return "";
+        }
     }
 }
