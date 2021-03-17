@@ -44,8 +44,13 @@ public class GameOfLifeBoard {
     }
 
     public GameOfLifeBoard advanceTurn() {
-        Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
-                .use(TurnHelper.class).getNextCells(this);
+//        Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
+//                .use(TurnHelper.class).getNextCells(this); #Llewellyn Java
+//       Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
+//                .getNextCells(this); C#
+//        Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
+//                |> getNextCells(this); F#
+        Queryable<Cell> nextLivingCells  = TurnHelper.getNextCells(getLiveCellsAndNeighbours(), this);
         return new GameOfLifeBoard(nextLivingCells);
     }
 
@@ -78,6 +83,8 @@ public class GameOfLifeBoard {
         }
 
         return Queryable.as(new ArrayList<>(liveCellsAndNeighbours));
+//        return Queryable.as(board.getLiveCells()).use(QueryableHelper.class).selectMany(c -> c.getAllNeighbours())
+//                .use(QueryableHelper.class).unique();
     }
 
 }
