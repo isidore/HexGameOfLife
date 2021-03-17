@@ -4,6 +4,7 @@ import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,7 +38,7 @@ public class BoardTest {
 
     @Test
     void printBoardWithCellAsHex() {
-        Approvals.verify(HexPrinter.print(new GameOfLifeBoard(new Cell[]{new Cell(4, 4)})));
+        Approvals.verify(HexPrinter.print(new GameOfLifeBoard(Arrays.asList(new Cell[]{new Cell(4, 4)})).board));
     }
 
     @Test
