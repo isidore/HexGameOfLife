@@ -47,7 +47,7 @@ public class GameOfLifeBoard {
     private double getScore(List<Cell> neighbours, double weight) {
         double tempScore = 0;
         for (Cell cell : neighbours) {
-            if (board.isAlive(cell, this)) {
+            if (board.isAlive(cell)) {
                 tempScore += weight;
             }
         }
@@ -85,7 +85,7 @@ public class GameOfLifeBoard {
             this.liveCells = liveCells;
         }
 
-        public boolean isAlive(Cell cell, GameOfLifeBoard gameOfLifeBoard) {
+        public boolean isAlive(Cell cell) {
             return getLiveCells().contains(cell);
         }
 
