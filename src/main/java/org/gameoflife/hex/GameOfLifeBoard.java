@@ -18,12 +18,19 @@ public class GameOfLifeBoard {
         this.board.setLiveCells(liveCells);
     }
 
+    public static boolean isValidCoordinate(int x, int y) {
+        boolean xIsEven = x % 2 == 0;
+        boolean yIsEven = y % 2 == 0;
+
+        return yIsEven == xIsEven;
+    }
+
     public boolean isAlive(Cell cell) {
         return board.getLiveCells().contains(cell);
     }
 
     public void setAlive(int x, int y) {
-        if (!Board.isValidCoordinate(x, y)) {
+        if (!isValidCoordinate(x, y)) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
