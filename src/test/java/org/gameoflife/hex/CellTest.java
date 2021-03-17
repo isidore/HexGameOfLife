@@ -13,13 +13,13 @@ public class CellTest {
     @Test
     void getLevelOneNeighbours() {
         GameOfLifeBoard gameOfLifeBoard = BoardTest.createBoardWithNeighbours(6, 0, true);
-        Approvals.verify(HexPrinter.print(gameOfLifeBoard));
+        Approvals.verify(HexPrinter.print(gameOfLifeBoard, gameOfLifeBoard.board));
     }
 
     @Test
     void getLevelTwoNeighbours() {
         GameOfLifeBoard gameOfLifeBoard = BoardTest.createBoardWithNeighbours(0, 6, true);
-        Approvals.verify(HexPrinter.print(gameOfLifeBoard));
+        Approvals.verify(HexPrinter.print(gameOfLifeBoard, gameOfLifeBoard.board));
     }
 
     @Test
@@ -27,6 +27,6 @@ public class CellTest {
         Cell cell = new Cell(4,4);
         List<Cell> allNeighbours = new ArrayList<>(cell.getAllNeighbours());
         GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard(allNeighbours);
-        Approvals.verify(HexPrinter.print(gameOfLifeBoard));
+        Approvals.verify(HexPrinter.print(gameOfLifeBoard, gameOfLifeBoard.board));
     }
 }

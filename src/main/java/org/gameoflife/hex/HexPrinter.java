@@ -4,8 +4,7 @@ import dk.ilios.asciihexgrid.AsciiBoard;
 import dk.ilios.asciihexgrid.printers.SmallFlatAsciiHexPrinter;
 
 public class HexPrinter {
-    public static String print(GameOfLifeBoard gameOfLifeBoard) {
-        GameOfLifeBoard.Board board = gameOfLifeBoard.board;
+    public static String print(GameOfLifeBoard gameOfLifeBoard, GameOfLifeBoard.Board board) {
         AsciiBoard asciiBoard = new AsciiBoard(0, 100, 0, 100, new SmallFlatAsciiHexPrinter());
         int size = 10;
         for (int x = 0; x < size; x++) {

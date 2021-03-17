@@ -33,7 +33,7 @@ class HexPrinterTest {
         GameOfLifeBoard board = new GameOfLifeBoard();
         board.board.setAlive(x, y);
 
-        return HexPrinter.print(board);
+        return HexPrinter.print(board, board.board);
     }
 
 }
