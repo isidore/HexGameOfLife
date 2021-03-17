@@ -12,10 +12,10 @@ public class BoardTest {
 
     @Test
     void oddsGoTogether() {
-        assertTrue(GameOfLifeBoard.Board.isValidCoordinate(1, 1));
-        assertTrue(GameOfLifeBoard.Board.isValidCoordinate(2, 2));
-        assertFalse(GameOfLifeBoard.Board.isValidCoordinate(2, 1));
-        assertFalse(GameOfLifeBoard.Board.isValidCoordinate(1, 2));
+        assertTrue(Board.isValidCoordinate(1, 1));
+        assertTrue(Board.isValidCoordinate(2, 2));
+        assertFalse(Board.isValidCoordinate(2, 1));
+        assertFalse(Board.isValidCoordinate(1, 2));
     }
 
     @Test
