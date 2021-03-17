@@ -98,7 +98,8 @@ public class BoardTest {
 
         timeline += HexPrinter.print(gameOfLifeBoard, gameOfLifeBoard.board);
         timeline += "\n NEXT TURN \n";
-        timeline += HexPrinter.print(gameOfLifeBoard.advanceTurn(), gameOfLifeBoard.advanceTurn().board);
+        GameOfLifeBoard postTurnBoard = gameOfLifeBoard.advanceTurn();
+        timeline += HexPrinter.print(postTurnBoard, postTurnBoard.board);
         return timeline;
     }
 
