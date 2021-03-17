@@ -20,7 +20,7 @@ public class GameOfLifeBoard {
 
     @Override
     public String toString() {
-        return HexPrinter.print(this, this.board);
+        return HexPrinter.print(this.board);
     }
 
     public GameOfLifeBoard advanceTurn() {

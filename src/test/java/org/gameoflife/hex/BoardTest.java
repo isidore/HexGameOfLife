@@ -32,7 +32,7 @@ public class BoardTest {
     @Test
     void printEmptyBoardAsHex() {
         final GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard();
-        Approvals.verify(HexPrinter.print(gameOfLifeBoard, gameOfLifeBoard.board));
+        Approvals.verify(HexPrinter.print(gameOfLifeBoard.board));
     }
 
     @Test
@@ -65,10 +65,10 @@ public class BoardTest {
         gameOfLife.board.setAlive(3, 5);
         gameOfLife.board.setAlive(4, 6);
         gameOfLife.board.setAlive(5, 5);
-        timeline += HexPrinter.print(gameOfLife, gameOfLife.board);
+        timeline += HexPrinter.print(gameOfLife.board);
         GameOfLifeBoard gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
-        timeline += HexPrinter.print(gameOfLife2, gameOfLife2.board);
+        timeline += HexPrinter.print(gameOfLife2.board);
         Approvals.verify(timeline);
     }
 
@@ -96,10 +96,10 @@ public class BoardTest {
         timeline += title;
 
 
-        timeline += HexPrinter.print(gameOfLifeBoard, gameOfLifeBoard.board);
+        timeline += HexPrinter.print(gameOfLifeBoard.board);
         timeline += "\n NEXT TURN \n";
         GameOfLifeBoard postTurnBoard = gameOfLifeBoard.advanceTurn();
-        timeline += HexPrinter.print(postTurnBoard, postTurnBoard.board);
+        timeline += HexPrinter.print(postTurnBoard.board);
         return timeline;
     }
 
