@@ -5,12 +5,12 @@ import dk.ilios.asciihexgrid.printers.SmallFlatAsciiHexPrinter;
 
 public class HexPrinter {
     public static String print(GameOfLifeBoard gameOfLifeBoard) {
+                    GameOfLifeBoard.Board board = gameOfLifeBoard.board;
         AsciiBoard asciiBoard = new AsciiBoard(0, 100, 0, 100, new SmallFlatAsciiHexPrinter());
         int size = 10;
         for (int x = 0; x < size; x++) {
             for (int y = 0; y < size; y++) {
                 if (GameOfLifeBoard.Board.isValidCoordinate(x, y)) {
-                    GameOfLifeBoard.Board board = gameOfLifeBoard.board;
                     if (board.isAlive(new Cell(x, y), gameOfLifeBoard)) {
                         asciiBoard.printHex( "X",  "X", 'X', translateX(x), translateY(x, y));
                     } else {
