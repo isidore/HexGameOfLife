@@ -24,7 +24,7 @@ public class GameOfLifeBoard {
 
     public GameOfLifeBoard advanceTurn() {
         Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
-                .where(c -> GameOfLifeBoard.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
+                .where(c -> survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
         return new GameOfLifeBoard(nextLivingCells);
     }
