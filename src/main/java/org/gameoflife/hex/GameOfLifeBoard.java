@@ -17,10 +17,6 @@ public class GameOfLifeBoard {
         this.board.setLiveCells(liveCells);
     }
 
-    @Override
-    public String toString() {
-        return this.board.toString();
-    }
 
     public GameOfLifeBoard advanceTurn() {
         Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
@@ -41,7 +37,7 @@ public class GameOfLifeBoard {
         score += getScore(board, cell.getLevelTwoNeighbours(), 0.3);
         return score;
     }
-    
+
     private static double getScore(Board board, List<Cell> neighbours, double weight) {
         double score = 0;
 
@@ -65,4 +61,8 @@ public class GameOfLifeBoard {
         return Queryable.as(new ArrayList<>(liveCellsAndNeighbours));
     }
 
+    @Override
+    public String toString() {
+        return this.board.toString();
+    }
 }
