@@ -29,7 +29,7 @@ public class GameOfLifeBoard {
         Queryable<Cell> nextLivingCells2  = getLiveCellsAndNeighbours()
                 .where(c -> GameOfLifeBoard.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
-        return new GameOfLifeBoard(nextLivingCells);
+        return new GameOfLifeBoard(nextLivingCells2);
     }
 
     public static boolean survivesToNextTurn(double sum, boolean alive) {
