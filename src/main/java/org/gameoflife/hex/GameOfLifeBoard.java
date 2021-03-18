@@ -38,15 +38,16 @@ public class GameOfLifeBoard {
     public double getNeighbourScore(Cell cell) {
         return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
     }
-
+    
     private double getScore(List<Cell> neighbours, double weight) {
-        double tempScore = 0;
+        double score = 0;
+
         for (Cell cell : neighbours) {
             if (board.isAlive(cell)) {
-                tempScore += weight;
+                score += weight;
             }
         }
-        return tempScore;
+        return score;
     }
 
 
