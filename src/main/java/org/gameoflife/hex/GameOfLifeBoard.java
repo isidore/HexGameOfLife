@@ -35,19 +35,18 @@ public class GameOfLifeBoard {
         return survives || born;
     }
 
-    public static double getNeighbourScore(GameOfLifeBoard gameOfLifeBoard, Cell cell) {
-        return gameOfLifeBoard.getScore(cell.getLevelOneNeighbours(), 1) +
-                gameOfLifeBoard.getScore(cell.getLevelTwoNeighbours(), 0.3);
+    public double getNeighbourScore(Cell cell) {
+        return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
     }
 
     private double getScore(List<Cell> neighbours, double weight) {
-        double score = 0;
+        double tempScore = 0;
         for (Cell cell : neighbours) {
             if (board.isAlive(cell)) {
-                score += weight;
+                tempScore += weight;
             }
         }
-        return score;
+        return tempScore;
     }
 
 
