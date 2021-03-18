@@ -36,8 +36,9 @@ public class GameOfLifeBoard {
     }
 
     public static double getNeighbourScore(Board board, Cell cell) {
-        double score = getScore(board, cell.getLevelOneNeighbours(), 1)
-                + getScore(board, cell.getLevelTwoNeighbours(), 0.3);
+        double score = 0.0;
+        score += getScore(board, cell.getLevelOneNeighbours(), 1);
+        score += getScore(board, cell.getLevelTwoNeighbours(), 0.3);
         return score;
     }
     
