@@ -13,7 +13,7 @@ public class TurnHelper implements org.lambda.Extendable<java.util.List<Cell>> {
     }
 
     public Queryable<Cell> getNextCells(GameOfLifeBoard board, Board board2) {
-        return caller.where(c -> GameOfLifeBoard.survivesToNextTurn(GameOfLifeBoard.getNeighbourScore(board.board, c), board.board.isAlive(c)));
+        return caller.where(c -> GameOfLifeBoard.survivesToNextTurn(GameOfLifeBoard.getNeighbourScore(board2, c), board2.isAlive(c)));
     }
 
 }
