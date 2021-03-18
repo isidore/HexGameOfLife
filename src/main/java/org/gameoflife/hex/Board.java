@@ -21,7 +21,7 @@ public class Board {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
-        getLiveCells().add(new Cell(x, y));
+        liveCells.add(new Cell(x, y));
     }
 
     public static boolean isValidCoordinate(int x, int y) {
