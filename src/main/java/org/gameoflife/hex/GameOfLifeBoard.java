@@ -36,17 +36,18 @@ public class GameOfLifeBoard {
     }
 
     public static double getNeighbourScore(GameOfLifeBoard gameOfLifeBoard, Cell cell) {
-        return gameOfLifeBoard.getScore(cell.getLevelOneNeighbours(), 1) + gameOfLifeBoard.getScore(cell.getLevelTwoNeighbours(), 0.3);
+        return gameOfLifeBoard.getScore(cell.getLevelOneNeighbours(), 1) +
+                gameOfLifeBoard.getScore(cell.getLevelTwoNeighbours(), 0.3);
     }
 
     private double getScore(List<Cell> neighbours, double weight) {
-        double tempScore = 0;
+        double score = 0;
         for (Cell cell : neighbours) {
             if (board.isAlive(cell)) {
-                tempScore += weight;
+                score += weight;
             }
         }
-        return tempScore;
+        return score;
     }
 
 
