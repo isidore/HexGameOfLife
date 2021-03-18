@@ -35,8 +35,8 @@ public class GameOfLifeBoard {
         return survives || born;
     }
 
-    public double getNeighbourScore(Cell cell) {
-        return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
+    public static double getNeighbourScore(GameOfLifeBoard gameOfLifeBoard, Cell cell) {
+        return gameOfLifeBoard.getScore(cell.getLevelOneNeighbours(), 1) + gameOfLifeBoard.getScore(cell.getLevelTwoNeighbours(), 0.3);
     }
 
     private double getScore(List<Cell> neighbours, double weight) {
