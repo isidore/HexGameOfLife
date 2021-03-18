@@ -36,10 +36,10 @@ public class GameOfLifeBoard {
     }
 
     public double getNeighbourScore(Cell cell) {
-        return getScore(cell.getLevelOneNeighbours(), 1) + getScore(cell.getLevelTwoNeighbours(), 0.3);
+        return getScore(board, cell.getLevelOneNeighbours(), 1) + getScore(board, cell.getLevelTwoNeighbours(), 0.3);
     }
     
-    private double getScore(List<Cell> neighbours, double weight) {
+    private static double getScore(Board board, List<Cell> neighbours, double weight) {
         double score = 0;
 
         for (Cell cell : neighbours) {
