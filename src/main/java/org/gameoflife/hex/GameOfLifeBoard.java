@@ -48,6 +48,7 @@ public class GameOfLifeBoard {
                 score += weight;
             }
         }
+
         return score;
     }
 
