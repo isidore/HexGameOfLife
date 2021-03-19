@@ -10,7 +10,6 @@ class BoardTest {
     @Test
     void testExceptionIsThrownForInvalidCoordinate() {
         try {
-            GameOfLife board1 = new GameOfLife();
             Board board = new Board();
             board.setAlive(1,2);
             fail("Coordinates were invalid, expected exception");
