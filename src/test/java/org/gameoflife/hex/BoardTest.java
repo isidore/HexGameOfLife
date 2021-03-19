@@ -22,7 +22,7 @@ public class BoardTest {
     @Test
     void testExceptionIsThrownForInvalidCoordinate() {
         try {
-            GameOfLifeBoard board = new GameOfLifeBoard();
+            GameOfLife board = new GameOfLife();
             board.board.setAlive(1,2);
             fail("Coordinates were invalid, expected exception");
         }catch (Exception e) {
@@ -32,13 +32,13 @@ public class BoardTest {
 
     @Test
     void printEmptyBoardAsHex() {
-        final GameOfLifeBoard gameOfLifeBoard = new GameOfLifeBoard();
-        Approvals.verify(HexPrinter.print(gameOfLifeBoard.board));
+        final GameOfLife gameOfLife = new GameOfLife();
+        Approvals.verify(HexPrinter.print(gameOfLife.board));
     }
 
     @Test
     void printBoardWithCellAsHex() {
-        Approvals.verify(HexPrinter.print(new GameOfLifeBoard(Arrays.asList(new Cell[]{new Cell(4, 4)})).board));
+        Approvals.verify(HexPrinter.print(new GameOfLife(Arrays.asList(new Cell[]{new Cell(4, 4)})).board));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class BoardTest {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(4, 4));
 
-        GameOfLifeBoard game = new GameOfLifeBoard(cells);
+        GameOfLife game = new GameOfLife(cells);
 
         Approvals.verify(game);
     }
@@ -54,10 +54,10 @@ public class BoardTest {
     @Test
     void testZeroDies() {
         String timeline = "";
-        GameOfLifeBoard gameOfLife = new GameOfLifeBoard();
+        GameOfLife gameOfLife = new GameOfLife();
         gameOfLife.board.setAlive(4, 4);
         timeline += gameOfLife;
-        GameOfLifeBoard gameOfLife2 = gameOfLife.advanceTurn();
+        GameOfLife gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
         timeline += gameOfLife2;
         Approvals.verify(timeline);
@@ -66,13 +66,13 @@ public class BoardTest {
     @Test
     void testTwoFirstLevelNeighbours() {
         String timeline = "";
-        GameOfLifeBoard gameOfLife = new GameOfLifeBoard();
+        GameOfLife gameOfLife = new GameOfLife();
         gameOfLife.board.setAlive(4, 4);
         gameOfLife.board.setAlive(3, 5);
         gameOfLife.board.setAlive(4, 6);
         gameOfLife.board.setAlive(5, 5);
         timeline += HexPrinter.print(gameOfLife.board);
-        GameOfLifeBoard gameOfLife2 = gameOfLife.advanceTurn();
+        GameOfLife gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
         timeline += HexPrinter.print(gameOfLife2.board);
         Approvals.verify(timeline);
@@ -93,29 +93,29 @@ public class BoardTest {
 
     private String advanceBoardWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours) {
         String title = String.format("Neighbours(Level 1 , Level 2) = (%s, %s) => \n", numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours);
-        GameOfLifeBoard gameOfLifeBoard = createBoardWithNeighbours(numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours, true);
-        return printAdvanceBoard(title, gameOfLifeBoard);
+        GameOfLife gameOfLife = createBoardWithNeighbours(numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours, true);
+        return printAdvanceBoard(title, gameOfLife);
     }
 
-    private String printAdvanceBoard(String title, GameOfLifeBoard gameOfLifeBoard) {
+    private String printAdvanceBoard(String title, GameOfLife gameOfLife) {
         String timeline = "";
         timeline += title;
 
 
-        timeline += HexPrinter.print(gameOfLifeBoard.board);
+        timeline += HexPrinter.print(gameOfLife.board);
         timeline += "\n NEXT TURN \n";
-        GameOfLifeBoard postTurnBoard = gameOfLifeBoard.advanceTurn();
+        GameOfLife postTurnBoard = gameOfLife.advanceTurn();
         timeline += HexPrinter.print(postTurnBoard.board);
         return timeline;
     }
 
     @Test
     void testCentreComesAlive() {
-        GameOfLifeBoard boardWithNeighbours = createBoardWithNeighbours(2, 3, false);
+        GameOfLife boardWithNeighbours = createBoardWithNeighbours(2, 3, false);
         Approvals.verify(printAdvanceBoard("Centre comes alive\n", boardWithNeighbours));
     }
 
-    public static GameOfLifeBoard createBoardWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours, boolean includeCentre) {
+    public static GameOfLife createBoardWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours, boolean includeCentre) {
         Cell centre = new Cell(4, 4);
         ArrayList<Cell> cells = new ArrayList<>();
 
@@ -129,6 +129,6 @@ public class BoardTest {
         List<Cell> level2 = centre.getLevelTwoNeighbours().subList(0, numberOfLevelTwoNeighbours);
         cells.addAll(level2);
 
-        return new GameOfLifeBoard(cells);
+        return new GameOfLife(cells);
     }
 }

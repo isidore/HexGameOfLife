@@ -4,25 +4,24 @@ import org.lambda.query.Queryable;
 
 import java.util.*;
 
-public class GameOfLifeBoard {
+public class GameOfLife {
 
     final Board board;
 
-    public GameOfLifeBoard() {
+    public GameOfLife() {
         this(new ArrayList<>());
     }
 
-    public GameOfLifeBoard(List<Cell> liveCells) {
+    public GameOfLife(List<Cell> liveCells) {
         this.board = new Board();
         this.board.setLiveCells(liveCells);
     }
 
-
-    public GameOfLifeBoard advanceTurn() {
+    public GameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
                 .where(c -> survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
-        return new GameOfLifeBoard(nextLivingCells);
+        return new GameOfLife(nextLivingCells);
     }
 
     public static boolean survivesToNextTurn(double sum, boolean alive) {
