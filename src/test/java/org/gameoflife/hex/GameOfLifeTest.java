@@ -12,14 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameOfLifeTest {
 
     @Test
-    static void oddsGoTogether() {
-        assertTrue(Board.isValidCoordinate(1, 1));
-        assertTrue(Board.isValidCoordinate(2, 2));
-        assertFalse(Board.isValidCoordinate(2, 1));
-        assertFalse(Board.isValidCoordinate(1, 2));
-    }
-
-    @Test
     void testExceptionIsThrownForInvalidCoordinate() {
         try {
             GameOfLife board = new GameOfLife();
