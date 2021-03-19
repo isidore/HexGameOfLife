@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameOfLifeTest {
 
     @Test
-    void oddsGoTogether() {
+    static void oddsGoTogether() {
         assertTrue(Board.isValidCoordinate(1, 1));
         assertTrue(Board.isValidCoordinate(2, 2));
         assertFalse(Board.isValidCoordinate(2, 1));
