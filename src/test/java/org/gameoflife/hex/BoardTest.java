@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardTest {
 
     @Test
-    static void testExceptionIsThrownForInvalidCoordinate() {
+    void testExceptionIsThrownForInvalidCoordinate() {
         try {
             GameOfLife board = new GameOfLife();
             board.board.setAlive(1,2);
