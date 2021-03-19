@@ -1,5 +1,7 @@
 package org.gameoflife.hex;
 
+import org.apache.commons.lang.math.DoubleRange;
+import org.apache.commons.lang.math.IntRange;
 import org.lambda.query.Queryable;
 
 import java.util.*;
@@ -25,8 +27,11 @@ public class GameOfLife {
     }
 
     public static boolean survivesToNextTurn(double sum, boolean alive) {
-        boolean survives = 2 <= sum && sum <= 3.3 && alive;
-        boolean born = 2.3 <= sum && sum <= 2.9;
+        DoubleRange survivable = new DoubleRange(2,3.3);
+        DoubleRange growth = new DoubleRange(2.3, 2.9);
+
+        boolean survives = survivable.containsDouble(sum) && alive;
+        boolean born = growth.containsDouble(sum);
         return survives || born;
     }
 
