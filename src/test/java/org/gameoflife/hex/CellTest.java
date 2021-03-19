@@ -12,13 +12,13 @@ public class CellTest {
 
     @Test
     void getLevelOneNeighbours() {
-        GameOfLife gameOfLife = BoardTest.createBoardWithNeighbours(6, 0, true);
+        GameOfLife gameOfLife = BoardTest.createGameWithNeighbours(6, 0, true);
         Approvals.verify(HexPrinter.print(gameOfLife.board));
     }
 
     @Test
     void getLevelTwoNeighbours() {
-        GameOfLife gameOfLife = BoardTest.createBoardWithNeighbours(0, 6, true);
+        GameOfLife gameOfLife = BoardTest.createGameWithNeighbours(0, 6, true);
         Approvals.verify(HexPrinter.print(gameOfLife.board));
     }
 
