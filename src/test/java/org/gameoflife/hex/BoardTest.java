@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardTest {
 
     @Test
-    static void oddsGoTogether() {
+    void oddsGoTogether() {
         assertTrue(Board.isValidCoordinate(1, 1));
         assertTrue(Board.isValidCoordinate(2, 2));
         assertFalse(Board.isValidCoordinate(2, 1));
