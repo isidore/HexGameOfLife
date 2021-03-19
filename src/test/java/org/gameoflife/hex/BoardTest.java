@@ -11,6 +11,7 @@ class BoardTest {
     void testExceptionIsThrownForInvalidCoordinate() {
         try {
             GameOfLife board1 = new GameOfLife();
+            Board board = board1.board;
             board1.board.setAlive(1,2);
             fail("Coordinates were invalid, expected exception");
         }catch (Exception e) {
