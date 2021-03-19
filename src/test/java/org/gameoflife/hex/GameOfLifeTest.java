@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BoardTest {
+public class GameOfLifeTest {
 
     @Test
     void oddsGoTogether() {
