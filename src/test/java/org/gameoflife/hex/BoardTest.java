@@ -1,10 +1,22 @@
 package org.gameoflife.hex;
 
+import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
+
+    @Test
+    static void testExceptionIsThrownForInvalidCoordinate() {
+        try {
+            GameOfLife board = new GameOfLife();
+            board.board.setAlive(1,2);
+            fail("Coordinates were invalid, expected exception");
+        }catch (Exception e) {
+            Approvals.verify(e);
+        }
+    }
 
     @Test
     void oddsGoTogether() {
