@@ -17,6 +17,7 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private int getHexWidth() {
+
         return (int) (2 * radius * Math.sin(Math.PI*2/6));
     }
 
@@ -33,16 +34,10 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private void paintHex(int x, int y, Graphics g) {
+
         g.setColor(Color.BLACK);
-        int hexWidth = getHexWidth()/2;
-        x = (x*2+1) * hexWidth;
-        int hexHeight = getHexHeight()/2;
-        y = (y*2+1) * hexHeight;
-        int y2 = (int)(radius * Math.cos(Math.PI*2/6));
 
-        int[] pointsx = {x-hexWidth, x, x+hexWidth, x+hexWidth, x, x-hexWidth, x-hexWidth};
-        int[] pointsy = {y-y2, y-hexHeight, y-y2, y+y2, y+hexHeight, y+y2, y-y2};
-
-        g.drawPolygon(new Polygon(pointsx, pointsy, 6));
+        Hexagon hexagon = new Hexagon(radius, x,y);
+        g.drawPolygon(hexagon.getPolygon());
     }
 }
