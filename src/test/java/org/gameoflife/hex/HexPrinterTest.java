@@ -1,9 +1,16 @@
 package org.gameoflife.hex;
 
 import org.approvaltests.Approvals;
+import org.approvaltests.awt.AwtApprovals;
 import org.junit.jupiter.api.Test;
 
 class HexPrinterTest {
+    @Test
+    void testGui() {
+        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(3, 3, true);
+        AwtApprovals.verify(new GameOfLifePanel(game));
+    }
+
     @Test
     void testPrintInCorrectLocation() {
         StringBuilder result = new StringBuilder();
