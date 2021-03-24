@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardTest {
 
     @Test
-    void printWithCellsAtSpecifiedPosititon() {
+    void printWithCellsAtSpecifiedPosition() {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(4, 4));
 
