@@ -16,6 +16,10 @@ public class GameOfLifeTest {
 
     @Test
     void printWithCellsAtSpecifiedPosititon() {
+        extracted();
+    }
+
+    private void extracted() {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(4, 4));
 
