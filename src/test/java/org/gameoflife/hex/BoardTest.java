@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardTest {
 
     @Test
-    static void printWithCellsAtSpecifiedPosititon(GameOfLifeTest gameOfLifeTest) {
+    void printWithCellsAtSpecifiedPosititon(GameOfLifeTest gameOfLifeTest) {
         gameOfLifeTest.extracted();
     }
 
