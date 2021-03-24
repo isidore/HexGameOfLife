@@ -15,8 +15,8 @@ public class GameOfLifeTest {
     }
 
     @Test
-    void printWithCellsAtSpecifiedPosititon() {
-        extracted();
+    static void printWithCellsAtSpecifiedPosititon(GameOfLifeTest gameOfLifeTest) {
+        gameOfLifeTest.extracted();
     }
 
     @Test
