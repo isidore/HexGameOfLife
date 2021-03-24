@@ -20,7 +20,7 @@ public class GameOfLifeTest {
     }
 
     @Test
-    private void extracted() {
+    void extracted() {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(4, 4));
 
