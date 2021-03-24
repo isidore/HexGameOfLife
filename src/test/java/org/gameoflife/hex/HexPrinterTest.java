@@ -2,10 +2,13 @@ package org.gameoflife.hex;
 
 import org.approvaltests.Approvals;
 import org.approvaltests.awt.AwtApprovals;
+import org.approvaltests.reporters.ClipboardReporter;
+import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 
 class HexPrinterTest {
     @Test
+    @UseReporter(ClipboardReporter.class)
     void testGui() {
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(3, 3, true);
         AwtApprovals.verify(new GameOfLifePanel(game));
