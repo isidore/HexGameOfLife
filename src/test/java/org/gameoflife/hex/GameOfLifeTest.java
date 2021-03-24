@@ -11,7 +11,7 @@ public class GameOfLifeTest {
 
     @Test
     void printEmptyBoardAsHex() {
-        BoardTest.extracted();
+        BoardTest.testEmptyBoard();
     }
 
     @Test
