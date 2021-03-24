@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class GameOfLifeTest {
 
     @Test
@@ -16,7 +14,7 @@ public class GameOfLifeTest {
         extracted();
     }
 
-    private void extracted() {
+    private static void extracted() {
         final GameOfLife gameOfLife = new GameOfLife();
         Approvals.verify(HexPrinter.print(gameOfLife.board));
     }
