@@ -15,16 +15,6 @@ public class GameOfLifeTest {
     }
 
     @Test
-    void extracted() {
-        List<Cell> cells = new ArrayList<>();
-        cells.add(new Cell(4, 4));
-
-        GameOfLife game = new GameOfLife(cells);
-
-        Approvals.verify(game);
-    }
-
-    @Test
     void testZeroDies() {
         String timeline = "";
         GameOfLife gameOfLife = new GameOfLife();

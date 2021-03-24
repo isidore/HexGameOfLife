@@ -3,13 +3,21 @@ package org.gameoflife.hex;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
     @Test
-    void printWithCellsAtSpecifiedPosititon(GameOfLifeTest gameOfLifeTest) {
-        gameOfLifeTest.extracted();
+    void printWithCellsAtSpecifiedPosititon() {
+        List<Cell> cells = new ArrayList<>();
+        cells.add(new Cell(4, 4));
+
+        GameOfLife game = new GameOfLife(cells);
+
+        Approvals.verify(game);
     }
 
     @Test
