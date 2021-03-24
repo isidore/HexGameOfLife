@@ -10,11 +10,6 @@ import java.util.List;
 public class GameOfLifeTest {
 
     @Test
-    void printEmptyBoardAsHex() {
-        BoardTest.testEmptyBoard();
-    }
-
-    @Test
     void printBoardWithCellAsHex() {
         Approvals.verify(HexPrinter.print(new GameOfLife(Arrays.asList(new Cell[]{new Cell(4, 4)})).board));
     }

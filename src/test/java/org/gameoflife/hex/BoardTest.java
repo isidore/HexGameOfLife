@@ -7,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
-    static void testEmptyBoard() {
+    @Test
+    void testEmptyBoard() {
         final GameOfLife gameOfLife = new GameOfLife();
         Approvals.verify(HexPrinter.print(gameOfLife.board));
     }
