@@ -19,6 +19,7 @@ public class GameOfLifeTest {
         extracted();
     }
 
+    @Test
     private void extracted() {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(4, 4));
