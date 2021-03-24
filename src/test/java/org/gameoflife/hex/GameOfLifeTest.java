@@ -11,12 +11,7 @@ public class GameOfLifeTest {
 
     @Test
     void printEmptyBoardAsHex() {
-        extracted();
-    }
-
-    private static void extracted() {
-        final GameOfLife gameOfLife = new GameOfLife();
-        Approvals.verify(HexPrinter.print(gameOfLife.board));
+        BoardTest.extracted();
     }
 
     @Test

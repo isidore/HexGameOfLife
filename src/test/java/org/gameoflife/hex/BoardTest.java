@@ -7,6 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
+    static void extracted() {
+        final GameOfLife gameOfLife = new GameOfLife();
+        Approvals.verify(HexPrinter.print(gameOfLife.board));
+    }
+
     @Test
     void testExceptionIsThrownForInvalidCoordinate() {
         try {
