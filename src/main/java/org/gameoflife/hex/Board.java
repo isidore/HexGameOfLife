@@ -39,4 +39,8 @@ public class Board {
     public String toString() {
         return HexPrinter.print(this);
     }
+
+    public boolean isAlive(int x, int y) {
+        return isAlive(new Cell(x,y));
+    }
 }

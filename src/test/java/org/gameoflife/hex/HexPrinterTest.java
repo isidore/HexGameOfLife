@@ -10,7 +10,7 @@ class HexPrinterTest {
     @Test
     @UseReporter(ClipboardReporter.class)
     void testGui() {
-        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(3, 3, true);
+        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 6, true);
         AwtApprovals.verify(new GameOfLifePanel(game));
     }
 
