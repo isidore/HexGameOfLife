@@ -16,8 +16,8 @@ public class Cell {
         return new Cell(x,y);
     }
 
-    public Set<Cell> getAllNeighbours() {
-        Set<Cell> neighbours = new HashSet<>();
+    public List<Cell> getAllNeighbours() {
+        ArrayList<Cell> neighbours = new ArrayList<>();
         neighbours.addAll(getLevelOneNeighbours());
         neighbours.addAll(getLevelTwoNeighbours());
         return neighbours;

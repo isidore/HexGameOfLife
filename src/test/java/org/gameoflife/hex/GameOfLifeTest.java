@@ -75,7 +75,7 @@ public class GameOfLifeTest {
     @Test
     void testCentreComesAlive() {
         GameOfLife boardWithNeighbours = createGameWithNeighbours(2, 3, false);
-        Approvals.verify(printAdvanceBoard("Centre comes alive\n", boardWithNeighbours));
+        Approvals.verify(printAdvanceBoard("Centre (4,4) comes alive\n", boardWithNeighbours));
     }
 
     public static GameOfLife createGameWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours, boolean includeCentre) {

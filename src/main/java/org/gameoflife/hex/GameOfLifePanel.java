@@ -1,6 +1,8 @@
 package org.gameoflife.hex;
 
 import com.spun.util.Colors;
+import com.spun.util.ThreadUtils;
+import com.spun.util.WindowUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +10,7 @@ import java.awt.*;
 public class GameOfLifePanel extends JPanel {
     public static final int BOARD_WIDTH = 20;
     public static final int BOARD_HEIGHT = 10;
-    private final GameOfLife game;
+    private GameOfLife game;
     private final int radius = 20;
 
     public GameOfLifePanel(GameOfLife game) {
@@ -17,6 +19,21 @@ public class GameOfLifePanel extends JPanel {
         int x = hexagon.getPoints().max(p -> p.x).x + 1;
         int y = hexagon.getPoints().max(p -> p.y).y + 1;
         this.setPreferredSize(new Dimension(x, y));
+    }
+
+    public static void main(String[] args) {
+        GameOfLife game = new GameOfLife(Cell.create(4,4).getAllNeighbours());
+        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
+        WindowUtils.testPanel(gameOfLifePanel);
+        gameOfLifePanel.start();
+    }
+
+    private void start() {
+        while (true){
+            ThreadUtils.sleep(1000);
+            game = game.advanceTurn();
+            this.repaint();
+        }
     }
 
     private int getHexHeight() {
