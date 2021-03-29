@@ -3,6 +3,7 @@ package org.gameoflife.hex;
 import com.spun.util.Colors;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
+import org.lambda.functions.Function2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,17 +56,21 @@ public class GameOfLifePanel extends JPanel {
         super.paint(g);
         g.setColor(Colors.Blues.AliceBlue);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        for (int x = 0; x < BOARD_WIDTH; x++) {
-            for (int y = 0; y < BOARD_HEIGHT; y++) {
-                if (Board.isValidCoordinate(x, y)) {
-                    paintHex(x, y, g, game.board.isAlive(x, y));
+        {
+            for (int x = 0; x < BOARD_WIDTH; x++) {
+                for (int y = 0; y < BOARD_HEIGHT; y++) {
+                    if (Board.isValidCoordinate(x, y)) {
+                        paintHex(x, y, g, game.board.isAlive(x, y));
+                    }
                 }
             }
         }
-        for (int x = 0; x < BOARD_WIDTH; x++) {
-            for (int y = 0; y < BOARD_HEIGHT; y++) {
-                if (Board.isValidCoordinate(x, y)) {
-                    paintHex(x, y, g, false);
+        {
+            for (int x = 0; x < BOARD_WIDTH; x++) {
+                for (int y = 0; y < BOARD_HEIGHT; y++) {
+                    if (Board.isValidCoordinate(x, y)) {
+                        paintHex(x, y, g, ((Function2<Integer, Integer, Boolean>) ((x1,y1) -> false)).call(x, y));
+                    }
                 }
             }
         }
