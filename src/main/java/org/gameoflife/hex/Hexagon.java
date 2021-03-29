@@ -16,21 +16,12 @@ public class Hexagon {
     }
 
     public Polygon getPolygon() {
-        int hexWidth = getHexWidth() / 2;
-        int x = (this.x + 1) * hexWidth;
-        int hexHeight = getHexHeight() / 2;
-        int y = translateYGridToPixels(hexHeight);
-        // 0 => 10
-        // 1 => 25
-        // 2 => 30
-        // 3 => 45
-        int y2 = radius / 2;
+        Queryable<Point> points = getPoints();
 
-        int[] pointsx = {x - hexWidth, x, x + hexWidth, x + hexWidth, x, x - hexWidth, x - hexWidth};
-        int[] pointsy = {y - y2, y - hexHeight, y - y2, y + y2, y + hexHeight, y + y2, y - y2};
+        int[] pointsx = points.select(p->p.x).stream().mapToInt(Integer::intValue).toArray();
+        int[] pointsy = points.select(p->p.y).stream().mapToInt(Integer::intValue).toArray();
 
-        Polygon polygon = new Polygon(pointsx, pointsy, 7);
-        return polygon;
+        return new Polygon(pointsx, pointsy, 7);
     }
 
     private int translateYGridToPixels(int hexHeight) {
