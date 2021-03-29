@@ -1,6 +1,8 @@
 package org.gameoflife.hex;
 
 import org.approvaltests.Approvals;
+import org.approvaltests.reporters.QuietReporter;
+import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//@UseReporter(QuietReporter.class)
 class BoardTest {
 
     @Test

@@ -23,7 +23,12 @@ public class GameOfLifePanel extends JPanel {
 
     public static void main(String[] args) {
         GameOfLife game = new GameOfLife(Cell.create(4,4).getAllNeighbours());
-        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
+        GameOfLife gameOfLife = new GameOfLife();
+        gameOfLife.board.setAlive(4, 4);
+        gameOfLife.board.setAlive(3, 5);
+        gameOfLife.board.setAlive(4, 6);
+        gameOfLife.board.setAlive(5, 5);
+        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
     }
