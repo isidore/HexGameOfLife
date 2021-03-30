@@ -4,6 +4,7 @@ import com.spun.util.Colors;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
 import org.lambda.functions.Function2;
+import org.lambda.query.Queryable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,9 +17,10 @@ public class GameOfLifePanel extends JPanel {
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        Hexagon hexagon = new Hexagon(radius, BOARD_WIDTH - 1, BOARD_HEIGHT - 1);
-        int x = hexagon.getPoints().max(p -> p.x).x + 1;
-        int y = hexagon.getPoints().max(p -> p.y).y + 1;
+        Hexagon hexagon = getHexagon(BOARD_WIDTH - 1, BOARD_HEIGHT -1);
+        Queryable<Point> points = hexagon.getPoints();
+        int x = points.max(p -> p.x).x + 1;
+        int y = points.max(p -> p.y).y + 1;
         this.setPreferredSize(new Dimension(x, y));
     }
 
@@ -62,7 +64,7 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private void paintHex(int x, int y, Graphics g, boolean fill) {
-        Hexagon hexagon = new Hexagon(radius, x, y);
+        Hexagon hexagon = getHexagon(x, y);
         if (fill) {
             g.setColor(Colors.Purples.MediumOrchid);
             g.fillPolygon(hexagon.getPolygon());
@@ -70,5 +72,11 @@ public class GameOfLifePanel extends JPanel {
             g.setColor(Color.BLACK);
             g.drawPolygon(hexagon.getPolygon());
         }
+    }
+
+    private Hexagon getHexagon(int x, int y) {
+        Point center = Hexagon.getCenterPointForGrid(x, y,radius);
+        Hexagon hexagon = new Hexagon(radius, center.x, center.y);
+        return hexagon;
     }
 }

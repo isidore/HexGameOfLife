@@ -15,6 +15,16 @@ public class Hexagon {
         this.y = y;
     }
 
+    public static Point getCenterPointForGrid(int x, int y, int radius) {
+        int hexWidth = getHexWidth(radius) / 2;
+        int xAsPixels = (x + 1) * hexWidth;
+        int hexHeight = getHexHeight(radius) / 2;
+        int yAsPixels = (int) (hexHeight * (1 + (1.5 * y)));
+        Point point = new Point(xAsPixels,yAsPixels);
+        return point;
+    }
+
+
     public Polygon getPolygon() {
         Queryable<Point> points = getPoints();
 
@@ -29,19 +39,23 @@ public class Hexagon {
     }
 
     private int getHexHeight() {
-        return radius * 2;
+        return getHexHeight(radius);
     }
 
     private int getHexWidth() {
-
-        return (int) (2 * radius * Math.sin(Math.PI * 2 / 6));
+        return getHexWidth(radius);
     }
 
+    private static int getHexHeight(int radius) {
+        return radius * 2;
+    }
+
+    private static int getHexWidth(int radius) {
+        return (int) (2 * radius * Math.sin(Math.PI * 2 / 6));
+    }
     public Queryable<Point> getPoints() {
         int hexWidth = getHexWidth() / 2;
-        int x = (this.x + 1) * hexWidth;
         int hexHeight = getHexHeight() / 2;
-        int y = translateYGridToPixels(hexHeight);
         int y2 = radius / 2;
 
         return Queryable.as(new Point(x - hexWidth, y - y2),
