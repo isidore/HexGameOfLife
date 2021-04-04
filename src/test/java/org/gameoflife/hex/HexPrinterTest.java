@@ -40,10 +40,10 @@ class HexPrinterTest {
     }
 
     private String setUpBoardWithLiveCellAtCoordinates(int x, int y) {
-        GameOfLife board = new GameOfLife();
-        board.board.setAlive(x, y);
+        GameOfLife game = new GameOfLife();
+        game.board.setAlive(x, y);
 
-        return HexPrinter.print(board.board);
+        return HexPrinter.print(game.board);
     }
 
 }
