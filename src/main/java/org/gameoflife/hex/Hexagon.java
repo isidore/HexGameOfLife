@@ -9,7 +9,7 @@ public class Hexagon {
     private final int x;
     private final int y;
 
-    public Hexagon(int radius, int x, int y) {
+    public Hexagon(int radius, int x, int y, Point center) {
         this.radius = radius;
         this.x = x;
         this.y = y;
