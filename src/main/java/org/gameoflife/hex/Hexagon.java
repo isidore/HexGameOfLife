@@ -10,10 +10,9 @@ public class Hexagon {
     private final int y;
 
     public Hexagon(int radius, Point center) {
-        int x = center.x;
         int y = center.y;
         this.radius = radius;
-        this.x = x;
+        this.x = center.x;
         this.y = y;
     }
 
