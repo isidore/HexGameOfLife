@@ -20,8 +20,7 @@ public class Hexagon {
         int xAsPixels = (x + 1) * hexWidth;
         int hexHeight = getHexHeight(radius) / 2;
         int yAsPixels = (int) (hexHeight * (1 + (1.5 * y)));
-        Point point = new Point(xAsPixels,yAsPixels);
-        return point;
+        return new Point(xAsPixels,yAsPixels);
     }
 
 
