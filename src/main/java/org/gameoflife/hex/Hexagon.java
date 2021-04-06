@@ -19,7 +19,7 @@ public class Hexagon {
 
     public Point getCenterPointForGrid(int x, int y) {
         int halfHexWidth = getHexWidth() / 2;
-        int halfHexHeight = getHexHeight();
+        int halfHexHeight = getHalfHexHeight();
 
         int xAsPixels = (x + 1) * halfHexWidth;
         int yAsPixels = (int) (halfHexHeight * (1 + (1.5 * y)));
@@ -37,7 +37,7 @@ public class Hexagon {
         return new Polygon(pointsX, pointsY, 7);
     }
 
-    private int getHexHeight() {
+    private int getHalfHexHeight() {
         return radius;
     }
 
@@ -47,7 +47,7 @@ public class Hexagon {
 
     public Queryable<Point> getPoints() {
         int halfHexWidth = getHexWidth() / 2;
-        int halfHexHeight = getHexHeight();
+        int halfHexHeight = getHalfHexHeight();
         int halfSideLength = radius / 2;
 
         return Queryable.as(new Point(x - halfHexWidth, y - halfSideLength),
