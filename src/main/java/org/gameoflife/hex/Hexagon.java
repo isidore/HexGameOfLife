@@ -16,8 +16,8 @@ public class Hexagon {
     }
 
     public static Point getCenterPointForGrid(int x, int y, int radius) {
-        int hexWidth = getHexWidth(radius) / 2;
-        int xAsPixels = (x + 1) * hexWidth;
+        int halfHexWidth = getHexWidth(radius) / 2;
+        int xAsPixels = (x + 1) * halfHexWidth;
         int hexHeight = getHexHeight(radius) / 2;
         int yAsPixels = (int) (hexHeight * (1 + (1.5 * y)));
         return new Point(xAsPixels,yAsPixels);
