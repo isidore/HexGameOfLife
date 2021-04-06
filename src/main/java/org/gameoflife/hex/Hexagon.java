@@ -28,9 +28,9 @@ public class Hexagon {
         Queryable<Point> points = getPoints();
 
         int[] pointsX = points.select(p->p.x).stream().mapToInt(Integer::intValue).toArray();
-        int[] pointsy = points.select(p->p.y).stream().mapToInt(Integer::intValue).toArray();
+        int[] pointsY = points.select(p->p.y).stream().mapToInt(Integer::intValue).toArray();
 
-        return new Polygon(pointsX, pointsy, 7);
+        return new Polygon(pointsX, pointsY, 7);
     }
 
     private int getHexHeight() {
