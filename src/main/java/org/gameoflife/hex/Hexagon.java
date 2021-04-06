@@ -56,14 +56,14 @@ public class Hexagon {
 
     public Queryable<Point> getPoints() {
         int halfHexWidth = getHexWidth() / 2;
-        int hexHeight = getHexHeight() / 2;
+        int halfHexHeight = getHexHeight() / 2;
         int y2 = radius / 2;
 
         return Queryable.as(new Point(x - halfHexWidth, y - y2),
-                new Point(x, y - hexHeight),
+                new Point(x, y - halfHexHeight),
                 new Point(x + halfHexWidth, y - y2),
                 new Point(x + halfHexWidth, y + y2),
-                new Point(x, y + hexHeight),
+                new Point(x, y + halfHexHeight),
                 new Point(x - halfHexWidth, y + y2),
                 new Point(x - halfHexWidth, y - y2)
         );
