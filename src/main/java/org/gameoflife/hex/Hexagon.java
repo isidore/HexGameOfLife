@@ -12,12 +12,12 @@ public class Hexagon {
     public Hexagon(int radius, int x, int y) {
         this.radius = radius;
 
-        Point center = getCenterPointForGrid(x, y,radius);
+        Point center = getCenterPointForGrid(x, y);
         this.x = center.x;
         this.y = center.y;
     }
 
-    public Point getCenterPointForGrid(int x, int y, int radius2) {
+    public Point getCenterPointForGrid(int x, int y) {
         int halfHexWidth = getHexWidth(radius) / 2;
         int halfHexHeight = getHexHeight(radius);
 
