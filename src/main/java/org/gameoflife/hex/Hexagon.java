@@ -27,10 +27,10 @@ public class Hexagon {
     public Polygon getPolygon() {
         Queryable<Point> points = getPoints();
 
-        int[] pointsx = points.select(p->p.x).stream().mapToInt(Integer::intValue).toArray();
+        int[] pointsX = points.select(p->p.x).stream().mapToInt(Integer::intValue).toArray();
         int[] pointsy = points.select(p->p.y).stream().mapToInt(Integer::intValue).toArray();
 
-        return new Polygon(pointsx, pointsy, 7);
+        return new Polygon(pointsX, pointsy, 7);
     }
 
     private int getHexHeight() {
