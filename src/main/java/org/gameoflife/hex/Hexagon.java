@@ -17,7 +17,7 @@ public class Hexagon {
         this.y = center.y;
     }
 
-    public Point getCenterPointForGrid(int x, int y, int radius) {
+    public Point getCenterPointForGrid(int x, int y, int radius2) {
         int halfHexWidth = getHexWidth(radius) / 2;
         int halfHexHeight = getHexHeight(radius);
 
