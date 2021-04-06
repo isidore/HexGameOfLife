@@ -6,16 +6,12 @@ import java.awt.*;
 
 public class Hexagon {
     private final int radius;
-    private final int x;
-    private final int y;
     private final Point center;
 
     public Hexagon(int radius, int x, int y) {
         this.radius = radius;
 
         this.center = getCenterPointForGrid(x, y);
-        this.x = center.x;
-        this.y = center.y;
     }
 
     public Point getCenterPointForGrid(int x, int y) {
