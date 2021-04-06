@@ -33,10 +33,6 @@ public class Hexagon {
         return new Polygon(pointsx, pointsy, 7);
     }
 
-    private int translateYGridToPixels(int hexHeight) {
-        return (int) (hexHeight * (1 + (1.5 * y)));
-    }
-
     private int getHexHeight() {
         return getHexHeight(radius);
     }
