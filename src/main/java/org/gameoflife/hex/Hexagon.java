@@ -51,13 +51,13 @@ public class Hexagon {
         int halfHexHeight = getHalfHexHeight();
         int halfSideLength = radius / 2;
 
-        return Queryable.as(new Point(x - halfHexWidth, y - halfSideLength),
-                new Point(x, y - halfHexHeight),
-                new Point(x + halfHexWidth, y - halfSideLength),
-                new Point(x + halfHexWidth, y + halfSideLength),
-                new Point(x, y + halfHexHeight),
-                new Point(x - halfHexWidth, y + halfSideLength),
-                new Point(x - halfHexWidth, y - halfSideLength)
+        return Queryable.as(new Point(center.x - halfHexWidth, center.y - halfSideLength),
+                new Point(center.x, center.y - halfHexHeight),
+                new Point(center.x + halfHexWidth, center.y - halfSideLength),
+                new Point(center.x + halfHexWidth, center.y + halfSideLength),
+                new Point(center.x, center.y + halfHexHeight),
+                new Point(center.x - halfHexWidth, center.y + halfSideLength),
+                new Point(center.x - halfHexWidth, center.y - halfSideLength)
         );
     }
 }
