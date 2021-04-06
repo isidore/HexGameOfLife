@@ -53,18 +53,19 @@ public class Hexagon {
     private static int getHexWidth(int radius) {
         return (int) (2 * radius * Math.sin(Math.PI * 2 / 6));
     }
+
     public Queryable<Point> getPoints() {
-        int hexWidth = getHexWidth() / 2;
+        int halfHexWidth = getHexWidth() / 2;
         int hexHeight = getHexHeight() / 2;
         int y2 = radius / 2;
 
-        return Queryable.as(new Point(x - hexWidth, y - y2),
+        return Queryable.as(new Point(x - halfHexWidth, y - y2),
                 new Point(x, y - hexHeight),
-                new Point(x + hexWidth, y - y2),
-                new Point(x + hexWidth, y + y2),
+                new Point(x + halfHexWidth, y - y2),
+                new Point(x + halfHexWidth, y + y2),
                 new Point(x, y + hexHeight),
-                new Point(x - hexWidth, y + y2),
-                new Point(x - hexWidth, y - y2)
+                new Point(x - halfHexWidth, y + y2),
+                new Point(x - halfHexWidth, y - y2)
         );
     }
 }
