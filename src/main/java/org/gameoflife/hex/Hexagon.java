@@ -42,10 +42,6 @@ public class Hexagon {
     }
 
     private int getHexWidth() {
-        return getHexWidth(radius);
-    }
-
-    private static int getHexWidth(int radius) {
         return (int) (2 * radius * Math.sin(Math.PI * 2 / 6));
     }
 
