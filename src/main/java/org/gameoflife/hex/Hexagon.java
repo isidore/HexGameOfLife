@@ -38,15 +38,11 @@ public class Hexagon {
     }
 
     private int getHexHeight() {
-        return getHexHeight(radius);
+        return radius;
     }
 
     private int getHexWidth() {
         return getHexWidth(radius);
-    }
-
-    private static int getHexHeight(int radius) {
-        return radius;
     }
 
     private static int getHexWidth(int radius) {
