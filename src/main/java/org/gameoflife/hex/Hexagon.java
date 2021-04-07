@@ -14,6 +14,12 @@ public class Hexagon {
         this.center = getCenterPointForGrid(x, y);
     }
 
+    public Hexagon(int radius, Coordinates center) {
+        this.radius = radius;
+
+        this.center = getCenterPointForGrid(center.getX(), center.getY());
+    }
+
     public Point getCenterPointForGrid(int x, int y) {
         int halfHexWidth = getHexWidth() / 2;
         int halfHexHeight = getHalfHexHeight();
