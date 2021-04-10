@@ -51,12 +51,12 @@ public class GameOfLifePanel extends JPanel {
         fillBoardWithHexagons(g, game.board::isAlive, game);
     }
 
-    private void fillBoardWithHexagons(Graphics g, Function2<Integer, Integer, Boolean> isAlive, GameOfLife game) {
-
+    private void fillBoardWithHexagons(Graphics g, Function2<Integer, Integer, Boolean> isAlive2, GameOfLife game) {
         for (int x = 0; x < BOARD_WIDTH; x++) {
             for (int y = 0; y < BOARD_HEIGHT; y++) {
                 if (Board.isValidCoordinate(x, y)) {
-                    paintHex(g, isAlive.call(x, y), new Coordinates(x,y));
+                    Boolean isAlive = game.board.isAlive(new Cell(x,y));
+                    paintHex(g, isAlive, new Coordinates(x,y));
                 }
             }
         }
