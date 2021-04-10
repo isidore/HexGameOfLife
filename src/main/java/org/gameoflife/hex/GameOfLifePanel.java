@@ -3,7 +3,6 @@ package org.gameoflife.hex;
 import com.spun.util.Colors;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
-import org.lambda.functions.Function2;
 import org.lambda.query.Queryable;
 
 import javax.swing.*;
@@ -48,10 +47,10 @@ public class GameOfLifePanel extends JPanel {
         super.paint(g);
         g.setColor(Colors.Blues.AliceBlue);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        fillBoardWithHexagons(g, game.board::isAlive, game);
+        fillBoardWithHexagons(g, game);
     }
 
-    private void fillBoardWithHexagons(Graphics g, Function2<Integer, Integer, Boolean> isAlive2, GameOfLife game) {
+    private void fillBoardWithHexagons(Graphics g, GameOfLife game) {
         for (int x = 0; x < BOARD_WIDTH; x++) {
             for (int y = 0; y < BOARD_HEIGHT; y++) {
                 if (Board.isValidCoordinate(x, y)) {
