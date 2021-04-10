@@ -11,16 +11,16 @@ public class Hexagon {
     public Hexagon(int radius, int x, int y) {
         this.radius = radius;
 
-        this.center = getCenterPointForGrid(x, y);
+        this.center = getCenterPointInPixels(x, y);
     }
 
     public Hexagon(int radius, Coordinates center) {
         this.radius = radius;
 
-        this.center = getCenterPointForGrid(center.getX(), center.getY());
+        this.center = getCenterPointInPixels(center.getX(), center.getY());
     }
 
-    public Point getCenterPointForGrid(int x, int y) {
+    public Point getCenterPointInPixels(int x, int y) {
         int halfHexWidth = getHexWidth() / 2;
         int halfHexHeight = getHalfHexHeight();
 
