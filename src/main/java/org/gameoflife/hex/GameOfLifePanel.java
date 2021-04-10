@@ -49,7 +49,6 @@ public class GameOfLifePanel extends JPanel {
         g.setColor(Colors.Blues.AliceBlue);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         fillBoardWithHexagons(g, game.board::isAlive);
-        fillBoardWithHexagons(g, (x, y) -> false);
     }
 
     private void fillBoardWithHexagons(Graphics g, Function2<Integer, Integer, Boolean> isAlive) {
