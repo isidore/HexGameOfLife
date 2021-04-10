@@ -25,7 +25,6 @@ public class GameOfLifePanel extends JPanel {
     }
 
     public static void main(String[] args) {
-        GameOfLife game = new GameOfLife(Cell.create(4, 4).getAllNeighbours());
         GameOfLife gameOfLife = new GameOfLife();
         gameOfLife.board.setAlive(4, 4);
         gameOfLife.board.setAlive(3, 5);
