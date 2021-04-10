@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        java: ['8', '11', '14']
+        java: ['15']
 
     steps:
     - uses: actions/checkout@v2
