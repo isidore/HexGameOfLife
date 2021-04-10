@@ -54,7 +54,7 @@ public class GameOfLifePanel extends JPanel {
         for (int x = 0; x < BOARD_WIDTH; x++) {
             for (int y = 0; y < BOARD_HEIGHT; y++) {
                 if (Board.isValidCoordinate(x, y)) {
-                    Boolean isAlive = game.board.isAlive(new Cell(x,y));
+                    boolean isAlive = game.board.isAlive(new Cell(x,y));
                     paintHex(g, isAlive, new Coordinates(x,y));
                 }
             }
