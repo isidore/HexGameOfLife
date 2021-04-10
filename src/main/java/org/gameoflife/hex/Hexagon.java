@@ -8,12 +8,6 @@ public class Hexagon {
     private final int radius;
     private final Point center;
 
-    public Hexagon(int radius, int x, int y) {
-        this.radius = radius;
-
-        this.center = getCenterPointInPixels(x, y);
-    }
-
     public Hexagon(int radius, Coordinates center) {
         this.radius = radius;
 
