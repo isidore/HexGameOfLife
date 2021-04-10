@@ -16,11 +16,11 @@ public class GameOfLifePanel extends JPanel {
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        setSizeOfPanel(BOARD_WIDTH - 1);
+        setSizeOfPanel(BOARD_WIDTH - 1, BOARD_HEIGHT - 1);
     }
 
-    private void setSizeOfPanel(int width) {
-        Hexagon hexagon = new Hexagon(radius, new Coordinates(width, BOARD_HEIGHT - 1));
+    private void setSizeOfPanel(int width, int height) {
+        Hexagon hexagon = new Hexagon(radius, new Coordinates(width, height));
         Queryable<Point> points = hexagon.getPoints();
         int x = points.max(p -> p.x).x + 1;
         int y = points.max(p -> p.y).y + 1;
