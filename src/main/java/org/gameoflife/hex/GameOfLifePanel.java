@@ -57,13 +57,13 @@ public class GameOfLifePanel extends JPanel {
         for (int x = 0; x < BOARD_WIDTH; x++) {
             for (int y = 0; y < BOARD_HEIGHT; y++) {
                 if (Board.isValidCoordinate(x, y)) {
-                    paintHex(x, y, g, isAlive.call(x, y));
+                    paintHex(x, y, g, isAlive.call(x, y), new Coordinates(x,y));
                 }
             }
         }
     }
 
-    private void paintHex(int x, int y, Graphics g, boolean fill) {
+    private void paintHex(int x, int y, Graphics g, boolean fill, Coordinates center) {
         Hexagon hexagon = new Hexagon(radius, new Coordinates(x, y));
         if (fill) {
             g.setColor(Colors.Purples.MediumOrchid);
