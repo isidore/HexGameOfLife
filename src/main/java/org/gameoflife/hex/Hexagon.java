@@ -47,10 +47,11 @@ public class Hexagon {
         int halfHexHeight = getHalfHexHeight();
         int halfSideLength = radius / 2;
 
+        Point p = pointyHexCorner(1);
         return Queryable.as(new Point(center.x - halfHexWidth, center.y - halfSideLength),
                 new Point(center.x, center.y - halfHexHeight),
                 pointyHexCorner(0),
-                new Point(center.x + halfHexWidth, center.y + halfSideLength),
+                pointyHexCorner(1),
                 new Point(center.x, center.y + halfHexHeight),
                 new Point(center.x - halfHexWidth, center.y + halfSideLength),
                 new Point(center.x - halfHexWidth, center.y - halfSideLength)
