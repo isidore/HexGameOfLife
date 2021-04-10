@@ -47,20 +47,13 @@ public class Hexagon {
         int halfHexHeight = getHalfHexHeight();
         int halfSideLength = radius / 2;
 
-        Point p = pointyHexCorner(1);
         return Queryable.as(new Point(center.x - halfHexWidth, center.y - halfSideLength),
                 new Point(center.x, center.y - halfHexHeight),
-                pointyHexCorner(0),
-                pointyHexCorner(1),
+                new Point(center.x + halfHexWidth, center.y - halfSideLength),
+                new Point(center.x + halfHexWidth, center.y + halfSideLength),
                 new Point(center.x, center.y + halfHexHeight),
                 new Point(center.x - halfHexWidth, center.y + halfSideLength),
                 new Point(center.x - halfHexWidth, center.y - halfSideLength)
         );
-    }
-
-    private Point pointyHexCorner(int i){
-        double angle_deg = 60 * i - 30;
-        double angle_rad = Math.PI / 180 * angle_deg;
-        return new Point((int)(center.x + radius * Math.cos(angle_rad)), (int)(center.y + radius * Math.sin(angle_rad)));
     }
 }
