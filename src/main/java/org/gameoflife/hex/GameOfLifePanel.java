@@ -17,7 +17,7 @@ public class GameOfLifePanel extends JPanel {
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        Hexagon hexagon = getHexagon(new Coordinates(BOARD_WIDTH - 1, BOARD_HEIGHT -1));
+        Hexagon hexagon = new Hexagon(radius, new Coordinates(BOARD_WIDTH - 1, BOARD_HEIGHT - 1));
         Queryable<Point> points = hexagon.getPoints();
         int x = points.max(p -> p.x).x + 1;
         int y = points.max(p -> p.y).y + 1;
@@ -64,7 +64,7 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private void paintHex(int x, int y, Graphics g, boolean fill) {
-        Hexagon hexagon = getHexagon(new Coordinates(x,y));
+        Hexagon hexagon = new Hexagon(radius, new Coordinates(x, y));
         if (fill) {
             g.setColor(Colors.Purples.MediumOrchid);
             g.fillPolygon(hexagon.getPolygon());
@@ -74,7 +74,4 @@ public class GameOfLifePanel extends JPanel {
         }
     }
 
-    private Hexagon getHexagon(Coordinates centerCoordinates) {
-        return new Hexagon(radius, centerCoordinates);
-    }
 }
