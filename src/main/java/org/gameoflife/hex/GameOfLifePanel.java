@@ -75,6 +75,7 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private Hexagon getHexagon(int x, int y) {
-        return new Hexagon(radius, x,y);
+        Coordinates gridCoordinates = new Coordinates(x,y);
+        return new Hexagon(radius, gridCoordinates);
     }
 }
