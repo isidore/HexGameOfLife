@@ -64,7 +64,7 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private void paintHex(int x, int y, Graphics g, boolean fill, Coordinates center) {
-        Hexagon hexagon = new Hexagon(radius, new Coordinates(x, y));
+        Hexagon hexagon = new Hexagon(radius, center);
         if (fill) {
             g.setColor(Colors.Purples.MediumOrchid);
             g.fillPolygon(hexagon.getPolygon());
