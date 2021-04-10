@@ -29,6 +29,7 @@ public class GameOfLifePanel extends JPanel {
         gameOfLife.board.setAlive(3, 5);
         gameOfLife.board.setAlive(4, 6);
         gameOfLife.board.setAlive(5, 5);
+
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
