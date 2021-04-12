@@ -15,10 +15,10 @@ public class GameOfLifePanel extends JPanel {
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        this.setPreferredSize(getPanelDimension(BOARD_WIDTH - 1, BOARD_HEIGHT - 1));
+        this.setPreferredSize(getPanelDimension(radius, BOARD_WIDTH - 1, BOARD_HEIGHT - 1));
     }
 
-    private Dimension getPanelDimension(int width, int height) {
+    private static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
         Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;
