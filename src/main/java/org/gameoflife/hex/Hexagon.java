@@ -21,7 +21,16 @@ public class Hexagon {
         int xAsPixels = x * halfHexWidth;
         int yAsPixels = (int) (halfHexHeight * (1.5 * y));
 
-        return centerPointInHexagon(new Point(xAsPixels,yAsPixels));
+        return centerPointInHexagon(translateCoordinatesToTopRightPointOfBoundingBox(new Coordinates(x,y)));
+    }
+
+    private Point translateCoordinatesToTopRightPointOfBoundingBox(Coordinates coordinates) {
+        Point point = new Point();
+
+        point.x = coordinates.getX() * getHalfHexWidth();
+        point.y = (int) (coordinates.getY() * getHalfHexHeight() * 1.5);
+
+        return point;
     }
 
     private Point centerPointInHexagon(Point point){
