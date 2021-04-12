@@ -20,8 +20,8 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private void setSizeOfPanel(int width, int height) {
-        Hexagon hexagon = new Hexagon(radius, new Coordinates(width, height));
-        Rectangle boundingBox = hexagon.getPolygon().getBounds();
+        Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
+        Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
         int x = boundingBox.x + boundingBox.width + 1;
         int y = boundingBox.y + boundingBox.height + 1;
 
