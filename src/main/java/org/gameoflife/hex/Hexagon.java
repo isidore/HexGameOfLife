@@ -14,7 +14,7 @@ public class Hexagon {
         this.center = getCenterPointInPixels(radius, center);
     }
 
-    public static Point getCenterPointInPixels(int radius, Coordinates coordinates) {
+    private static Point getCenterPointInPixels(int radius, Coordinates coordinates) {
         Point topLeftOfBoundingBox = getTopLeftPointOfBoundingBox(radius, coordinates);
         return centerPointInHexagon(radius, topLeftOfBoundingBox);
     }
