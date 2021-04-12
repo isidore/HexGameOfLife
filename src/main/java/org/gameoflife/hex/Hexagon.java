@@ -15,7 +15,7 @@ public class Hexagon {
     }
 
     public Point getCenterPointInPixels(int x, int y) {
-        int halfHexWidth = getHexWidth();
+        int halfHexWidth = getHalfHexWidth();
         int halfHexHeight = getHalfHexHeight();
 
         int xAsPixels = (x + 1) * halfHexWidth;
@@ -38,12 +38,12 @@ public class Hexagon {
         return radius;
     }
 
-    private int getHexWidth() {
+    private int getHalfHexWidth() {
         return (int) (radius * Math.sin(Math.PI * 2 / 6));
     }
 
     public Queryable<Point> getPoints() {
-        int halfHexWidth = getHexWidth();
+        int halfHexWidth = getHalfHexWidth();
         int halfHexHeight = getHalfHexHeight();
         int halfSideLength = radius / 2;
 
