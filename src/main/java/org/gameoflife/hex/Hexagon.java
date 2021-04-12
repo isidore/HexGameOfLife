@@ -22,7 +22,7 @@ public class Hexagon {
     private Point getTopLeftPointOfBoundingBox(Coordinates coordinates) {
         Point point = new Point();
 
-        point.x = coordinates.getX() * getHalfHexWidth();
+        point.x = coordinates.getX() * getHalfHexWidth(radius);
         point.y = (int) (coordinates.getY() * getHalfHexHeight(radius) * 1.5);
 
         return point;
@@ -31,7 +31,7 @@ public class Hexagon {
     private Point centerPointInHexagon(Point point){
         Point centeredPoint = new Point();
 
-        centeredPoint.x = point.x + getHalfHexWidth();
+        centeredPoint.x = point.x + getHalfHexWidth(radius);
         centeredPoint.y = point.y + getHalfHexHeight(radius);
 
         return centeredPoint;
@@ -50,12 +50,12 @@ public class Hexagon {
         return radius;
     }
 
-    private int getHalfHexWidth() {
+    private static int getHalfHexWidth(int radius) {
         return (int) (radius * Math.sin(Math.PI * 2 / 6));
     }
 
     public Queryable<Point> getPoints() {
-        int halfHexWidth = getHalfHexWidth();
+        int halfHexWidth = getHalfHexWidth(radius);
         int halfHexHeight = getHalfHexHeight(radius);
         int halfSideLength = radius / 2;
 
