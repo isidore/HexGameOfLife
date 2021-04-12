@@ -18,12 +18,20 @@ public class Hexagon {
         int halfHexWidth = getHalfHexWidth();
         int halfHexHeight = getHalfHexHeight();
 
-        int xAsPixels = (x + 1) * halfHexWidth;
-        int yAsPixels = (int) (halfHexHeight * (1 + (1.5 * y)));
+        int xAsPixels = x * halfHexWidth;
+        int yAsPixels = (int) (halfHexHeight * (1.5 * y));
 
-        return new Point(xAsPixels,yAsPixels);
+        return centerPointInHexagon(new Point(xAsPixels,yAsPixels));
     }
 
+    private Point centerPointInHexagon(Point point){
+        Point centeredPoint = new Point();
+
+        centeredPoint.x = point.x + getHalfHexWidth();
+        centeredPoint.y = point.y + getHalfHexHeight();
+
+        return centeredPoint;
+    }
 
     public Polygon getPolygon() {
         Queryable<Point> points = getPoints();
