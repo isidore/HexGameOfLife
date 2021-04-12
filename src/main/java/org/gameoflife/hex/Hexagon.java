@@ -23,7 +23,7 @@ public class Hexagon {
         Point point = new Point();
 
         point.x = coordinates.getX() * getHalfHexWidth();
-        point.y = (int) (coordinates.getY() * getHalfHexHeight() * 1.5);
+        point.y = (int) (coordinates.getY() * getHalfHexHeight(radius) * 1.5);
 
         return point;
     }
@@ -32,7 +32,7 @@ public class Hexagon {
         Point centeredPoint = new Point();
 
         centeredPoint.x = point.x + getHalfHexWidth();
-        centeredPoint.y = point.y + getHalfHexHeight();
+        centeredPoint.y = point.y + getHalfHexHeight(radius);
 
         return centeredPoint;
     }
@@ -46,7 +46,7 @@ public class Hexagon {
         return new Polygon(pointsX, pointsY, 7);
     }
 
-    private int getHalfHexHeight() {
+    private static int getHalfHexHeight(int radius) {
         return radius;
     }
 
@@ -56,7 +56,7 @@ public class Hexagon {
 
     public Queryable<Point> getPoints() {
         int halfHexWidth = getHalfHexWidth();
-        int halfHexHeight = getHalfHexHeight();
+        int halfHexHeight = getHalfHexHeight(radius);
         int halfSideLength = radius / 2;
 
         return Queryable.as(new Point(center.x - halfHexWidth, center.y - halfSideLength),
