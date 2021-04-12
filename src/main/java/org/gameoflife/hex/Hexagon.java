@@ -11,10 +11,10 @@ public class Hexagon {
     public Hexagon(int radius, Coordinates center) {
         this.radius = radius;
 
-        this.center = getCenterPointInPixels(center.getX(), center.getY());
+        this.center = getCenterPointInPixels(center.getX(), center.getY(), center);
     }
 
-    public Point getCenterPointInPixels(int x, int y) {
+    public Point getCenterPointInPixels(int x, int y, Coordinates coordinates) {
         int halfHexWidth = getHalfHexWidth();
         int halfHexHeight = getHalfHexHeight();
 
