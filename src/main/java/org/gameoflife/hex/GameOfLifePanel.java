@@ -21,9 +21,10 @@ public class GameOfLifePanel extends JPanel {
 
     private void setSizeOfPanel(int width, int height) {
         Hexagon hexagon = new Hexagon(radius, new Coordinates(width, height));
-        Queryable<Point> points = hexagon.getPoints();
-        int x = points.max(p -> p.x).x + 1;
-        int y = points.max(p -> p.y).y + 1;
+        Rectangle boundingBox = hexagon.getPolygon().getBounds();
+        int x = boundingBox.x + boundingBox.width + 1;
+        int y = boundingBox.y + boundingBox.height + 1;
+
         this.setPreferredSize(new Dimension(x, y));
     }
 
