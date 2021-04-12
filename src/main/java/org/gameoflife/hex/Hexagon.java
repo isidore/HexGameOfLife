@@ -15,10 +15,11 @@ public class Hexagon {
     }
 
     public Point getCenterPointInPixels(Coordinates coordinates) {
-        return centerPointInHexagon(translateCoordinatesToTopRightPointOfBoundingBox(coordinates));
+        Point topRightOfBoundingBox = getTopLeftPointOfBoundingBox(coordinates);
+        return centerPointInHexagon(topRightOfBoundingBox);
     }
 
-    private Point translateCoordinatesToTopRightPointOfBoundingBox(Coordinates coordinates) {
+    private Point getTopLeftPointOfBoundingBox(Coordinates coordinates) {
         Point point = new Point();
 
         point.x = coordinates.getX() * getHalfHexWidth();
