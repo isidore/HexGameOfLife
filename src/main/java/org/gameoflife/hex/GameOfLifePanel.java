@@ -24,8 +24,6 @@ public class GameOfLifePanel extends JPanel {
         int rightmostX = boundingBox.x + boundingBox.width + 1;
         int lowestY = boundingBox.y + boundingBox.height + 1;
 
-        this.setPreferredSize(new Dimension(rightmostX, lowestY));
-
         return new Dimension(rightmostX, lowestY);
     }
 
