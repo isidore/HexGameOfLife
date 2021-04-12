@@ -10,7 +10,6 @@ public class Hexagon {
 
     public Hexagon(int radius, Coordinates center) {
         this.radius = radius;
-
         this.center = getCenterPointInPixels(radius, center);
     }
 
