@@ -3,7 +3,6 @@ package org.gameoflife.hex;
 import com.spun.util.Colors;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
-import org.lambda.query.Queryable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,16 +15,18 @@ public class GameOfLifePanel extends JPanel {
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        setSizeOfPanel(BOARD_WIDTH - 1, BOARD_HEIGHT - 1);
+        getPanelDimension(BOARD_WIDTH - 1, BOARD_HEIGHT - 1);
     }
 
-    private void setSizeOfPanel(int width, int height) {
+    private Dimension getPanelDimension(int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
         Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;
         int lowestY = boundingBox.y + boundingBox.height + 1;
 
         this.setPreferredSize(new Dimension(rightmostX, lowestY));
+
+        return new Dimension(rightmostX, lowestY);
     }
 
     public static void main(String[] args) {
