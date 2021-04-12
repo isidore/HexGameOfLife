@@ -15,8 +15,8 @@ public class Hexagon {
     }
 
     public Point getCenterPointInPixels(Coordinates coordinates) {
-        Point topRightOfBoundingBox = getTopLeftPointOfBoundingBox(coordinates);
-        return centerPointInHexagon(topRightOfBoundingBox);
+        Point topLeftOfBoundingBox = getTopLeftPointOfBoundingBox(coordinates);
+        return centerPointInHexagon(topLeftOfBoundingBox);
     }
 
     private Point getTopLeftPointOfBoundingBox(Coordinates coordinates) {
