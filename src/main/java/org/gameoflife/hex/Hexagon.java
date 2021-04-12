@@ -53,7 +53,7 @@ public class Hexagon {
         return (int) (radius * Math.sin(Math.PI * 2 / 6));
     }
 
-    public Queryable<Point> getPoints() {
+    private Queryable<Point> getPoints() {
         int halfHexWidth = getHalfHexWidth(radius);
         int halfHexHeight = getHalfHexHeight(radius);
         int halfSideLength = radius / 2;
