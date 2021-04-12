@@ -15,12 +15,6 @@ public class Hexagon {
     }
 
     public Point getCenterPointInPixels(int x, int y, Coordinates coordinates) {
-        int halfHexWidth = getHalfHexWidth();
-        int halfHexHeight = getHalfHexHeight();
-
-        int xAsPixels = x * halfHexWidth;
-        int yAsPixels = (int) (halfHexHeight * (1.5 * y));
-
         return centerPointInHexagon(translateCoordinatesToTopRightPointOfBoundingBox(coordinates));
     }
 
