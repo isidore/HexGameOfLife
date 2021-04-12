@@ -15,7 +15,7 @@ public class GameOfLifePanel extends JPanel {
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        getPanelDimension(BOARD_WIDTH - 1, BOARD_HEIGHT - 1);
+        this.setPreferredSize(getPanelDimension(BOARD_WIDTH - 1, BOARD_HEIGHT - 1));
     }
 
     private Dimension getPanelDimension(int width, int height) {
