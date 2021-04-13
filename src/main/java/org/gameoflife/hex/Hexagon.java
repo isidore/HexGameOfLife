@@ -8,9 +8,9 @@ public class Hexagon {
     private final int radius;
     private final Point center;
 
-    public Hexagon(int radius, Coordinates center) {
+    public Hexagon(int radius, Coordinates coordinates) {
         this.radius = radius;
-        this.center = getCenterPointInPixels(radius, center);
+        this.center = getCenterPointInPixels(radius, coordinates);
     }
 
     private static Point getCenterPointInPixels(int radius, Coordinates coordinates) {
