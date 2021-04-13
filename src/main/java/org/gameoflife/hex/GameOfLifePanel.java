@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class GameOfLifePanel extends JPanel implements MouseListener {
+public class GameOfLifePanel extends JPanel {
     public static final int BOARD_WIDTH = 20;
     public static final int BOARD_HEIGHT = 10;
     private final int radius = 20;
@@ -85,20 +85,6 @@ public class GameOfLifePanel extends JPanel implements MouseListener {
         g.drawPolygon(hexagon.getPolygon());
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {}
-
-    @Override
-    public void mousePressed(MouseEvent e) {}
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        System.out.println(e.getPoint());
-        Coordinates hex = getGridAt(e.getPoint());
-        game.board.setAlive(hex.getX(), hex.getY());
-        repaint();
-    }
-
     public Coordinates getGridAt(Point point) {
         for (int x = 0; x < BOARD_WIDTH; x++) {
             for (int y = 0; y < BOARD_HEIGHT; y++) {
@@ -113,12 +99,6 @@ public class GameOfLifePanel extends JPanel implements MouseListener {
         }
         return null;
     }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {}
-
-    @Override
-    public void mouseExited(MouseEvent e) {}
 
     public void setAliveAt(Point point) {
         Coordinates hex = getGridAt(point);
