@@ -67,4 +67,8 @@ public class Hexagon {
                 new Point(center.x - halfHexWidth, center.y - halfSideLength)
         );
     }
+
+    public Point getCenter() {
+        return this.center;
+    }
 }

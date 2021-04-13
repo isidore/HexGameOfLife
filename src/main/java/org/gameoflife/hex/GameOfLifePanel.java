@@ -6,8 +6,10 @@ import com.spun.util.WindowUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class GameOfLifePanel extends JPanel {
+public class GameOfLifePanel extends JPanel implements MouseListener {
     public static final int BOARD_WIDTH = 20;
     public static final int BOARD_HEIGHT = 10;
     private final int radius = 20;
@@ -16,6 +18,11 @@ public class GameOfLifePanel extends JPanel {
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
         this.setPreferredSize(getPanelDimension(radius, BOARD_WIDTH - 1, BOARD_HEIGHT - 1));
+        this.addMouseListener(this);
+    }
+
+    public GameOfLifePanel() {
+        this(new GameOfLife());
     }
 
     private static Dimension getPanelDimension(int radius, int width, int height) {
@@ -59,8 +66,8 @@ public class GameOfLifePanel extends JPanel {
         for (int x = 0; x < BOARD_WIDTH; x++) {
             for (int y = 0; y < BOARD_HEIGHT; y++) {
                 if (Board.isValidCoordinate(x, y)) {
-                    boolean isAlive = game.board.isAlive(new Cell(x,y));
-                    paintHex(g, isAlive, new Coordinates(x,y));
+                    boolean isAlive = game.board.isAlive(new Cell(x, y));
+                    paintHex(g, isAlive, new Coordinates(x, y));
                 }
             }
         }
@@ -78,4 +85,46 @@ public class GameOfLifePanel extends JPanel {
         g.drawPolygon(hexagon.getPolygon());
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        System.out.println(e.getPoint());
+        Coordinates hex = getGridAt(e.getPoint());
+        game.board.setAlive(hex.getX(), hex.getY());
+        repaint();
+    }
+
+    public Coordinates getGridAt(Point point) {
+        for (int x = 0; x < BOARD_WIDTH; x++) {
+            for (int y = 0; y < BOARD_HEIGHT; y++) {
+                if (Board.isValidCoordinate(x, y)) {
+                    Coordinates coordinates = new Coordinates(x, y);
+                    Hexagon hexagon = new Hexagon(radius, coordinates);
+                    if (hexagon.getPolygon().contains(point)) {
+                        return coordinates;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }
