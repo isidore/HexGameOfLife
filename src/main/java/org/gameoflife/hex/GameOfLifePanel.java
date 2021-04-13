@@ -119,4 +119,8 @@ public class GameOfLifePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {}
+
+    public Coordinates setAliveAt(Point point) {
+        return null;
+    }
 }
