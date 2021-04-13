@@ -120,7 +120,9 @@ public class GameOfLifePanel extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {}
 
-    public Coordinates setAliveAt(Point point) {
-        return null;
+    public void setAliveAt(Point point) {
+        Coordinates hex = getGridAt(point);
+        game.board.setAlive(hex.getX(), hex.getY());
+        repaint();
     }
 }

@@ -7,6 +7,6 @@ public class MouseReleaseListener extends MouseAdapter {
     GameOfLifePanel gameOfLifePanel;
     @Override
     public void mouseReleased(MouseEvent e) {
-        Coordinates hex = gameOfLifePanel.setAliveAt(e.getPoint());
+        gameOfLifePanel.setAliveAt(e.getPoint());
     }
 }
