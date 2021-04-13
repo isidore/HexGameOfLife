@@ -73,8 +73,8 @@ public class GameOfLifePanel extends JPanel implements MouseListener {
         }
     }
 
-    private void paintHex(Graphics g, boolean fill, Coordinates center) {
-        Hexagon hexagon = new Hexagon(radius, center);
+    private void paintHex(Graphics g, boolean fill, Coordinates coordinates) {
+        Hexagon hexagon = new Hexagon(radius, coordinates);
 
         if (fill) {
             g.setColor(Colors.Purples.MediumOrchid);
