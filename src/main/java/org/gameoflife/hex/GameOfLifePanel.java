@@ -18,7 +18,7 @@ public class GameOfLifePanel extends JPanel implements MouseListener {
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
         this.setPreferredSize(getPanelDimension(radius, BOARD_WIDTH - 1, BOARD_HEIGHT - 1));
-        this.addMouseListener(this);
+        this.addMouseListener(new MouseReleaseListener(this));
     }
 
     public GameOfLifePanel() {
