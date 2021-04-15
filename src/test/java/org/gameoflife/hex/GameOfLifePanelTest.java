@@ -16,6 +16,29 @@ class GameOfLifePanelTest {
     }
 
     @Test
+    void testResize() {
+        {        // resize grid to a single hex
+            Hexagon hexagon = new Hexagon(20, new Coordinates(0, 0));
+            Point center = hexagon.getCenter();
+            // check the grid is 1 x 1
+            Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
+            Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
+            assertEquals(0 + 1, grid.height);
+            assertEquals((0 + 1) * 2, grid.width);
+        }
+
+        {
+            Hexagon hexagon = new Hexagon(20, new Coordinates(2, 0));
+            Point center = hexagon.getCenter();
+            // check the grid is 1 x 1
+            Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
+            Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
+            assertEquals(0 + 1, grid.height);
+            assertEquals((0 + 1) * 2, grid.width);
+        }
+    }
+
+    @Test
     void testHexCanFindItself() {
         for (int i = 0; i < 1000 ; i++) {
             Coordinates original = hexGenerator();

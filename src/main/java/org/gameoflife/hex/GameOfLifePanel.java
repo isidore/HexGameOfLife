@@ -29,10 +29,19 @@ public class GameOfLifePanel extends JPanel {
 
     private void onResize() {
         Dimension size = getSize();
+        Dimension d = getGridWidthAndHeightForPixels(radius, size);
+        this.boardWidth = d.width;
+        this.boardHeight = d.height;
+    }
+
+    public static Dimension getGridWidthAndHeightForPixels(int radius, Dimension sizeInPixel) {
         Point center = new Hexagon(radius, new Coordinates(0, 0)).getCenter();
         double hexWidth = center.x * 2;
-        boardWidth = (int) (size.width/hexWidth * 2);
-        boardHeight = (int)(size.height/(center.y*2) * 1.5);
+        int boardWidth = (int) (sizeInPixel.width/hexWidth * 2);
+        int boardHeight = (int)(sizeInPixel.height/(center.y*2) * 1.5);
+
+        Dimension d = new Dimension(boardWidth, boardHeight);
+        return d;
     }
 
     public GameOfLifePanel() {
