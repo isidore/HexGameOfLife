@@ -6,19 +6,29 @@ import com.spun.util.WindowUtils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class GameOfLifePanel extends JPanel {
-    public static final int BOARD_WIDTH = 20;
-    public static final int BOARD_HEIGHT = 10;
+    public int boardWidth = 20;
+    public int boardHeight = 10;
     private final int radius = 20;
     private GameOfLife game;
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        this.setPreferredSize(getPanelDimension(radius, BOARD_WIDTH - 1, BOARD_HEIGHT - 1));
+        this.setPreferredSize(getPanelDimension(radius, boardWidth - 1, boardHeight - 1));
         this.addMouseListener(new MouseReleaseListener(this));
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                onResize();
+            }
+        });
+    }
+
+    private void onResize() {
+        System.out.println(getSize());
     }
 
     public GameOfLifePanel() {
@@ -63,8 +73,8 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private void fillBoardWithHexagons(Graphics g, GameOfLife game) {
-        for (int x = 0; x < BOARD_WIDTH; x++) {
-            for (int y = 0; y < BOARD_HEIGHT; y++) {
+        for (int x = 0; x < boardWidth; x++) {
+            for (int y = 0; y < boardHeight; y++) {
                 if (Board.isValidCoordinate(x, y)) {
                     boolean isAlive = game.board.isAlive(new Cell(x, y));
                     paintHex(g, isAlive, new Coordinates(x, y));
@@ -86,8 +96,8 @@ public class GameOfLifePanel extends JPanel {
     }
 
     public Coordinates getGridAt(Point point) {
-        for (int x = 0; x < BOARD_WIDTH; x++) {
-            for (int y = 0; y < BOARD_HEIGHT; y++) {
+        for (int x = 0; x < boardWidth; x++) {
+            for (int y = 0; y < boardHeight; y++) {
                 if (Board.isValidCoordinate(x, y)) {
                     Coordinates coordinates = new Coordinates(x, y);
                     Hexagon hexagon = new Hexagon(radius, coordinates);
@@ -105,4 +115,6 @@ public class GameOfLifePanel extends JPanel {
         game.board.setAlive(hex.getX(), hex.getY());
         repaint();
     }
+
+
 }
