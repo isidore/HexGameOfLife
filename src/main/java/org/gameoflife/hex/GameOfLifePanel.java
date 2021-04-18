@@ -18,13 +18,6 @@ public class GameOfLifePanel extends JPanel {
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
         this.setPreferredSize(getPanelDimension(radius, boardWidth - 1, boardHeight - 1));
-        this.addMouseListener(new MouseReleaseListener(this));
-        this.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                onResize();
-            }
-        });
     }
 
     private void onResize() {
@@ -65,6 +58,13 @@ public class GameOfLifePanel extends JPanel {
         gameOfLife.board.setAlive(5, 5);
 
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
+        gameOfLifePanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
+        gameOfLifePanel.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                gameOfLifePanel.onResize();
+            }
+        });
+
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
     }
