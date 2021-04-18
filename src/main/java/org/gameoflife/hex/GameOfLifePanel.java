@@ -40,7 +40,7 @@ public class GameOfLifePanel extends JPanel {
         this(new GameOfLife());
     }
 
-    private static Dimension getPanelDimension(int radius, int width, int height) {
+    public static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
         Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;
