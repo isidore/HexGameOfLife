@@ -58,14 +58,18 @@ public class GameOfLifePanel extends JPanel {
 
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
         gameOfLifePanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
-        gameOfLifePanel.addComponentListener(new ComponentAdapter() {
-            public void componentResized(ComponentEvent e) {
-                gameOfLifePanel.onResize();
-            }
-        });
+        gameOfLifePanel.addComponentListener(getL(gameOfLifePanel));
 
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
+    }
+
+    private static ComponentAdapter getL(GameOfLifePanel gameOfLifePanel) {
+        return new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                gameOfLifePanel.onResize();
+            }
+        };
     }
 
     private void start() {
