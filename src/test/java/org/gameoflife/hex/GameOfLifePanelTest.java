@@ -22,7 +22,7 @@ class GameOfLifePanelTest {
     }
 
     private void testGetPixelsForCoordinates(int x, int y, Coordinates gridCoordinates) {
-        Hexagon hexagon = new Hexagon(20, new Coordinates(x, y));
+        Hexagon hexagon = new Hexagon(20, gridCoordinates);
         Point center = hexagon.getCenter();
 
         Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
