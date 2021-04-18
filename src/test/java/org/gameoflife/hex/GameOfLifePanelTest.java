@@ -17,11 +17,11 @@ class GameOfLifePanelTest {
 
     @Test
     void testResize() {
-        testGetPixelsForCoordinates(0, 0);
-        testGetPixelsForCoordinates(2, 0);
+        testGetPixelsForCoordinates(0, 0, new Coordinates(0,0));
+        testGetPixelsForCoordinates(2, 0, new Coordinates(2, 0));
     }
 
-    private void testGetPixelsForCoordinates(int x, int y) {
+    private void testGetPixelsForCoordinates(int x, int y, Coordinates center2) {
         Hexagon hexagon = new Hexagon(20, new Coordinates(x, y));
         Point center = hexagon.getCenter();
 
