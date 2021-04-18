@@ -5,42 +5,36 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOfLifePanelTest {
     @Test
-    void testFindHex()
-    {
+    void testFindHex() {
         assertFindHex(15, 15, "(0,0)");
         assertFindHex(159, 104, "(9,3)");
     }
 
     @Test
     void testResize() {
-        {        // resize grid to a single hex
-            Hexagon hexagon = new Hexagon(20, new Coordinates(0, 0));
-            Point center = hexagon.getCenter();
-            // check the grid is 1 x 1
-            Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
-            Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
-            assertEquals(0 + 1, grid.height);
-            assertEquals((0 + 1) * 2, grid.width);
-        }
+        testGetPixelsForCoordinates(0, 0);
+        testGetPixelsForCoordinates(2, 0);
+    }
 
-        {
-            Hexagon hexagon = new Hexagon(20, new Coordinates(2, 0));
-            Point center = hexagon.getCenter();
-            // check the grid is 1 x 1
-            Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
-            Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
-            assertEquals(0 + 1, grid.height);
-            assertEquals((0 + 1) * 2, grid.width);
-        }
+    private void testGetPixelsForCoordinates(int x, int y) {
+        Hexagon hexagon = new Hexagon(20, new Coordinates(x, y));
+        Point center = hexagon.getCenter();
+
+        Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
+        Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
+
+        assertEquals(y + 1, grid.height);
+        assertEquals((x + 1) * 2, grid.width);
     }
 
     @Test
     void testHexCanFindItself() {
-        for (int i = 0; i < 1000 ; i++) {
+        for (int i = 0; i < 1000; i++) {
             Coordinates original = hexGenerator();
             assertInverseProperty(original);
 
@@ -62,7 +56,7 @@ class GameOfLifePanelTest {
         int x = NumberUtils.getRandomInt(0, 10);
         int y = NumberUtils.getRandomInt(0, 9);
 
-        if (!Board.isValidCoordinate(x,y)){
+        if (!Board.isValidCoordinate(x, y)) {
             y++;
         }
 
@@ -73,7 +67,7 @@ class GameOfLifePanelTest {
     private void assertFindHex(int x, int y, String expected) {
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel();
         Coordinates gridAt = gameOfLifePanel.getGridAt(new Point(x, y));
-        assertTrue(Board.isValidCoordinate(gridAt),"Invalid grid:" + gridAt);
+        assertTrue(Board.isValidCoordinate(gridAt), "Invalid grid:" + gridAt);
         assertEquals(expected, gridAt.toString());
     }
 }
