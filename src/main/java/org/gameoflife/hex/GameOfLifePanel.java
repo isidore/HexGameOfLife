@@ -33,8 +33,7 @@ public class GameOfLifePanel extends JPanel {
         int boardWidth = (int) (sizeInPixel.width/hexWidth * 2);
         int boardHeight = (int)(sizeInPixel.height/(center.y*2) * 1.5);
 
-        Dimension d = new Dimension(boardWidth, boardHeight);
-        return d;
+        return new Dimension(boardWidth, boardHeight);
     }
 
     public GameOfLifePanel() {
