@@ -28,7 +28,7 @@ class GameOfLifePanelTest {
         Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
         Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
 
-        assertEquals(y + 1, grid.height);
+        assertEquals(gridCoordinates.getY() + 1, grid.height);
         assertEquals((x + 1) * 2, grid.width);
     }
 
