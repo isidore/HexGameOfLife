@@ -29,7 +29,7 @@ class GameOfLifePanelTest {
         Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
 
         assertEquals(gridCoordinates.getY() + 1, grid.height);
-        assertEquals((x + 1) * 2, grid.width);
+        assertEquals((gridCoordinates.getX() + 1) * 2, grid.width);
     }
 
     @Test
