@@ -20,7 +20,7 @@ public class GameOfLifePanel extends JPanel {
         this.setPreferredSize(getPanelDimension(radius, boardWidth - 1, boardHeight - 1));
     }
 
-    private void onResize() {
+    void onResize() {
         Dimension size = getSize();
         Dimension d = getGridWidthAndHeightForPixels(radius, size);
         this.boardWidth = d.width;
