@@ -20,7 +20,7 @@ public class Board {
         this.liveCells = liveCells;
     }
 
-    public void setAlive(int x, int y) {
+    void setAlive(int x, int y) {
         if (!isValidCoordinate(x, y)) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
