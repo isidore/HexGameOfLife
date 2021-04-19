@@ -69,7 +69,7 @@ class GameOfLifePanelTest {
 
     private void assertFindHex(int x, int y, String expected) {
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel();
-        Coordinates gridAt = gameOfLifePanel.getGridAt(new Point(x, y));
+        Coordinates gridAt = gameOfLifePanel.getGridCoordinatesAt(new Point(x, y)).get();
         assertTrue(Board.isValidCoordinate(gridAt), "Invalid grid:" + gridAt);
         assertEquals(expected, gridAt.toString());
     }
