@@ -54,6 +54,9 @@ public class GameOfLife {
         return score;
     }
 
+    public void setAlive(int x, int y) {
+        this.board.setAlive(x, y);
+    }
 
     private Queryable<Cell> getLiveCellsAndNeighbours() {
         Set<Cell> liveCellsAndNeighbours = new HashSet<>(board.getLiveCells());
