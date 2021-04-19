@@ -6,8 +6,6 @@ import com.spun.util.WindowUtils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 public class GameOfLifePanel extends JPanel {
     public int boardWidth = 20;
@@ -125,15 +123,4 @@ public class GameOfLifePanel extends JPanel {
     }
 
 
-    private static class ResizeListener extends ComponentAdapter {
-        private final GameOfLifePanel gameOfLifePanel;
-
-        public ResizeListener(GameOfLifePanel gameOfLifePanel) {
-            this.gameOfLifePanel = gameOfLifePanel;
-        }
-
-        public void componentResized(ComponentEvent e) {
-            gameOfLifePanel.onResize();
-        }
-    }
 }
