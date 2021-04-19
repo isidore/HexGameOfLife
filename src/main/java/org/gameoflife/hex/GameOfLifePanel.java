@@ -54,7 +54,6 @@ public class GameOfLifePanel extends JPanel {
         return new Dimension(rightmostX, lowestY);
     }
 
-
     private static void startGame(GameOfLifePanel gameOfLifePanel) {
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
