@@ -49,7 +49,10 @@ public class GameOfLifePanel extends JPanel {
 
     public static void main(String[] args) {
         GameOfLife gameOfLife = setupInitialScenario();
+        createPanelAndStartGame(gameOfLife);
+    }
 
+    private static void createPanelAndStartGame(GameOfLife gameOfLife) {
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
         gameOfLifePanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
         gameOfLifePanel.addComponentListener(new ResizeListener(gameOfLifePanel));
