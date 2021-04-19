@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class HexPrinterTest {
     @Test
     @UseReporter(ClipboardReporter.class)
-    void testGui() {
+    static void testGui() {
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 6, true);
         AwtApprovals.verify(new GameOfLifePanel(game));
     }
