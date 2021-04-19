@@ -21,7 +21,8 @@ public class GameOfLifePanel extends JPanel {
 
     public static void main(String[] args) {
         GameOfLife gameOfLife = setupInitialScenario();
-        createPanelAndStartGame(getGameOfLifePanel(gameOfLife));
+        GameOfLifePanel gameOfLifePanel = getGameOfLifePanel(gameOfLife);
+        startGame(gameOfLifePanel);
     }
 
     void onResize() {
@@ -54,7 +55,7 @@ public class GameOfLifePanel extends JPanel {
     }
 
 
-    private static void createPanelAndStartGame(GameOfLifePanel gameOfLifePanel) {
+    private static void startGame(GameOfLifePanel gameOfLifePanel) {
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
     }
