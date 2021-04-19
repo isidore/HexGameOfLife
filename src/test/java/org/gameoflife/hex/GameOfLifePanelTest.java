@@ -4,6 +4,7 @@ import com.spun.util.NumberUtils;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -49,9 +50,9 @@ class GameOfLifePanelTest {
         GameOfLifePanel panel = new GameOfLifePanel();
         Point center = hexagon.getCenter();
         // undo
-        Coordinates found = panel.getGridAt(center);
+        Optional<Coordinates> found = panel.getGridCoordinatesAt(center);
         // Check you are where you started
-        assertEquals(original, found);
+        assertEquals(original, found.get());
     }
 
     private Coordinates hexGenerator() {
