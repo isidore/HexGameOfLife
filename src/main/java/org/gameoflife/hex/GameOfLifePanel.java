@@ -121,6 +121,4 @@ public class GameOfLifePanel extends JPanel {
         game.board.setAlive(hex.getX(), hex.getY());
         repaint();
     }
-
-
 }
