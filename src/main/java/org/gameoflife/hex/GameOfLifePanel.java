@@ -48,11 +48,7 @@ public class GameOfLifePanel extends JPanel {
     }
 
     public static void main(String[] args) {
-        GameOfLife gameOfLife = new GameOfLife();
-        gameOfLife.board.setAlive(4, 4);
-        gameOfLife.board.setAlive(3, 5);
-        gameOfLife.board.setAlive(4, 6);
-        gameOfLife.board.setAlive(5, 5);
+        GameOfLife gameOfLife = setupInitialScenario();
 
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
         gameOfLifePanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
@@ -60,6 +56,15 @@ public class GameOfLifePanel extends JPanel {
 
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
+    }
+
+    private static GameOfLife setupInitialScenario() {
+        GameOfLife gameOfLife = new GameOfLife();
+        gameOfLife.board.setAlive(4, 4);
+        gameOfLife.board.setAlive(3, 5);
+        gameOfLife.board.setAlive(4, 6);
+        gameOfLife.board.setAlive(5, 5);
+        return gameOfLife;
     }
 
     private void start() {
