@@ -21,6 +21,8 @@ class GameOfLifePanelTest {
         testGetPixelsForCoordinates(new Coordinates(2, 0));
     }
 
+
+    //Only checking maintained functionality... This test is wrong...
     private void testGetPixelsForCoordinates(Coordinates gridCoordinates) {
         Hexagon hexagon = new Hexagon(20, gridCoordinates);
         Point center = hexagon.getCenter();
