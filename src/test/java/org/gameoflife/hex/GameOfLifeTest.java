@@ -14,7 +14,7 @@ public class GameOfLifeTest {
     void testZeroDies() {
         String timeline = "";
         GameOfLife gameOfLife = new GameOfLife();
-        gameOfLife.board.setAlive(4, 4);
+        gameOfLife.setAlive(4, 4);
         timeline += gameOfLife;
         GameOfLife gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
@@ -26,10 +26,10 @@ public class GameOfLifeTest {
     void testTwoFirstLevelNeighbours() {
         String timeline = "";
         GameOfLife gameOfLife = new GameOfLife();
-        gameOfLife.board.setAlive(4, 4);
-        gameOfLife.board.setAlive(3, 5);
-        gameOfLife.board.setAlive(4, 6);
-        gameOfLife.board.setAlive(5, 5);
+        gameOfLife.setAlive(4, 4);
+        gameOfLife.setAlive(3, 5);
+        gameOfLife.setAlive(4, 6);
+        gameOfLife.setAlive(5, 5);
         timeline += HexPrinter.print(gameOfLife.board);
         GameOfLife gameOfLife2 = gameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
