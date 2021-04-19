@@ -6,6 +6,7 @@ import com.spun.util.WindowUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Optional;
 
 public class GameOfLifePanel extends JPanel {
     public int boardWidth = 20;
@@ -108,6 +109,10 @@ public class GameOfLifePanel extends JPanel {
 
         g.setColor(Color.BLACK);
         g.drawPolygon(hexagon.getPolygon());
+    }
+
+    public Optional<Coordinates> getGridCoordinatesAt(Point point) {
+        return Optional.ofNullable(getGridAt(point));
     }
 
     public Coordinates getGridAt(Point point) {
