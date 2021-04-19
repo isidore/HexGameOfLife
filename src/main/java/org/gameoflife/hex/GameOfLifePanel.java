@@ -21,7 +21,7 @@ public class GameOfLifePanel extends JPanel {
 
     public static void main(String[] args) {
         GameOfLife gameOfLife = setupInitialScenario();
-        createPanelAndStartGame(gameOfLife);
+        createPanelAndStartGame(getGameOfLifePanel(gameOfLife));
     }
 
     void onResize() {
@@ -54,13 +54,17 @@ public class GameOfLifePanel extends JPanel {
     }
 
 
-    private static void createPanelAndStartGame(GameOfLife gameOfLife) {
-        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
-        gameOfLifePanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
-        gameOfLifePanel.addComponentListener(new ResizeListener(gameOfLifePanel));
+    private static void createPanelAndStartGame(GameOfLifePanel gameOfLifePanel) {
 
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
+    }
+
+    private static GameOfLifePanel getGameOfLifePanel(GameOfLife gameOfLife) {
+        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
+        gameOfLifePanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
+        gameOfLifePanel.addComponentListener(new ResizeListener(gameOfLifePanel));
+        return gameOfLifePanel;
     }
 
     private static GameOfLife setupInitialScenario() {
