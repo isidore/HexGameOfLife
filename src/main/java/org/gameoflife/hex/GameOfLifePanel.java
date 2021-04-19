@@ -65,12 +65,9 @@ public class GameOfLifePanel extends JPanel {
     }
 
     private static ComponentAdapter getL(GameOfLifePanel gameOfLifePanel) {
-        return new ComponentAdapter() {
-            public void componentResized(ComponentEvent e) {
-                gameOfLifePanel.onResize();
-            }
-        };
+        return new ResizeListener(gameOfLifePanel);
     }
+
 
     private void start() {
         while (true) {
@@ -133,4 +130,15 @@ public class GameOfLifePanel extends JPanel {
     }
 
 
+    private static class ResizeListener extends ComponentAdapter {
+        private final GameOfLifePanel gameOfLifePanel;
+
+        public ResizeListener(GameOfLifePanel gameOfLifePanel) {
+            this.gameOfLifePanel = gameOfLifePanel;
+        }
+
+        public void componentResized(ComponentEvent e) {
+            gameOfLifePanel.onResize();
+        }
+    }
 }
