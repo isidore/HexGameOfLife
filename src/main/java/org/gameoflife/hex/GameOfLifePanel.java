@@ -131,7 +131,8 @@ public class GameOfLifePanel extends JPanel {
     }
 
     public void setAliveAt(Point point) {
-        Coordinates hex = getGridAt(point);
+        Optional<Coordinates> cell = getGridCoordinatesAt(point);
+        Coordinates hex = cell.get();
         game.setAlive(hex.getX(), hex.getY());
         repaint();
     }
