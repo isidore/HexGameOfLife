@@ -1,6 +1,9 @@
 package org.gameoflife.hex;
 
 import com.spun.util.NumberUtils;
+import org.approvaltests.awt.AwtApprovals;
+import org.approvaltests.reporters.ClipboardReporter;
+import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -10,6 +13,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOfLifePanelTest {
+    @Test
+    @UseReporter(ClipboardReporter.class)
+    static void testGui() {
+        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 6, true);
+        AwtApprovals.verify(new GameOfLifePanel(game));
+    }
+
     @Test
     void testFindHex() {
         assertFindHex(15, 15, "(0,0)");
