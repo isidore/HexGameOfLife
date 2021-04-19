@@ -34,7 +34,7 @@ public class GameOfLifePanel extends JPanel {
         Point center = new Hexagon(radius, new Coordinates(0, 0)).getCenter();
         double hexWidth = center.x * 2;
         int boardWidth = (int) (sizeInPixel.width/hexWidth * 2);
-        int boardHeight = (int)(sizeInPixel.height/(center.y*2) * 1.5);
+        int boardHeight = (int)(sizeInPixel.height/(center.y * 2) * 1.5);
 
         return new Dimension(boardWidth, boardHeight);
     }
