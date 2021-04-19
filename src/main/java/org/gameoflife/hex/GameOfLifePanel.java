@@ -18,6 +18,11 @@ public class GameOfLifePanel extends JPanel {
         this.setPreferredSize(getPanelDimension(radius, boardWidth - 1, boardHeight - 1));
     }
 
+    public static void main(String[] args) {
+        GameOfLife gameOfLife = setupInitialScenario();
+        createPanelAndStartGame(gameOfLife);
+    }
+
     void onResize() {
         Dimension size = getSize();
         Dimension d = getGridWidthAndHeightForPixels(radius, size);
@@ -47,10 +52,6 @@ public class GameOfLifePanel extends JPanel {
         return new Dimension(rightmostX, lowestY);
     }
 
-    public static void main(String[] args) {
-        GameOfLife gameOfLife = setupInitialScenario();
-        createPanelAndStartGame(gameOfLife);
-    }
 
     private static void createPanelAndStartGame(GameOfLife gameOfLife) {
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
