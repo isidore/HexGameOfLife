@@ -55,7 +55,6 @@ public class GameOfLifePanel extends JPanel {
 
 
     private static void createPanelAndStartGame(GameOfLifePanel gameOfLifePanel) {
-
         WindowUtils.testPanel(gameOfLifePanel);
         gameOfLifePanel.start();
     }
