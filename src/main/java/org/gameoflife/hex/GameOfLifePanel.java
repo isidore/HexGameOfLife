@@ -112,22 +112,21 @@ public class GameOfLifePanel extends JPanel {
     }
 
     public Optional<Coordinates> getGridCoordinatesAt(Point point) {
-        return Optional.ofNullable(getGridAt(point));
-    }
-
-    public Coordinates getGridAt(Point point) {
+        Coordinates result = null;
         for (int x = 0; x < boardWidth; x++) {
             for (int y = 0; y < boardHeight; y++) {
                 if (Board.isValidCoordinate(x, y)) {
                     Coordinates coordinates = new Coordinates(x, y);
                     Hexagon hexagon = new Hexagon(radius, coordinates);
                     if (hexagon.getPolygon().contains(point)) {
-                        return coordinates;
+                        result = coordinates;
+                        break;
                     }
                 }
             }
+            if (result != null) break;
         }
-        return null;
+        return Optional.ofNullable(result);
     }
 
     public void setAliveAt(Point point) {
