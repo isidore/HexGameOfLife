@@ -17,7 +17,7 @@ class GameOfLifePanelTest {
     @UseReporter(ClipboardReporter.class)
     void testGui() {
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 6, true);
-        AwtApprovals.verify(new GameOfLifePanel(game));
+        AwtApprovals.verify(GameOfLifePanel.createGameOfLifePanel(game));
     }
 
     @Test
