@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOfLifePanelTest {
-
     @Test
     @UseReporter(ClipboardReporter.class)
     void testAdvanceTurn(){
