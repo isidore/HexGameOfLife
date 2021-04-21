@@ -1,4 +1,9 @@
 package org.gameoflife.hex;
 
-public class JPanelStoryboard {
+import javax.swing.*;
+
+public class JPanelStoryboard extends JPanel{
+    public void addPanel(JPanel jPanel) {
+
+    }
 }
