@@ -13,7 +13,7 @@ public class GameOfLifePanel extends JPanel {
     public int boardHeight = 10;
     private final int radius = 20;
 
-    private GameOfLife game;
+    public GameOfLife game;
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
