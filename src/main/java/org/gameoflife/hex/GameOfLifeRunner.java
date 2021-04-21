@@ -34,8 +34,7 @@ public class GameOfLifeRunner {
     private static void start(GameOfLifePanel gameOfLifePanel) {
         while (true) {
             ThreadUtils.sleep(1000);
-            gameOfLifePanel.game = gameOfLifePanel.game.advanceTurn();
-            gameOfLifePanel.repaint();
+            gameOfLifePanel.advanceTurn();
         }
     }
 }
