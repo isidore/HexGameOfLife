@@ -29,6 +29,11 @@ public class GameOfLifePanel extends JPanel {
         this.boardHeight = d.height;
     }
 
+    public void advanceTurn() {
+        this.game = game.advanceTurn();
+        this.repaint();
+    }
+
     public static Dimension getGridWidthAndHeightForPixels(int radius, Dimension sizeInPixel) {
         Point center = new Hexagon(radius, new Coordinates(0, 0)).getCenter();
         double hexWidth = center.x * 2;
@@ -38,7 +43,6 @@ public class GameOfLifePanel extends JPanel {
         return new Dimension(boardWidth, boardHeight);
     }
 
-
     public static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
         Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
@@ -47,7 +51,6 @@ public class GameOfLifePanel extends JPanel {
 
         return new Dimension(rightmostX, lowestY);
     }
-
 
     @Override
     public void paint(Graphics g) {

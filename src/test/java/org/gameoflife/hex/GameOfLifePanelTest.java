@@ -21,6 +21,16 @@ class GameOfLifePanelTest {
     }
 
     @Test
+    @UseReporter(ClipboardReporter.class)
+    void testAdvanceTurn(){
+        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 4, false);
+        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
+
+        gameOfLifePanel.advanceTurn();
+        AwtApprovals.verify(gameOfLifePanel);
+    }
+
+    @Test
     void testFindHex() {
         assertFindHex(15, 15, "(0,0)");
         assertFindHex(159, 104, "(9,3)");
