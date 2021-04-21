@@ -18,6 +18,10 @@ public class GameOfLifePanel extends JPanel {
         this.setPreferredSize(getPanelDimension(radius, boardWidth - 1, boardHeight - 1));
     }
 
+    public GameOfLifePanel() {
+        this(new GameOfLife());
+    }
+
     void onResize() {
         Dimension size = getSize();
         Dimension d = getGridWidthAndHeightForPixels(radius, size);
@@ -34,9 +38,6 @@ public class GameOfLifePanel extends JPanel {
         return new Dimension(boardWidth, boardHeight);
     }
 
-    public GameOfLifePanel() {
-        this(new GameOfLife());
-    }
 
     public static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
