@@ -12,6 +12,11 @@ public class GameOfLifePanel extends JPanel {
     public int boardWidth = 20;
     public int boardHeight = 10;
     private final int radius = 20;
+
+    public GameOfLife getGame() {
+        return game;
+    }
+
     private GameOfLife game;
 
     public GameOfLifePanel(GameOfLife game) {
@@ -56,7 +61,7 @@ public class GameOfLifePanel extends JPanel {
 
     private static void startGame(GameOfLifePanel gameOfLifePanel) {
         WindowUtils.testPanel(gameOfLifePanel);
-        gameOfLifePanel.start();
+        GameOfLifePanel.start(gameOfLifePanel);
     }
 
     public static GameOfLifePanel createGameOfLifePanel(GameOfLife gameOfLife) {
@@ -75,11 +80,11 @@ public class GameOfLifePanel extends JPanel {
         return gameOfLife;
     }
 
-    private void start() {
+    private static void start(GameOfLifePanel gameOfLifePanel) {
         while (true) {
             ThreadUtils.sleep(1000);
-            game = game.advanceTurn();
-            this.repaint();
+            gameOfLifePanel.game = gameOfLifePanel.game.advanceTurn();
+            gameOfLifePanel.repaint();
         }
     }
 
