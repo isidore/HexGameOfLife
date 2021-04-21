@@ -6,6 +6,7 @@ import org.approvaltests.reporters.ClipboardReporter;
 import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Optional;
 
@@ -18,6 +19,8 @@ class GameOfLifePanelTest {
     void testAdvanceTurn(){
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 4, false);
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
+
+        JPanelStoryboard jPanelStoryboard = new JPanelStoryboard();
 
         gameOfLifePanel.advanceTurn();
         AwtApprovals.verify(gameOfLifePanel);
