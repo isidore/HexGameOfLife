@@ -13,12 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOfLifePanelTest {
-    @Test
-    @UseReporter(ClipboardReporter.class)
-    static void testGui() {
-        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 6, true);
-        AwtApprovals.verify(GameOfLifeRunner.createGameOfLifePanel(game));
-    }
 
     @Test
     @UseReporter(ClipboardReporter.class)
