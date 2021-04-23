@@ -11,6 +11,6 @@ class ResizeListener extends ComponentAdapter {
     }
 
     public void componentResized(ComponentEvent e) {
-        gameOfLifePanel.onResize();
+        gameOfLifePanel.onResize(e.getComponent().getSize());
     }
 }

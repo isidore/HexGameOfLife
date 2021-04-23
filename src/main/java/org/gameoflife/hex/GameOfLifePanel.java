@@ -1,15 +1,19 @@
 package org.gameoflife.hex;
 
+import com.spun.swing.Paintable;
 import com.spun.util.Colors;
+import org.lambda.actions.Action0;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Optional;
 
-public class GameOfLifePanel extends JPanel {
+public class GameOfLifePanel implements Paintable {
+    private Dimension size;
     public int boardWidth = 20;
     public int boardHeight = 10;
     private final int radius = 20;
+    private Action0 repaint = ()->{};
 
     public GameOfLife getGame() {
         return game;
@@ -19,15 +23,15 @@ public class GameOfLifePanel extends JPanel {
 
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
-        this.setPreferredSize(getPanelDimension(radius, boardWidth - 1, boardHeight - 1));
+        this.size = getPanelDimension(radius, boardWidth - 1, boardHeight - 1);
     }
 
     public GameOfLifePanel() {
         this(new GameOfLife());
     }
 
-    void onResize() {
-        Dimension size = getSize();
+    void onResize(Dimension size) {
+        this.size = size;
         Dimension d = getGridWidthAndHeightForPixels(radius, size);
         this.boardWidth = d.width;
         this.boardHeight = d.height;
@@ -57,10 +61,14 @@ public class GameOfLifePanel extends JPanel {
     }
 
     @Override
+    public Dimension getSize() {
+        return size;
+    }
+
+    @Override
     public void paint(Graphics g) {
-        super.paint(g);
         g.setColor(Colors.Blues.AliceBlue);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        g.fillRect(0, 0, this.getSize().width, this.getSize().height);
         fillBoardWithHexagons(g, game);
     }
 
@@ -110,5 +118,13 @@ public class GameOfLifePanel extends JPanel {
         Coordinates hex = cell.get();
         game.setAlive(hex.getX(), hex.getY());
         repaint();
+    }
+
+    private void repaint() {
+        repaint.call();
+    }
+
+    public void registerRepaint(Action0 repaint) {
+        this.repaint = repaint;
     }
 }

@@ -1,25 +1,54 @@
 package org.gameoflife.hex;
 
+import com.spun.swing.Paintable;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class GameOfLifeRunner {
     public static void main(String[] args) {
         GameOfLife gameOfLife = setupInitialScenario();
-        GameOfLifePanel gameOfLifePanel = createGameOfLifePanel(gameOfLife);
+        PaintablePanel<GameOfLifePanel> gameOfLifePanel = createGameOfLifePanel(gameOfLife);
         startGame(gameOfLifePanel);
     }
 
-    private static void startGame(GameOfLifePanel gameOfLifePanel) {
+    private static void startGame(PaintablePanel<GameOfLifePanel> gameOfLifePanel) {
         WindowUtils.testPanel(gameOfLifePanel);
-        start(gameOfLifePanel);
+        start(gameOfLifePanel.get());
     }
 
-    public static GameOfLifePanel createGameOfLifePanel(GameOfLife gameOfLife) {
+    public static class PaintablePanel<T extends Paintable> extends JPanel {
+        private final T paintable;
+
+        public PaintablePanel(T paintable) {
+            this.paintable = paintable;
+            this.setPreferredSize(paintable.getSize());
+            ((GameOfLifePanel)paintable).registerRepaint(this::repaint);
+        }
+
+        public T get() {
+            return paintable;
+        }
+
+        public void paint(Graphics g) {
+            this.paintable.paint(g);
+        }
+    }
+
+
+    public static <T extends Paintable> PaintablePanel<T> asPanel(T paintable) {
+        return new PaintablePanel(paintable);
+    }
+
+    public static PaintablePanel<GameOfLifePanel> createGameOfLifePanel(GameOfLife gameOfLife) {
+
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
-        gameOfLifePanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
-        gameOfLifePanel.addComponentListener(new ResizeListener(gameOfLifePanel));
-        return gameOfLifePanel;
+        PaintablePanel<GameOfLifePanel> jPanel = asPanel(gameOfLifePanel);
+        jPanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
+        jPanel.addComponentListener(new ResizeListener(gameOfLifePanel));
+        return jPanel;
     }
 
     private static GameOfLife setupInitialScenario() {
