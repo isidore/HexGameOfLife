@@ -17,13 +17,19 @@ class GameOfLifePanelTest {
     @Test
     @UseReporter(ClipboardReporter.class)
     void testAdvanceTurn(){
-        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 4, false);
-        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
-
         JPanelStoryboard jPanelStoryboard = new JPanelStoryboard();
 
-        gameOfLifePanel.advanceTurn();
-        AwtApprovals.verify(gameOfLifePanel);
+        GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 4, false);
+        GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
+        jPanelStoryboard.addPanel(gameOfLifePanel);
+
+        GameOfLife game1 = new GameOfLife(gameOfLifePanel.getGame().board.getLiveCells());
+        GameOfLifePanel gameOfLifePanel1 = new GameOfLifePanel(game1);
+        gameOfLifePanel1.advanceTurn();
+
+        jPanelStoryboard.addPanel(gameOfLifePanel1);
+
+        AwtApprovals.verify(jPanelStoryboard);
     }
 
     @Test
