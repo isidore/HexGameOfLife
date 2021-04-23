@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOfLifePanelTest {
     @Test
-    @UseReporter(ClipboardReporter.class)
+    @UseReporter(MyFileCaptureReporter.class)
     void testAdvanceTurn(){
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 4, false);
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
