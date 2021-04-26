@@ -15,7 +15,7 @@ import java.util.Arrays;
 class GameOfLifeRunnerTest {
 
     @Test
-    @UseReporter(MyFileCaptureReporter.class)
+    @UseReporter(FileCaptureReporter.class)
     void testGui() {
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 6, true);
         AwtApprovals.verify(GameOfLifeRunner.createGameOfLifePanel(game));
