@@ -17,7 +17,7 @@ public class MyFileCaptureReporter extends FileCaptureReporter {
         }
     }
 
-    private void run(String... command) {
+    public static void run(String... command) {
         SimpleLogger.event(Arrays.toString(command));
 
         try {
