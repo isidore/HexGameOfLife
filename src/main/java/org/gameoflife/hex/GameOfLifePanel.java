@@ -4,21 +4,15 @@ import com.spun.swing.Paintable;
 import com.spun.util.Colors;
 import org.lambda.actions.Action0;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.Optional;
 
 public class GameOfLifePanel implements Paintable {
-    private Dimension size;
+    private final int radius = 20;
     public int boardWidth = 20;
     public int boardHeight = 10;
-    private final int radius = 20;
-    private Action0 repaint = ()->{};
-
-    public GameOfLife getGame() {
-        return game;
-    }
-
+    private Dimension size;
+    private Action0 repaint = () -> {};
     private GameOfLife game;
 
     public GameOfLifePanel(GameOfLife game) {
@@ -30,23 +24,15 @@ public class GameOfLifePanel implements Paintable {
         this(new GameOfLife());
     }
 
-    void onResize(Dimension size) {
-        this.size = size;
-        Dimension d = getGridWidthAndHeightForPixels(radius, size);
-        this.boardWidth = d.width;
-        this.boardHeight = d.height;
-    }
-
-    public void advanceTurn() {
-        this.game = game.advanceTurn();
-        this.repaint();
+    public GameOfLife getGame() {
+        return game;
     }
 
     public static Dimension getGridWidthAndHeightForPixels(int radius, Dimension sizeInPixel) {
         Point center = new Hexagon(radius, new Coordinates(0, 0)).getCenter();
         double hexWidth = center.x * 2;
-        int boardWidth = (int) (sizeInPixel.width/hexWidth * 2);
-        int boardHeight = (int)(sizeInPixel.height/(center.y * 2) * 1.5);
+        int boardWidth = (int) (sizeInPixel.width / hexWidth * 2);
+        int boardHeight = (int) (sizeInPixel.height / (center.y * 2) * 1.5);
 
         return new Dimension(boardWidth, boardHeight);
     }
@@ -58,6 +44,19 @@ public class GameOfLifePanel implements Paintable {
         int lowestY = boundingBox.y + boundingBox.height + 1;
 
         return new Dimension(rightmostX, lowestY);
+    }
+
+
+    void onResize(Dimension size) {
+        this.size = size;
+        Dimension d = getGridWidthAndHeightForPixels(radius, size);
+        this.boardWidth = d.width;
+        this.boardHeight = d.height;
+    }
+
+    public void advanceTurn() {
+        this.game = game.advanceTurn();
+        this.repaint();
     }
 
     @Override
