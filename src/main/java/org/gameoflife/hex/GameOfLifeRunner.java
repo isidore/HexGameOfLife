@@ -1,11 +1,9 @@
 package org.gameoflife.hex;
 
-import com.spun.swing.Paintable;
+import com.spun.swing.PaintablePanel;
+import com.spun.swing.Paintables;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class GameOfLifeRunner {
     public static void main(String[] args) {
@@ -16,36 +14,18 @@ public class GameOfLifeRunner {
 
     private static void startGame(PaintablePanel<GameOfLifePanel> gameOfLifePanel) {
         WindowUtils.testPanel(gameOfLifePanel);
-        start(gameOfLifePanel.get());
-    }
-
-    public static class PaintablePanel<T extends Paintable> extends JPanel {
-        private final T paintable;
-
-        public PaintablePanel(T paintable) {
-            this.paintable = paintable;
-            this.setPreferredSize(paintable.getSize());
-            ((GameOfLifePanel)paintable).registerRepaint(this::repaint);
-        }
-
-        public T get() {
-            return paintable;
-        }
-
-        public void paint(Graphics g) {
-            this.paintable.paint(g);
+        while (true) {
+            ThreadUtils.sleep(1000);
+            gameOfLifePanel.get().advanceTurn();
         }
     }
 
 
-    public static <T extends Paintable> PaintablePanel<T> asPanel(T paintable) {
-        return new PaintablePanel(paintable);
-    }
 
     public static PaintablePanel<GameOfLifePanel> createGameOfLifePanel(GameOfLife gameOfLife) {
 
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
-        PaintablePanel<GameOfLifePanel> jPanel = asPanel(gameOfLifePanel);
+        PaintablePanel<GameOfLifePanel> jPanel = Paintables.asPanel(gameOfLifePanel);
         jPanel.addMouseListener(new MouseReleaseListener(gameOfLifePanel));
         jPanel.addComponentListener(new ResizeListener(gameOfLifePanel));
         return jPanel;
@@ -60,10 +40,4 @@ public class GameOfLifeRunner {
         return gameOfLife;
     }
 
-    private static void start(GameOfLifePanel gameOfLifePanel) {
-        while (true) {
-            ThreadUtils.sleep(1000);
-            gameOfLifePanel.advanceTurn();
-        }
-    }
 }
