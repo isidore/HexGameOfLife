@@ -18,6 +18,6 @@ class GameOfLifeRunnerTest {
     //@UseReporter(MyFileCaptureReporter.class)
     void testGui() {
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 6, true);
-        AwtApprovals.verify(GameOfLifeRunner.createGameOfLifePanel(game));
+        AwtApprovals.verify(GameOfLifeRunner.createGameOfLifePanel(game).get());
     }
 }
