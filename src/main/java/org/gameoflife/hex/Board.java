@@ -1,5 +1,6 @@
 package org.gameoflife.hex;
 
+
 import com.spun.util.FormattedException;
 
 import java.util.List;
@@ -45,6 +46,6 @@ public class Board {
     }
 
     public boolean isAlive(int x, int y) {
-        return isAlive(new Cell(x,y));
+        return isAlive(new Cell(x, y));
     }
 }
