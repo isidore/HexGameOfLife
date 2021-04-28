@@ -11,7 +11,7 @@ import java.awt.*;
 public class JPanelStoryboardTest {
 
     @Test
-    @UseReporter(ClipboardReporter.class)
+    @UseReporter(MyFileCaptureReporter.class)
     void testInitialJPanel() {
         JPanelStoryboard storyboard = new JPanelStoryboard();
         storyboard.addPanel(new TestStoryPanel(3));
