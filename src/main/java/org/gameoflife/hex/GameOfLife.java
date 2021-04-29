@@ -76,6 +76,6 @@ public class GameOfLife {
     }
 
     public boolean isAlive(int x, int y) {
-        return false;
+        return board.isAlive(x,y);
     }
 }
