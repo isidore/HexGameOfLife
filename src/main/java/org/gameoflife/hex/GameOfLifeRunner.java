@@ -21,7 +21,6 @@ public class GameOfLifeRunner {
     }
 
 
-
     public static PaintablePanel<GameOfLifePanel> createGameOfLifePanel(GameOfLife gameOfLife) {
 
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);

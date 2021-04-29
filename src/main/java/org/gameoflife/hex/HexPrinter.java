@@ -11,9 +11,9 @@ public class HexPrinter {
             for (int y = 0; y < size; y++) {
                 if (Board.isValidCoordinate(x, y)) {
                     if (board.isAlive(new Cell(x, y))) {
-                        asciiBoard.printHex("X", "X", 'X', translateX(x,y), translateY(x, y));
+                        asciiBoard.printHex("X", "X", 'X', translateX(x, y), translateY(x, y));
                     } else {
-                        asciiBoard.printHex(x + "," + y, "", ' ', translateX(x,y), translateY(x, y));
+                        asciiBoard.printHex(x + "," + y, "", ' ', translateX(x, y), translateY(x, y));
 
                     }
                 }
@@ -29,6 +29,6 @@ public class HexPrinter {
     private static int translateX(int x, int y) {
         int emptyspaces = (x + 1) / 2;
         //return 10 + x - (y / 2) - emptyspaces;
-        return x-emptyspaces;
+        return x - emptyspaces;
     }
 }

@@ -1,10 +1,12 @@
 package org.gameoflife.hex;
 
 import org.apache.commons.lang.math.DoubleRange;
-import org.apache.commons.lang.math.IntRange;
 import org.lambda.query.Queryable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class GameOfLife {
 
@@ -20,14 +22,14 @@ public class GameOfLife {
     }
 
     public GameOfLife advanceTurn() {
-        Queryable<Cell> nextLivingCells  = getLiveCellsAndNeighbours()
+        Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
                 .where(c -> survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
         return new GameOfLife(nextLivingCells);
     }
 
     public static boolean survivesToNextTurn(double sum, boolean alive) {
-        DoubleRange survivable = new DoubleRange(2,3.3);
+        DoubleRange survivable = new DoubleRange(2, 3.3);
         DoubleRange growth = new DoubleRange(2.3, 2.9);
 
         boolean survives = survivable.containsDouble(sum) && alive;

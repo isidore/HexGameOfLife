@@ -1,10 +1,12 @@
 package org.gameoflife.hex;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Cell {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Cell(int x, int y) {
 
@@ -13,7 +15,7 @@ public class Cell {
     }
 
     public static Cell create(int x, int y) {
-        return new Cell(x,y);
+        return new Cell(x, y);
     }
 
     public List<Cell> getAllNeighbours() {
@@ -28,7 +30,7 @@ public class Cell {
         cells.add(new Cell(x - 1, y - 1));
         cells.add(new Cell(x + 1, y - 1));
         cells.add(new Cell(x - 2, y));
-        cells.add(new Cell(x + 2, y ));
+        cells.add(new Cell(x + 2, y));
         cells.add(new Cell(x - 1, y + 1));
         cells.add(new Cell(x + 1, y + 1));
 
@@ -42,7 +44,7 @@ public class Cell {
         cells.add(new Cell(x - 3, y - 1));
         cells.add(new Cell(x + 3, y + 1));
         cells.add(new Cell(x - 3, y + 1));
-        cells.add(new Cell(x , y + 2));
+        cells.add(new Cell(x, y + 2));
 
         return cells;
     }

@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Coordinates {
 
-    private int y;
-    private int x;
+    private final int y;
+    private final int x;
 
     public Coordinates(int x, int y) {
         this.y = y;
@@ -22,7 +22,7 @@ public class Coordinates {
 
     @Override
     public String toString() {
-        return String.format("(%s,%s)", x,y);
+        return String.format("(%s,%s)", x, y);
     }
 
     @Override

@@ -27,7 +27,7 @@ public class Hexagon {
         return point;
     }
 
-    private static Point centerPointInHexagon(int radius, Point point){
+    private static Point centerPointInHexagon(int radius, Point point) {
         Point centeredPoint = new Point();
 
         centeredPoint.x = point.x + getHalfHexWidth(radius);
@@ -39,8 +39,8 @@ public class Hexagon {
     public Polygon getPolygon() {
         Queryable<Point> points = getPoints();
 
-        int[] pointsX = points.select(p->p.x).stream().mapToInt(Integer::intValue).toArray();
-        int[] pointsY = points.select(p->p.y).stream().mapToInt(Integer::intValue).toArray();
+        int[] pointsX = points.select(p -> p.x).stream().mapToInt(Integer::intValue).toArray();
+        int[] pointsY = points.select(p -> p.y).stream().mapToInt(Integer::intValue).toArray();
 
         return new Polygon(pointsX, pointsY, 7);
     }
