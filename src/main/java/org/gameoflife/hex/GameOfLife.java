@@ -74,4 +74,8 @@ public class GameOfLife {
     public String toString() {
         return this.board.toString();
     }
+
+    public boolean isAlive(int x, int y) {
+        return false;
+    }
 }
