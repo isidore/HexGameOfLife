@@ -1,14 +1,13 @@
 package org.gameoflife.hex;
 
 import org.approvaltests.Approvals;
-import org.approvaltests.reporters.QuietReporter;
-import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //@UseReporter(QuietReporter.class)
 class BoardTest {
@@ -32,7 +31,7 @@ class BoardTest {
     @Test
     void testExceptionIsThrownForInvalidCoordinate() {
         Approvals.verifyException(() ->
-            new Board().setAlive(1,2));
+                new Board().setAlive(1, 2));
     }
 
     @Test

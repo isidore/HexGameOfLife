@@ -2,11 +2,8 @@ package org.gameoflife.hex;
 
 import com.spun.util.NumberUtils;
 import org.approvaltests.awt.AwtApprovals;
-import org.approvaltests.reporters.ClipboardReporter;
-import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.Optional;
 
@@ -15,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOfLifePanelTest {
     @Test
-    void testAdvanceTurn(){
+    void testAdvanceTurn() {
         GameOfLife game = GameOfLifeTest.createGameWithNeighbours(6, 4, false);
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(game);
 
@@ -32,7 +29,7 @@ class GameOfLifePanelTest {
 
     @Test
     void testResize() {
-        testGetPixelsForCoordinates(new Coordinates(0,0));
+        testGetPixelsForCoordinates(new Coordinates(0, 0));
         testGetPixelsForCoordinates(new Coordinates(2, 0));
     }
 

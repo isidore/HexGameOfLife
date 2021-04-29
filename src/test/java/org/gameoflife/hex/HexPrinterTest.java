@@ -1,9 +1,6 @@
 package org.gameoflife.hex;
 
 import org.approvaltests.Approvals;
-import org.approvaltests.awt.AwtApprovals;
-import org.approvaltests.reporters.ClipboardReporter;
-import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.Test;
 
 class HexPrinterTest {
@@ -14,7 +11,7 @@ class HexPrinterTest {
 
         for (int x = 0; x < 10; x++) {
             for (int y = 0; y < 10; y++) {
-                if(Board.isValidCoordinate(x, y)){
+                if (Board.isValidCoordinate(x, y)) {
                     result.append(createTestOutputForBoardWithCellAtCoords(x, y));
                 }
             }

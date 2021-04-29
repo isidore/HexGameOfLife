@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class CellTest {
 
     @Test
@@ -24,7 +22,7 @@ public class CellTest {
 
     @Test
     void testGetAllNeighbours() {
-        Cell cell = new Cell(4,4);
+        Cell cell = new Cell(4, 4);
         List<Cell> allNeighbours = new ArrayList<>(cell.getAllNeighbours());
         GameOfLife gameOfLife = new GameOfLife(allNeighbours);
         Approvals.verify(HexPrinter.print(gameOfLife.board));
