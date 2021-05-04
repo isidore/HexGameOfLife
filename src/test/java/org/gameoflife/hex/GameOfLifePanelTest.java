@@ -1,12 +1,19 @@
 package org.gameoflife.hex;
 
+import com.spun.swing.Paintable;
 import com.spun.util.NumberUtils;
+import org.approvaltests.Approvals;
 import org.approvaltests.awt.AwtApprovals;
+import org.approvaltests.core.Options;
+import org.approvaltests.namer.NamerFactory;
+import org.approvaltests.writers.PaintableApprovalWriter;
 import org.junit.jupiter.api.Test;
+import org.lambda.functions.Function1;
 
 import java.awt.*;
 import java.util.Optional;
 
+import static org.gameoflife.hex.GameOfLifeRunner.setupInitialScenario;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -33,6 +40,19 @@ class GameOfLifePanelTest {
         testGetPixelsForCoordinates(new Coordinates(2, 0));
     }
 
+    @Test
+    void testSequence() {
+        // create game of life
+        GameOfLifePanel panel = new GameOfLifePanel(setupInitialScenario());
+        verifyMultipleFrames(10, (frameNumber) -> {
+            panel.advanceTurn();
+            return panel;
+        });
+    }
+
+    private void verifyMultipleFrames(int numberOfFrames, Function1<Integer, Paintable> frameGetter) {
+        Approvals.verify(new PaintableMultiframeWriter(numberOfFrames, frameGetter), new Options());
+    }
 
     //Only checking maintained functionality... This test is wrong...
     private void testGetPixelsForCoordinates(Coordinates gridCoordinates) {

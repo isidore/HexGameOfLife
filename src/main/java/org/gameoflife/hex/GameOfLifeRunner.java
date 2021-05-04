@@ -30,7 +30,7 @@ public class GameOfLifeRunner {
         return jPanel;
     }
 
-    private static GameOfLife setupInitialScenario() {
+    public static GameOfLife setupInitialScenario() {
         GameOfLife gameOfLife = new GameOfLife();
         gameOfLife.setAlive(4, 4);
         gameOfLife.setAlive(3, 5);
