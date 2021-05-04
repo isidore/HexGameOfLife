@@ -44,7 +44,7 @@ class GameOfLifePanelTest {
     void testSequence() {
         // create game of life
         GameOfLifePanel panel = new GameOfLifePanel(setupInitialScenario());
-        verifyMultipleFrames(10, (frameNumber) -> {
+        verifyMultipleFrames(4, (frameNumber) -> {
             panel.advanceTurn();
             return panel;
         });

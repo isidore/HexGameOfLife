@@ -31,7 +31,7 @@ public class PaintableMultiframeWriter implements ApprovalWriter {
             ArrayList<BufferedImage> images = getBufferedImages();
 
             try (ImageOutputStream output = new FileImageOutputStream(received)) {
-                try (GifSequenceWriter writer = new GifSequenceWriter(output, images.get(0).getType(), 1, true)) {
+                try (GifSequenceWriter writer = new GifSequenceWriter(output, images.get(0).getType(), 500, true)) {
                     for (BufferedImage image : images) {
                         writer.writeToSequence(image);
                     }
