@@ -13,6 +13,7 @@ import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class PaintableMultiframeWriter implements ApprovalWriter {
@@ -27,26 +28,29 @@ public class PaintableMultiframeWriter implements ApprovalWriter {
     @Override
     public File writeReceivedFile(File received) {
         try {
-            ImageOutputStream output = new FileImageOutputStream(received);
+            ArrayList<BufferedImage> images = getBufferedImages();
 
-
-            BufferedImage image = PaintableApprovalWriter.drawComponent(frameGetter.call(0));
-            GifSequenceWriter writer =
-                    new GifSequenceWriter(output, image.getType(), 1, true);
-            writer.writeToSequence(image);
-            for (int i = 1; i < numberOfFrames; i++) {
-                image = PaintableApprovalWriter.drawComponent(frameGetter.call(i));
-                writer.writeToSequence(image);
-
+            try (ImageOutputStream output = new FileImageOutputStream(received)) {
+                try (GifSequenceWriter writer = new GifSequenceWriter(output, images.get(0).getType(), 1, true)) {
+                    for (BufferedImage image : images) {
+                        writer.writeToSequence(image);
+                    }
+                }
             }
-
-            writer.close();
-            output.close();
 
             return received;
         } catch (Exception e) {
             throw ObjectUtils.throwAsError(e);
         }
+    }
+
+    private ArrayList<BufferedImage> getBufferedImages() {
+        ArrayList<BufferedImage> images = new ArrayList<>();
+        for (int i = 0; i < numberOfFrames ; i++) {
+            BufferedImage image = PaintableApprovalWriter.drawComponent(frameGetter.call(i));
+            images.add(image);
+        }
+        return images;
     }
 
     @Override

@@ -16,7 +16,7 @@ import java.awt.image.*;
 import java.io.*;
 import java.util.Iterator;
 
-public class GifSequenceWriter {
+public class GifSequenceWriter implements AutoCloseable{
     protected ImageWriter gifWriter;
     protected ImageWriteParam imageWriteParam;
     protected IIOMetadata imageMetaData;
