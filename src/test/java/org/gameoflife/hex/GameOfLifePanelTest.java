@@ -89,7 +89,7 @@ class GameOfLifePanelTest {
         int x = NumberUtils.getRandomInt(0, 10);
         int y = NumberUtils.getRandomInt(0, 9);
 
-        if (!Board.isValidCoordinate(x, y)) {
+        if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
             y++;
         }
 
