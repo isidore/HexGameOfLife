@@ -7,6 +7,7 @@ import org.approvaltests.awt.AwtApprovals;
 import org.approvaltests.core.Options;
 import org.approvaltests.namer.NamerFactory;
 import org.approvaltests.writers.PaintableApprovalWriter;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.lambda.functions.Function1;
 
@@ -40,6 +41,7 @@ class GameOfLifePanelTest {
         testGetPixelsForCoordinates(new Coordinates(2, 0));
     }
 
+    @Disabled
     @Test
     void testSequence() {
         // create game of life
