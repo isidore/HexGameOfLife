@@ -35,10 +35,6 @@ public class Board {
         return liveCells.contains(cell);
     }
 
-    public boolean isAlive(int x, int y) {
-        return isAlive(new Cell(x, y));
-    }
-
     @Override
     public String toString() {
         return HexPrinter.print(this);
