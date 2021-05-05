@@ -12,6 +12,9 @@ public class Board {
         return isValidCoordinate(gridAt.getX(), gridAt.getY());
     }
 
+    public static boolean isValidCoordinate2(Coordinates gridAt) {
+        return isValidCoordinate(gridAt.getX(), gridAt.getY());
+    }
 
     public List<Cell> getLiveCells() {
         return liveCells;
