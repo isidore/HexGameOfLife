@@ -5,8 +5,6 @@ import com.spun.util.NumberUtils;
 import org.approvaltests.Approvals;
 import org.approvaltests.awt.AwtApprovals;
 import org.approvaltests.core.Options;
-import org.approvaltests.namer.NamerFactory;
-import org.approvaltests.writers.PaintableApprovalWriter;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.lambda.functions.Function1;
@@ -102,7 +100,7 @@ class GameOfLifePanelTest {
     private void assertFindHex(int x, int y, String expected) {
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel();
         Coordinates gridAt = gameOfLifePanel.getGridCoordinatesAt(new Point(x, y)).get();
-        assertTrue(Board.isValidCoordinate(gridAt), "Invalid grid:" + gridAt);
+        assertTrue(GameOfLife.isValidCoordinates(gridAt), "Invalid grid:" + gridAt);
         assertEquals(expected, gridAt.toString());
     }
 }
