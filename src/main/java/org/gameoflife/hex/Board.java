@@ -34,6 +34,7 @@ public class Board {
     public boolean isAlive(Cell cell) {
         return liveCells.contains(cell);
     }
+
     public boolean isAlive(int x, int y) {
         return isAlive(new Cell(x, y));
     }
