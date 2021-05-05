@@ -76,7 +76,7 @@ public class GameOfLifePanel implements Paintable {
         for (int x = 0; x < boardWidth; x++) {
             for (int y = 0; y < boardHeight; y++) {
                 if (GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
-                    boolean isAlive = game.isAlive(x,y, new Cell(x,y));
+                    boolean isAlive = game.isAlive(new Cell(x,y));
                     paintHex(g, isAlive, new Coordinates(x, y));
                 }
             }

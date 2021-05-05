@@ -75,7 +75,7 @@ public class GameOfLife {
         return this.board.toString();
     }
 
-    public boolean isAlive(int x, int y, Cell cell) {
+    public boolean isAlive(Cell cell) {
         return board.isAlive(cell);
     }
 
