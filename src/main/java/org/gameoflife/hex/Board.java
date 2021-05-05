@@ -8,8 +8,11 @@ import java.util.List;
 public class Board {
     private List<Cell> liveCells;
 
-    public static boolean isValidCoordinate(Coordinates gridAt) {
-        return isValidCoordinate(gridAt.getX(), gridAt.getY());
+    static boolean isValidCoordinate(Coordinates gridAt) {
+        boolean xIsEven = gridAt.getX() % 2 == 0;
+        boolean yIsEven = gridAt.getY() % 2 == 0;
+
+        return yIsEven == xIsEven;
     }
 
     public List<Cell> getLiveCells() {
