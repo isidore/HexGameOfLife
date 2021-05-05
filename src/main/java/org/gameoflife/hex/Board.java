@@ -32,10 +32,7 @@ public class Board {
     }
 
     public static boolean isValidCoordinate(int x, int y) {
-        boolean xIsEven = x % 2 == 0;
-        boolean yIsEven = y % 2 == 0;
-
-        return yIsEven == xIsEven;
+        return GameOfLife.isValidCoordinates(new Coordinates(x,y));
     }
 
     public boolean isAlive(Cell cell) {
