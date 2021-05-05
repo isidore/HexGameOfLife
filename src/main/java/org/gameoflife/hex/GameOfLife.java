@@ -80,6 +80,6 @@ public class GameOfLife {
     }
 
     public static boolean isValidCoordinates(Coordinates coordinates){
-        return Board.isValidCoordinate2(coordinates);
+        return Board.isValidCoordinate(coordinates);
     }
 }

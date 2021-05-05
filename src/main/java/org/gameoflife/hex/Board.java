@@ -8,7 +8,7 @@ import java.util.List;
 public class Board {
     private List<Cell> liveCells;
 
-    public static boolean isValidCoordinate2(Coordinates gridAt) {
+    public static boolean isValidCoordinate(Coordinates gridAt) {
         return isValidCoordinate(gridAt.getX(), gridAt.getY());
     }
 
