@@ -32,6 +32,10 @@ public class Board {
     }
 
     boolean isAlive(Cell cell) {
+        return isAlive3(cell);
+    }
+
+    private boolean isAlive3(Cell cell) {
         return GameOfLife.isAlive2(liveCells, cell);
     }
 
