@@ -31,7 +31,7 @@ public class Board {
         liveCells.add(new Cell(x, y));
     }
 
-    boolean isAlive(Cell cell, List<Cell> liveCells2) {
+    boolean isAlive(Cell cell) {
         return GameOfLife.isAlive2(liveCells, cell);
     }
 

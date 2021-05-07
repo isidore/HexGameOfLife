@@ -27,7 +27,7 @@ public class GameOfLife {
 
     public GameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
-                .where(c -> survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c, board.getLiveCells())));
+                .where(c -> survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
         return new GameOfLife(nextLivingCells);
     }
@@ -52,7 +52,7 @@ public class GameOfLife {
         double score = 0;
 
         for (Cell cell : neighbours) {
-            if (board.isAlive(cell, board.getLiveCells())) {
+            if (board.isAlive(cell)) {
                 score += weight;
             }
         }
