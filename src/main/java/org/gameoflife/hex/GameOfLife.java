@@ -22,6 +22,10 @@ public class GameOfLife {
     }
 
     static boolean isAlive2(List<Cell> liveCells, Cell cell) {
+        return isAlive(liveCells, cell);
+    }
+
+    private static boolean isAlive(List<Cell> liveCells, Cell cell) {
         return liveCells.contains(cell);
     }
 
