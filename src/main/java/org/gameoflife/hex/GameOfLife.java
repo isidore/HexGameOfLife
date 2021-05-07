@@ -21,6 +21,10 @@ public class GameOfLife {
         this.board.setLiveCells(liveCells);
     }
 
+    static boolean isAlive2(List<Cell> liveCells, Cell cell) {
+        return liveCells.contains(cell);
+    }
+
     public GameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
                 .where(c -> survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
