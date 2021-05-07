@@ -80,7 +80,8 @@ public class GameOfLife {
     }
 
     public boolean isAlive(Cell cell) {
-        return isAlive2(board.getLiveCells(), cell);
+        boolean alive2 = isAlive2(board.getLiveCells(), cell);
+        return alive2;
     }
 
     public static boolean isValidCoordinates(Coordinates coordinates){
