@@ -31,11 +31,7 @@ public class Board {
         liveCells.add(new Cell(x, y));
     }
 
-    boolean isAlive(Cell cell) {
-        return isAlive3(cell);
-    }
-
-    private boolean isAlive3(Cell cell) {
+    boolean isAlive(Cell cell, List<Cell> liveCells2) {
         return GameOfLife.isAlive2(liveCells, cell);
     }
 
