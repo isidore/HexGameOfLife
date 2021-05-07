@@ -22,10 +22,6 @@ public class GameOfLife {
     }
 
     static boolean isAlive2(List<Cell> liveCells, Cell cell) {
-        return isAlive(liveCells, cell);
-    }
-
-    private static boolean isAlive(List<Cell> liveCells, Cell cell) {
         return liveCells.contains(cell);
     }
 
@@ -84,7 +80,7 @@ public class GameOfLife {
     }
 
     public boolean isAlive(Cell cell) {
-        return board.isAlive(cell);
+        return isAlive2(board.getLiveCells(), cell);
     }
 
     public static boolean isValidCoordinates(Coordinates coordinates){
