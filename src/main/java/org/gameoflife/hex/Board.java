@@ -32,7 +32,7 @@ public class Board {
     }
 
     boolean isAlive(Cell cell, List<Cell> liveCells2) {
-        return GameOfLife.isAlive2(liveCells, cell);
+        return GameOfLife.isAlive2(liveCells2, cell);
     }
 
     @Override
