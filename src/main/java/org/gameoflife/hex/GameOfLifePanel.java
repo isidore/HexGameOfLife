@@ -14,18 +14,18 @@ public class GameOfLifePanel implements Paintable {
     private Dimension size;
     private Action0 repaint = () -> {
     };
-    private GameOfLife game;
+    private HexGameOfLife game;
 
-    public GameOfLifePanel(GameOfLife game) {
+    public GameOfLifePanel(HexGameOfLife game) {
         this.game = game;
         this.size = getPanelDimension(radius, boardWidth - 1, boardHeight - 1);
     }
 
     public GameOfLifePanel() {
-        this(new GameOfLife());
+        this(new HexGameOfLife());
     }
 
-    public GameOfLife getGame() {
+    public HexGameOfLife getGame() {
         return game;
     }
 
@@ -72,7 +72,7 @@ public class GameOfLifePanel implements Paintable {
         fillBoardWithHexagons(g, game);
     }
 
-    private void fillBoardWithHexagons(Graphics g, GameOfLife game) {
+    private void fillBoardWithHexagons(Graphics g, HexGameOfLife game) {
         for (int x = 0; x < boardWidth; x++) {
             for (int y = 0; y < boardHeight; y++) {
                 if (GameOfLifeInterface.isValidCoordinates(new Coordinates(x, y))) {

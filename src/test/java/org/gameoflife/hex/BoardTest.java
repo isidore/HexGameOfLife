@@ -17,15 +17,15 @@ class BoardTest {
         List<Cell> cells = new ArrayList<>();
         cells.add(new Cell(4, 4));
 
-        GameOfLife game = new GameOfLife(cells);
+        HexGameOfLife game = new HexGameOfLife(cells);
 
         Approvals.verify(game);
     }
 
     @Test
     void testEmptyBoard() {
-        final GameOfLife gameOfLife = new GameOfLife();
-        Approvals.verify(HexPrinter.print(gameOfLife.board));
+        final HexGameOfLife hexGameOfLife = new HexGameOfLife();
+        Approvals.verify(HexPrinter.print(hexGameOfLife.board));
     }
 
     @Test

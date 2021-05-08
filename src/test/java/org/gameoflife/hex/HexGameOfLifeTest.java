@@ -6,33 +6,33 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameOfLifeTest {
+public class HexGameOfLifeTest {
 
 
     @Test
     void testZeroDies() {
         String timeline = "";
-        GameOfLife gameOfLife = new GameOfLife();
-        gameOfLife.setAlive(4, 4);
-        timeline += gameOfLife;
-        GameOfLife gameOfLife2 = gameOfLife.advanceTurn();
+        HexGameOfLife hexGameOfLife = new HexGameOfLife();
+        hexGameOfLife.setAlive(4, 4);
+        timeline += hexGameOfLife;
+        HexGameOfLife hexGameOfLife2 = hexGameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
-        timeline += gameOfLife2;
+        timeline += hexGameOfLife2;
         Approvals.verify(timeline);
     }
 
     @Test
     void testTwoFirstLevelNeighbours() {
         String timeline = "";
-        GameOfLife gameOfLife = new GameOfLife();
-        gameOfLife.setAlive(4, 4);
-        gameOfLife.setAlive(3, 5);
-        gameOfLife.setAlive(4, 6);
-        gameOfLife.setAlive(5, 5);
-        timeline += HexPrinter.print(gameOfLife.board);
-        GameOfLife gameOfLife2 = gameOfLife.advanceTurn();
+        HexGameOfLife hexGameOfLife = new HexGameOfLife();
+        hexGameOfLife.setAlive(4, 4);
+        hexGameOfLife.setAlive(3, 5);
+        hexGameOfLife.setAlive(4, 6);
+        hexGameOfLife.setAlive(5, 5);
+        timeline += HexPrinter.print(hexGameOfLife.board);
+        HexGameOfLife hexGameOfLife2 = hexGameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
-        timeline += HexPrinter.print(gameOfLife2.board);
+        timeline += HexPrinter.print(hexGameOfLife2.board);
         Approvals.verify(timeline);
     }
 
@@ -51,29 +51,29 @@ public class GameOfLifeTest {
 
     private String advanceBoardWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours) {
         String title = String.format("Neighbours(Level 1 , Level 2) = (%s, %s) => \n", numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours);
-        GameOfLife gameOfLife = createGameWithNeighbours(numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours, true);
-        return printAdvanceBoard(title, gameOfLife);
+        HexGameOfLife hexGameOfLife = createGameWithNeighbours(numberOfLevelOneNeighbours, numberOfLevelTwoNeighbours, true);
+        return printAdvanceBoard(title, hexGameOfLife);
     }
 
-    private String printAdvanceBoard(String title, GameOfLife gameOfLife) {
+    private String printAdvanceBoard(String title, HexGameOfLife hexGameOfLife) {
         String timeline = "";
         timeline += title;
 
 
-        timeline += HexPrinter.print(gameOfLife.board);
+        timeline += HexPrinter.print(hexGameOfLife.board);
         timeline += "\n NEXT TURN \n";
-        GameOfLife postTurnBoard = gameOfLife.advanceTurn();
+        HexGameOfLife postTurnBoard = hexGameOfLife.advanceTurn();
         timeline += HexPrinter.print(postTurnBoard.board);
         return timeline;
     }
 
     @Test
     void testCentreComesAlive() {
-        GameOfLife boardWithNeighbours = createGameWithNeighbours(2, 3, false);
+        HexGameOfLife boardWithNeighbours = createGameWithNeighbours(2, 3, false);
         Approvals.verify(printAdvanceBoard("Centre (4,4) comes alive\n", boardWithNeighbours));
     }
 
-    public static GameOfLife createGameWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours, boolean includeCentre) {
+    public static HexGameOfLife createGameWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours, boolean includeCentre) {
         Cell centre = new Cell(4, 4);
         ArrayList<Cell> cells = new ArrayList<>();
 
@@ -87,6 +87,6 @@ public class GameOfLifeTest {
         List<Cell> level2 = centre.getLevelTwoNeighbours().subList(0, numberOfLevelTwoNeighbours);
         cells.addAll(level2);
 
-        return new GameOfLife(cells);
+        return new HexGameOfLife(cells);
     }
 }

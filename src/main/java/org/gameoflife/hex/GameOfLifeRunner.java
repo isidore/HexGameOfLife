@@ -7,7 +7,7 @@ import com.spun.util.WindowUtils;
 
 public class GameOfLifeRunner {
     public static void main(String[] args) {
-        GameOfLife gameOfLife = setupInitialScenario();
+        HexGameOfLife gameOfLife = setupInitialScenario();
         PaintablePanel<GameOfLifePanel> gameOfLifePanel = createGameOfLifePanel(gameOfLife);
         startGame(gameOfLifePanel);
     }
@@ -21,7 +21,7 @@ public class GameOfLifeRunner {
     }
 
 
-    public static PaintablePanel<GameOfLifePanel> createGameOfLifePanel(GameOfLife gameOfLife) {
+    public static PaintablePanel<GameOfLifePanel> createGameOfLifePanel(HexGameOfLife gameOfLife) {
 
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel(gameOfLife);
         PaintablePanel<GameOfLifePanel> jPanel = Paintables.asPanel(gameOfLifePanel);
@@ -30,8 +30,8 @@ public class GameOfLifeRunner {
         return jPanel;
     }
 
-    public static GameOfLife setupInitialScenario() {
-        GameOfLife gameOfLife = new GameOfLife();
+    public static HexGameOfLife setupInitialScenario() {
+        HexGameOfLife gameOfLife = new HexGameOfLife();
         gameOfLife.setAlive(4, 4);
         gameOfLife.setAlive(3, 5);
         gameOfLife.setAlive(4, 6);

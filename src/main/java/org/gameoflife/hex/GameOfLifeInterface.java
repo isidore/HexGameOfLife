@@ -16,7 +16,7 @@ public interface GameOfLifeInterface {
         return Board.isValidCoordinate(coordinates);
     }
 
-    GameOfLife advanceTurn();
+    HexGameOfLife advanceTurn();
 
     void setAlive(int x, int y);
 

@@ -1,6 +1,5 @@
 package org.gameoflife.hex;
 
-import org.apache.commons.lang.math.DoubleRange;
 import org.lambda.query.Queryable;
 
 import java.util.ArrayList;
@@ -8,15 +7,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class GameOfLife implements GameOfLifeInterface {
+public class HexGameOfLife implements GameOfLifeInterface {
 
     final Board board;
 
-    public GameOfLife() {
+    public HexGameOfLife() {
         this(new ArrayList<>());
     }
 
-    public GameOfLife(List<Cell> liveCells) {
+    public HexGameOfLife(List<Cell> liveCells) {
         this.board = new Board();
         this.board.setLiveCells(liveCells);
     }
@@ -26,11 +25,11 @@ public class GameOfLife implements GameOfLifeInterface {
     }
 
     @Override
-    public GameOfLife advanceTurn() {
+    public HexGameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
                 .where(c -> GameOfLifeInterface.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
-        return new GameOfLife(nextLivingCells);
+        return new HexGameOfLife(nextLivingCells);
     }
 
     private static double getNeighbourScore(Board board, Cell cell) {
