@@ -25,6 +25,11 @@ public class HexGameOfLife implements GameOfLife {
     }
 
     @Override
+    public List<Cell> getLiveCells() {
+        return board.getLiveCells();
+    }
+
+    @Override
     public HexGameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
                 .where(c -> GameOfLife.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));

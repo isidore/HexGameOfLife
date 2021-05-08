@@ -2,6 +2,8 @@ package org.gameoflife.hex;
 
 import org.apache.commons.lang.math.DoubleRange;
 
+import java.util.List;
+
 public interface GameOfLife {
     static boolean survivesToNextTurn(double sum, boolean alive) {
         DoubleRange survivable = new DoubleRange(2, 3.3);
@@ -15,6 +17,8 @@ public interface GameOfLife {
     static boolean isValidCoordinates(Coordinates coordinates) {
         return Board.isValidCoordinate(coordinates);
     }
+
+    List<Cell> getLiveCells();
 
     HexGameOfLife advanceTurn();
 

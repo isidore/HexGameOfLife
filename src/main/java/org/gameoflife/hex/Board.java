@@ -15,6 +15,7 @@ public class Board implements GameOfLife{
         return yIsEven == xIsEven;
     }
 
+    @Override
     public List<Cell> getLiveCells() {
         return liveCells;
     }
