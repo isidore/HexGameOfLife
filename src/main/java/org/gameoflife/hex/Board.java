@@ -5,7 +5,7 @@ import com.spun.util.FormattedException;
 
 import java.util.List;
 
-public class Board {
+public class Board implements GameOfLife{
     private List<Cell> liveCells;
 
     static boolean isValidCoordinate(Coordinates gridAt) {
@@ -23,7 +23,12 @@ public class Board {
         this.liveCells = liveCells;
     }
 
-    void setAlive(int x, int y) {
+    @Override
+    public HexGameOfLife advanceTurn() {
+        return null;
+    }
+
+    public void setAlive(int x, int y) {
         if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
@@ -31,7 +36,7 @@ public class Board {
         liveCells.add(new Cell(x, y));
     }
 
-    boolean isAlive(Cell cell) {
+    public boolean isAlive(Cell cell) {
         return liveCells.contains(cell);
     }
 
