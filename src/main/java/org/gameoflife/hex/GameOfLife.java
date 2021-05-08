@@ -2,7 +2,7 @@ package org.gameoflife.hex;
 
 import org.apache.commons.lang.math.DoubleRange;
 
-public interface GameOfLifeInterface {
+public interface GameOfLife {
     static boolean survivesToNextTurn(double sum, boolean alive) {
         DoubleRange survivable = new DoubleRange(2, 3.3);
         DoubleRange growth = new DoubleRange(2.3, 2.9);

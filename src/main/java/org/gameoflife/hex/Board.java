@@ -24,7 +24,7 @@ public class Board {
     }
 
     void setAlive(int x, int y) {
-        if (!GameOfLifeInterface.isValidCoordinates(new Coordinates(x, y))) {
+        if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 

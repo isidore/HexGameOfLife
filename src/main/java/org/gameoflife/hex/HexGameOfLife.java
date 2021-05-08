@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class HexGameOfLife implements GameOfLifeInterface {
+public class HexGameOfLife implements GameOfLife {
 
     final Board board;
 
@@ -27,7 +27,7 @@ public class HexGameOfLife implements GameOfLifeInterface {
     @Override
     public HexGameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
-                .where(c -> GameOfLifeInterface.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
+                .where(c -> GameOfLife.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
         return new HexGameOfLife(nextLivingCells);
     }
