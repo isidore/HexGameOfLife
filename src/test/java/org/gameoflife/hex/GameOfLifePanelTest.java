@@ -89,7 +89,7 @@ class GameOfLifePanelTest {
         int x = NumberUtils.getRandomInt(0, 10);
         int y = NumberUtils.getRandomInt(0, 9);
 
-        if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
+        if (!GameOfLifeInterface.isValidCoordinates(new Coordinates(x, y))) {
             y++;
         }
 
@@ -100,7 +100,7 @@ class GameOfLifePanelTest {
     private void assertFindHex(int x, int y, String expected) {
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel();
         Coordinates gridAt = gameOfLifePanel.getGridCoordinatesAt(new Point(x, y)).get();
-        assertTrue(GameOfLife.isValidCoordinates(gridAt), "Invalid grid:" + gridAt);
+        assertTrue(GameOfLifeInterface.isValidCoordinates(gridAt), "Invalid grid:" + gridAt);
         assertEquals(expected, gridAt.toString());
     }
 }

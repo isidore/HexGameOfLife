@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class GameOfLife {
+public class GameOfLife implements GameOfLifeInterface {
 
     final Board board;
 
@@ -25,20 +25,12 @@ public class GameOfLife {
         return liveCells.contains(cell);
     }
 
+    @Override
     public GameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
-                .where(c -> survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
+                .where(c -> GameOfLifeInterface.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
 
         return new GameOfLife(nextLivingCells);
-    }
-
-    public static boolean survivesToNextTurn(double sum, boolean alive) {
-        DoubleRange survivable = new DoubleRange(2, 3.3);
-        DoubleRange growth = new DoubleRange(2.3, 2.9);
-
-        boolean survives = survivable.containsDouble(sum) && alive;
-        boolean born = growth.containsDouble(sum);
-        return survives || born;
     }
 
     private static double getNeighbourScore(Board board, Cell cell) {
@@ -60,6 +52,7 @@ public class GameOfLife {
         return score;
     }
 
+    @Override
     public void setAlive(int x, int y) {
         this.board.setAlive(x, y);
     }
@@ -79,11 +72,9 @@ public class GameOfLife {
         return this.board.toString();
     }
 
+    @Override
     public boolean isAlive(Cell cell) {
         return board.isAlive(cell);
     }
 
-    public static boolean isValidCoordinates(Coordinates coordinates){
-        return Board.isValidCoordinate(coordinates);
-    }
 }

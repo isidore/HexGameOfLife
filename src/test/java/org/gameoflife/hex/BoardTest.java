@@ -36,9 +36,9 @@ class BoardTest {
 
     @Test
     void oddsGoTogether() {
-        assertTrue(GameOfLife.isValidCoordinates(new Coordinates(1, 1)));
-        assertTrue(GameOfLife.isValidCoordinates(new Coordinates(2, 2)));
-        assertFalse(GameOfLife.isValidCoordinates(new Coordinates(2, 1)));
-        assertFalse(GameOfLife.isValidCoordinates(new Coordinates(1, 2)));
+        assertTrue(GameOfLifeInterface.isValidCoordinates(new Coordinates(1, 1)));
+        assertTrue(GameOfLifeInterface.isValidCoordinates(new Coordinates(2, 2)));
+        assertFalse(GameOfLifeInterface.isValidCoordinates(new Coordinates(2, 1)));
+        assertFalse(GameOfLifeInterface.isValidCoordinates(new Coordinates(1, 2)));
     }
 }
