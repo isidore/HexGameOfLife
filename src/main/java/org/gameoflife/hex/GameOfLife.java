@@ -41,7 +41,7 @@ public class GameOfLife {
         return survives || born;
     }
 
-    public static double getNeighbourScore(Board board, Cell cell) {
+    private static double getNeighbourScore(Board board, Cell cell) {
         double score = 0.0;
         score += getScore(board, cell.getLevelOneNeighbours(), 1);
         score += getScore(board, cell.getLevelTwoNeighbours(), 0.3);
