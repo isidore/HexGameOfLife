@@ -14,7 +14,6 @@ public class HexPrinter {
                         asciiBoard.printHex("X", "X", 'X', translateX(x, y), translateY(x, y));
                     } else {
                         asciiBoard.printHex(x + "," + y, "", ' ', translateX(x, y), translateY(x, y));
-
                     }
                 }
             }
