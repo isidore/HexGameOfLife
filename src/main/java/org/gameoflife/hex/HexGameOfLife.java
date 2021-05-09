@@ -30,12 +30,10 @@ public class HexGameOfLife implements GameOfLife {
         return survives || born;
     }
 
-    @Override
     public List<Cell> getLiveCells() {
         return board.getLiveCells();
     }
 
-    @Override
     public HexGameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
                 .where(c -> HexGameOfLife.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
@@ -62,7 +60,6 @@ public class HexGameOfLife implements GameOfLife {
         return score;
     }
 
-    @Override
     public void setAlive(int x, int y) {
         this.board.setAlive(x, y);
     }
@@ -77,12 +74,10 @@ public class HexGameOfLife implements GameOfLife {
         return Queryable.as(new ArrayList<>(liveCellsAndNeighbours));
     }
 
-    @Override
     public String toString() {
         return HexPrinter.print(this);
     }
 
-    @Override
     public boolean isAlive(Cell cell) {
         return board.isAlive(cell);
     }
