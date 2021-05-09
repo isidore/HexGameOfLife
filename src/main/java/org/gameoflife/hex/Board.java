@@ -5,7 +5,7 @@ import com.spun.util.FormattedException;
 
 import java.util.List;
 
-public class Board implements GameOfLife{
+public class Board {
     private List<Cell> liveCells;
 
     public List<Cell> getLiveCells() {
