@@ -25,7 +25,7 @@ class BoardTest {
     @Test
     void testEmptyBoard() {
         final HexGameOfLife hexGameOfLife = new HexGameOfLife();
-        Approvals.verify(HexPrinter.print(hexGameOfLife.board));
+        Approvals.verify(HexPrinter.print(hexGameOfLife));
     }
 
     @Test

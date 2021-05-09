@@ -34,7 +34,7 @@ class HexPrinterTest {
         HexGameOfLife game = new HexGameOfLife();
         game.setAlive(x, y);
 
-        return HexPrinter.print(game.board);
+        return HexPrinter.print(game);
     }
 
 }

@@ -29,10 +29,10 @@ public class HexGameOfLifeTest {
         hexGameOfLife.setAlive(3, 5);
         hexGameOfLife.setAlive(4, 6);
         hexGameOfLife.setAlive(5, 5);
-        timeline += HexPrinter.print(hexGameOfLife.board);
+        timeline += HexPrinter.print(hexGameOfLife);
         HexGameOfLife hexGameOfLife2 = hexGameOfLife.advanceTurn();
         timeline += "\n NEXT TURN \n";
-        timeline += HexPrinter.print(hexGameOfLife2.board);
+        timeline += HexPrinter.print(hexGameOfLife2);
         Approvals.verify(timeline);
     }
 
@@ -60,10 +60,10 @@ public class HexGameOfLifeTest {
         timeline += title;
 
 
-        timeline += HexPrinter.print(hexGameOfLife.board);
+        timeline += HexPrinter.print(hexGameOfLife);
         timeline += "\n NEXT TURN \n";
         HexGameOfLife postTurnBoard = hexGameOfLife.advanceTurn();
-        timeline += HexPrinter.print(postTurnBoard.board);
+        timeline += HexPrinter.print(postTurnBoard);
         return timeline;
     }
 
