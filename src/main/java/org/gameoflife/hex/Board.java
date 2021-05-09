@@ -8,13 +8,6 @@ import java.util.List;
 public class Board implements GameOfLife{
     private List<Cell> liveCells;
 
-    static boolean isValidCoordinate(Coordinates gridAt) {
-        boolean xIsEven = gridAt.getX() % 2 == 0;
-        boolean yIsEven = gridAt.getY() % 2 == 0;
-
-        return yIsEven == xIsEven;
-    }
-
     @Override
     public List<Cell> getLiveCells() {
         return liveCells;

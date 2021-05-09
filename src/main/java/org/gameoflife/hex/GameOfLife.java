@@ -15,7 +15,10 @@ public interface GameOfLife {
     }
 
     static boolean isValidCoordinates(Coordinates coordinates) {
-        return Board.isValidCoordinate(coordinates);
+        boolean xIsEven = coordinates.getX() % 2 == 0;
+        boolean yIsEven = coordinates.getY() % 2 == 0;
+
+        return yIsEven == xIsEven;
     }
 
     List<Cell> getLiveCells();
