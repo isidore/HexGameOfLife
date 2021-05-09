@@ -8,7 +8,6 @@ import java.util.List;
 public class Board implements GameOfLife{
     private List<Cell> liveCells;
 
-    @Override
     public List<Cell> getLiveCells() {
         return liveCells;
     }
@@ -17,7 +16,6 @@ public class Board implements GameOfLife{
         this.liveCells = liveCells;
     }
 
-    @Override
     public HexGameOfLife advanceTurn() {
         return null;
     }
