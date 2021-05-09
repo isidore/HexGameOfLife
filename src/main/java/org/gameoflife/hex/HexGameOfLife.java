@@ -73,7 +73,7 @@ public class HexGameOfLife implements GameOfLife {
 
     @Override
     public String toString() {
-        return this.board.toString();
+        return HexPrinter.print(this.board);
     }
 
     @Override
