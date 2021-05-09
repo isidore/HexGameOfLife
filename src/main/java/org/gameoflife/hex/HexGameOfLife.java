@@ -20,10 +20,6 @@ public class HexGameOfLife implements GameOfLife {
         this.board.setLiveCells(liveCells);
     }
 
-    static boolean isAlive2(List<Cell> liveCells, Cell cell) {
-        return liveCells.contains(cell);
-    }
-
     @Override
     public List<Cell> getLiveCells() {
         return board.getLiveCells();
