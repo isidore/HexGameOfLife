@@ -13,8 +13,6 @@ public interface GameOfLife {
         return yIsEven == xIsEven;
     }
 
-    List<Cell> getLiveCells();
-
     HexGameOfLife advanceTurn();
 
     void setAlive(int x, int y);
