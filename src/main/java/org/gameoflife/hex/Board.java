@@ -16,10 +16,6 @@ public class Board {
         this.liveCells = liveCells;
     }
 
-    public HexGameOfLife advanceTurn() {
-        return null;
-    }
-
     public void setAlive(int x, int y) {
         if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
