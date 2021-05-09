@@ -32,9 +32,4 @@ public class Board implements GameOfLife{
         return liveCells.contains(cell);
     }
 
-    @Override
-    public String toString() {
-        return HexPrinter.print(this);
-    }
-
 }
