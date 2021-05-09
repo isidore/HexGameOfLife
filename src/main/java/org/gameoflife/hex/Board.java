@@ -6,7 +6,7 @@ import com.spun.util.FormattedException;
 import java.util.List;
 
 public class Board {
-    private List<Cell> liveCells;
+    public List<Cell> liveCells;
 
     public List<Cell> getLiveCells() {
         return liveCells;
