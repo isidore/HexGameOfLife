@@ -30,10 +30,6 @@ public class HexGameOfLife implements GameOfLife {
         return survives || born;
     }
 
-    public List<Cell> getLiveCells() {
-        return board.getLiveCells();
-    }
-
     public HexGameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
                 .where(c -> HexGameOfLife.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
