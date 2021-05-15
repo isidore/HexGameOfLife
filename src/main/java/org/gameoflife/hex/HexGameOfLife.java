@@ -62,7 +62,6 @@ public class HexGameOfLife implements GameOfLife {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
-        this.board.liveCells.add(new Cell(x, y));
         this.board.setAlive(x, y);
     }
 
