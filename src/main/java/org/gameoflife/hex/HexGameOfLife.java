@@ -1,5 +1,6 @@
 package org.gameoflife.hex;
 
+import com.spun.util.FormattedException;
 import org.apache.commons.lang.math.DoubleRange;
 import org.lambda.query.Queryable;
 
@@ -57,7 +58,11 @@ public class HexGameOfLife implements GameOfLife {
     }
 
     public void setAlive(int x, int y) {
-        this.board.setAlive(x, y);
+        if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
+            throw new FormattedException("Invalid Location for (%s, %s)", x, y);
+        }
+
+        this.board.liveCells.add(new Cell(x, y));
         this.board.setAlive(x, y);
     }
 
