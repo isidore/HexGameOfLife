@@ -58,6 +58,7 @@ public class HexGameOfLife implements GameOfLife {
 
     public void setAlive(int x, int y) {
         this.board.setAlive(x, y);
+        this.board.setAlive(x, y);
     }
 
     private Queryable<Cell> getLiveCellsAndNeighbours() {
