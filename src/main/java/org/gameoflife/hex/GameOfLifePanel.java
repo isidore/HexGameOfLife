@@ -14,8 +14,7 @@ public class GameOfLifePanel implements Paintable {
     public int boardWidth = 20;
     public int boardHeight = 10;
     private Dimension size;
-    private Action0 repaint = () -> {
-    };
+    private Action0 repaint = () -> { };
     private HexGameOfLife game;
 
     public GameOfLifePanel(HexGameOfLife game) {
