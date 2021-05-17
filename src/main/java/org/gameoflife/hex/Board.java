@@ -1,8 +1,6 @@
 package org.gameoflife.hex;
 
 
-import com.spun.util.FormattedException;
-
 import java.util.List;
 
 public class Board {
