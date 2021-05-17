@@ -2,6 +2,7 @@ package org.gameoflife.hex;
 
 import dk.ilios.asciihexgrid.AsciiBoard;
 import dk.ilios.asciihexgrid.printers.SmallPointyAsciiHexPrinter;
+import org.gameoflife.hex.game.Cell;
 
 public class HexPrinter {
     public static String print(GameOfLife game) {

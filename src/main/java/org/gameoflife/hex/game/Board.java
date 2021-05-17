@@ -1,8 +1,6 @@
 package org.gameoflife.hex.game;
 
 
-import org.gameoflife.hex.Cell;
-
 import java.util.List;
 
 public class Board {

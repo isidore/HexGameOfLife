@@ -2,6 +2,7 @@ package org.gameoflife.hex;
 
 import com.spun.swing.Paintable;
 import com.spun.util.Colors;
+import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.lambda.actions.Action0;
 

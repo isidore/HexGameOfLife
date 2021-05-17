@@ -1,5 +1,6 @@
 package org.gameoflife.hex;
 
+import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 
 public interface GameOfLife {

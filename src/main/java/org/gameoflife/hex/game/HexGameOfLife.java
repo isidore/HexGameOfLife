@@ -2,7 +2,6 @@ package org.gameoflife.hex.game;
 
 import com.spun.util.FormattedException;
 import org.apache.commons.lang.math.DoubleRange;
-import org.gameoflife.hex.Cell;
 import org.gameoflife.hex.Coordinates;
 import org.gameoflife.hex.GameOfLife;
 import org.gameoflife.hex.HexPrinter;

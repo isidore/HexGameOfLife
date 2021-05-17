@@ -1,6 +1,7 @@
 package org.gameoflife.hex;
 
 import org.approvaltests.Approvals;
+import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.junit.jupiter.api.Test;
 
