@@ -44,6 +44,10 @@ public class Hexagon {
         return new Dimension(rightmostX, lowestY);
     }
 
+    Dimension getBoundingLowerRightPoint() {
+        return getBoundingLowerRightPoint(this);
+    }
+
     public Polygon getPolygon() {
         Queryable<Point> points = getPoints();
 

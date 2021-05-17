@@ -41,9 +41,9 @@ public class GameOfLifePanel implements Paintable {
 
     public static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
-        return Hexagon.getBoundingLowerRightPoint(bottomRightHexagon);
+        Dimension boundingLowerRightPoint = Hexagon.getBoundingLowerRightPoint(bottomRightHexagon);
+        return boundingLowerRightPoint;
     }
-
 
     void onResize(Dimension size) {
         this.size = size;
