@@ -36,6 +36,14 @@ public class Hexagon {
         return centeredPoint;
     }
 
+    static Dimension getLowerRightPoint(Hexagon bottomRightHexagon) {
+        Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
+        int rightmostX = boundingBox.x + boundingBox.width + 1;
+        int lowestY = boundingBox.y + boundingBox.height + 1;
+
+        return new Dimension(rightmostX, lowestY);
+    }
+
     public Polygon getPolygon() {
         Queryable<Point> points = getPoints();
 
