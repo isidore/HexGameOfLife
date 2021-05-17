@@ -41,6 +41,10 @@ public class GameOfLifePanel implements Paintable {
 
     public static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
+        return getLowerRightPoint(bottomRightHexagon);
+    }
+
+    private static Dimension getLowerRightPoint(Hexagon bottomRightHexagon) {
         Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;
         int lowestY = boundingBox.y + boundingBox.height + 1;
