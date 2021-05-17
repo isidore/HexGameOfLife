@@ -2,6 +2,7 @@ package org.gameoflife.hex;
 
 import com.spun.util.FormattedException;
 import org.apache.commons.lang.math.DoubleRange;
+import org.gameoflife.hex.game.Board;
 import org.lambda.query.Queryable;
 
 import java.util.ArrayList;

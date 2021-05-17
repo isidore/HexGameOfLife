@@ -1,5 +1,7 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.game;
 
+
+import org.gameoflife.hex.Cell;
 
 import java.util.List;
 
