@@ -10,6 +10,12 @@ public class HexGameOfLifeTest {
 
 
     @Test
+    static void testExceptionIsThrownForInvalidCoordinate() {
+        Approvals.verifyException(() ->
+                new Board().setAlive(1, 2));
+    }
+
+    @Test
     void testZeroDies() {
         String timeline = "";
         HexGameOfLife hexGameOfLife = new HexGameOfLife();

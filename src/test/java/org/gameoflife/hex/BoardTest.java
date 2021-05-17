@@ -29,12 +29,6 @@ class BoardTest {
     }
 
     @Test
-    void testExceptionIsThrownForInvalidCoordinate() {
-        Approvals.verifyException(() ->
-                new Board().setAlive(1, 2));
-    }
-
-    @Test
     void oddsGoTogether() {
         assertTrue(GameOfLife.isValidCoordinates(new Coordinates(1, 1)));
         assertTrue(GameOfLife.isValidCoordinates(new Coordinates(2, 2)));
