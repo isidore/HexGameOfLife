@@ -37,11 +37,7 @@ public class Hexagon {
     }
 
     static Dimension getBoundingLowerRightPoint(Hexagon bottomRightHexagon) {
-        Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
-        int rightmostX = boundingBox.x + boundingBox.width + 1;
-        int lowestY = boundingBox.y + boundingBox.height + 1;
-
-        return new Dimension(rightmostX, lowestY);
+        return bottomRightHexagon.getBoundingLowerRightPoint();
     }
 
     Dimension getBoundingLowerRightPoint() {
