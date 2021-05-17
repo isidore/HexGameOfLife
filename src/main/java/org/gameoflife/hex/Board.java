@@ -17,10 +17,6 @@ public class Board {
     }
 
     public void setAlive(int x, int y) {
-        if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
-            throw new FormattedException("Invalid Location for (%s, %s)", x, y);
-        }
-
         liveCells.add(new Cell(x, y));
     }
 
