@@ -14,10 +14,6 @@ public class Cell {
         this.y = y;
     }
 
-    public static Cell create(int x, int y) {
-        return new Cell(x, y);
-    }
-
     public List<Cell> getAllNeighbours() {
         ArrayList<Cell> neighbours = new ArrayList<>();
         neighbours.addAll(getLevelOneNeighbours());
