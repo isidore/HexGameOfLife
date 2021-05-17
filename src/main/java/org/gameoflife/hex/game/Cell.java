@@ -14,7 +14,7 @@ public class Cell {
         this.y = y;
     }
 
-    public List<Cell> getAllNeighbours() {
+    List<Cell> getAllNeighbours() {
         ArrayList<Cell> neighbours = new ArrayList<>();
         neighbours.addAll(getLevelOneNeighbours());
         neighbours.addAll(getLevelTwoNeighbours());
