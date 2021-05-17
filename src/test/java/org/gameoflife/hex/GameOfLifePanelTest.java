@@ -5,6 +5,7 @@ import com.spun.util.NumberUtils;
 import org.approvaltests.Approvals;
 import org.approvaltests.awt.AwtApprovals;
 import org.approvaltests.core.Options;
+import org.gameoflife.hex.game.HexGameOfLife;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.lambda.functions.Function1;

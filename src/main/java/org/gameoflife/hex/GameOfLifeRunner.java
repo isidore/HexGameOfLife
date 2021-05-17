@@ -4,6 +4,7 @@ import com.spun.swing.PaintablePanel;
 import com.spun.swing.Paintables;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
+import org.gameoflife.hex.game.HexGameOfLife;
 
 public class GameOfLifeRunner {
     public static void main(String[] args) {

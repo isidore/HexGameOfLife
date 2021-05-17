@@ -1,8 +1,6 @@
 package org.gameoflife.hex;
 
-import org.apache.commons.lang.math.DoubleRange;
-
-import java.util.List;
+import org.gameoflife.hex.game.HexGameOfLife;
 
 public interface GameOfLife {
 

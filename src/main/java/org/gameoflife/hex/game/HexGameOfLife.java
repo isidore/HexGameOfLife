@@ -1,8 +1,11 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.game;
 
 import com.spun.util.FormattedException;
 import org.apache.commons.lang.math.DoubleRange;
-import org.gameoflife.hex.game.Board;
+import org.gameoflife.hex.Cell;
+import org.gameoflife.hex.Coordinates;
+import org.gameoflife.hex.GameOfLife;
+import org.gameoflife.hex.HexPrinter;
 import org.lambda.query.Queryable;
 
 import java.util.ArrayList;

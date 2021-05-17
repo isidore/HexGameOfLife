@@ -1,6 +1,7 @@
 package org.gameoflife.hex;
 
 import org.approvaltests.awt.AwtApprovals;
+import org.gameoflife.hex.game.HexGameOfLife;
 import org.junit.jupiter.api.Test;
 
 class GameOfLifeRunnerTest {
