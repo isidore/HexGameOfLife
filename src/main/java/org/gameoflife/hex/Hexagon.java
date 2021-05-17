@@ -36,7 +36,7 @@ public class Hexagon {
         return centeredPoint;
     }
 
-    static Dimension getLowerRightPoint(Hexagon bottomRightHexagon) {
+    static Dimension getBoundingLowerRightPoint(Hexagon bottomRightHexagon) {
         Rectangle boundingBox = bottomRightHexagon.getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;
         int lowestY = boundingBox.y + boundingBox.height + 1;
