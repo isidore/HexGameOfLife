@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class GameOfLifePanel implements Paintable {
     private final int radius = 20;
-    public int boardWidth = 20;
+    public int widthInHexagons = 20;
     public int boardHeight = 10;
     private Dimension sizeInPixels;
     private Action0 repaint = () -> { };
@@ -19,7 +19,7 @@ public class GameOfLifePanel implements Paintable {
 
     public GameOfLifePanel(HexGameOfLife game) {
         this.game = game;
-        this.sizeInPixels = getPanelDimension(radius, boardWidth - 1, boardHeight - 1);
+        this.sizeInPixels = getPanelDimension(radius, widthInHexagons - 1, boardHeight - 1);
     }
 
     public GameOfLifePanel() {
@@ -47,7 +47,7 @@ public class GameOfLifePanel implements Paintable {
     void onResize(Dimension boardSizeInPixels) {
         this.sizeInPixels = boardSizeInPixels;
         Dimension d = getGridWidthAndHeightForPixels(radius, boardSizeInPixels);
-        this.boardWidth = d.width;
+        this.widthInHexagons = d.width;
         this.boardHeight = d.height;
     }
 
@@ -69,7 +69,7 @@ public class GameOfLifePanel implements Paintable {
     }
 
     private void fillBoardWithHexagons(Graphics g, HexGameOfLife game) {
-        for (int x = 0; x < boardWidth; x++) {
+        for (int x = 0; x < widthInHexagons; x++) {
             for (int y = 0; y < boardHeight; y++) {
                 if (GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                     boolean isAlive = game.isAlive(new Cell(x,y));
@@ -93,7 +93,7 @@ public class GameOfLifePanel implements Paintable {
 
     public Optional<Coordinates> getGridCoordinatesAt(Point point) {
         Coordinates result = null;
-        for (int x = 0; x < boardWidth; x++) {
+        for (int x = 0; x < widthInHexagons; x++) {
             for (int y = 0; y < boardHeight; y++) {
                 if (GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                     Coordinates coordinates = new Coordinates(x, y);
