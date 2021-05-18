@@ -13,13 +13,13 @@ public class GameOfLifePanel implements Paintable {
     private final int radius = 20;
     public int boardWidth = 20;
     public int boardHeight = 10;
-    private Dimension size;
+    private Dimension sizeInPixels;
     private Action0 repaint = () -> { };
     private HexGameOfLife game;
 
     public GameOfLifePanel(HexGameOfLife game) {
         this.game = game;
-        this.size = getPanelDimension(radius, boardWidth - 1, boardHeight - 1);
+        this.sizeInPixels = getPanelDimension(radius, boardWidth - 1, boardHeight - 1);
     }
 
     public GameOfLifePanel() {
@@ -45,7 +45,7 @@ public class GameOfLifePanel implements Paintable {
     }
 
     void onResize(Dimension boardSizeInPixels) {
-        this.size = boardSizeInPixels;
+        this.sizeInPixels = boardSizeInPixels;
         Dimension d = getGridWidthAndHeightForPixels(radius, boardSizeInPixels);
         this.boardWidth = d.width;
         this.boardHeight = d.height;
@@ -58,7 +58,7 @@ public class GameOfLifePanel implements Paintable {
 
     @Override
     public Dimension getSize() {
-        return size;
+        return sizeInPixels;
     }
 
     @Override
