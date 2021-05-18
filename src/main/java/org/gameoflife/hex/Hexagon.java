@@ -36,6 +36,10 @@ public class Hexagon {
         return centeredPoint;
     }
 
+    public static Dimension getDimensionsForRadius(int radius) {
+        return new Hexagon(radius,new Coordinates(0,0)).getPolygon().getBounds().getSize();
+    }
+
     Dimension getBoundingLowerRightPoint() {
         Rectangle boundingBox = getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;
