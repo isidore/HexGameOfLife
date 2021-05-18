@@ -12,14 +12,14 @@ import java.util.Optional;
 public class GameOfLifePanel implements Paintable {
     private final int radius = 20;
     public int widthInHexagons = 20;
-    public int boardHeight = 10;
+    public int heightInHexagons = 10;
     private Dimension sizeInPixels;
     private Action0 repaint = () -> { };
     private HexGameOfLife game;
 
     public GameOfLifePanel(HexGameOfLife game) {
         this.game = game;
-        this.sizeInPixels = getPanelDimension(radius, widthInHexagons - 1, boardHeight - 1);
+        this.sizeInPixels = getPanelDimension(radius, widthInHexagons - 1, heightInHexagons - 1);
     }
 
     public GameOfLifePanel() {
@@ -48,7 +48,7 @@ public class GameOfLifePanel implements Paintable {
         this.sizeInPixels = boardSizeInPixels;
         Dimension d = getGridWidthAndHeightForPixels(radius, boardSizeInPixels);
         this.widthInHexagons = d.width;
-        this.boardHeight = d.height;
+        this.heightInHexagons = d.height;
     }
 
     public void advanceTurn() {
@@ -70,7 +70,7 @@ public class GameOfLifePanel implements Paintable {
 
     private void fillBoardWithHexagons(Graphics g, HexGameOfLife game) {
         for (int x = 0; x < widthInHexagons; x++) {
-            for (int y = 0; y < boardHeight; y++) {
+            for (int y = 0; y < heightInHexagons; y++) {
                 if (GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                     boolean isAlive = game.isAlive(new Cell(x,y));
                     paintHex(g, isAlive, new Coordinates(x, y));
@@ -94,7 +94,7 @@ public class GameOfLifePanel implements Paintable {
     public Optional<Coordinates> getGridCoordinatesAt(Point point) {
         Coordinates result = null;
         for (int x = 0; x < widthInHexagons; x++) {
-            for (int y = 0; y < boardHeight; y++) {
+            for (int y = 0; y < heightInHexagons; y++) {
                 if (GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                     Coordinates coordinates = new Coordinates(x, y);
                     Hexagon hexagon = new Hexagon(radius, coordinates);
