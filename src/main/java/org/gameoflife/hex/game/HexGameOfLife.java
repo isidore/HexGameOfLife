@@ -14,15 +14,14 @@ import java.util.Set;
 
 public class HexGameOfLife implements GameOfLife {
 
-    final Board board;
+    final List<Cell> board;
 
     public HexGameOfLife() {
         this(new ArrayList<>());
     }
 
     public HexGameOfLife(List<Cell> liveCells) {
-        this.board = new Board();
-        this.board.setLiveCells(liveCells);
+        this.board = liveCells;
     }
 
     public static boolean survivesToNextTurn(double sum, boolean alive) {
@@ -36,23 +35,23 @@ public class HexGameOfLife implements GameOfLife {
 
     public HexGameOfLife advanceTurn() {
         Queryable<Cell> nextLivingCells = getLiveCellsAndNeighbours()
-                .where(c -> HexGameOfLife.survivesToNextTurn(getNeighbourScore(board, c), board.isAlive(c)));
+                .where(c -> HexGameOfLife.survivesToNextTurn(getNeighbourScore(board, c), board.contains(c)));
 
         return new HexGameOfLife(nextLivingCells);
     }
 
-    private static double getNeighbourScore(Board board, Cell cell) {
+    private static double getNeighbourScore(List<Cell> board, Cell cell) {
         double score = 0.0;
         score += getScore(board, cell.getLevelOneNeighbours(), 1);
         score += getScore(board, cell.getLevelTwoNeighbours(), 0.3);
         return score;
     }
 
-    private static double getScore(Board board, List<Cell> neighbours, double weight) {
+    private static double getScore(List<Cell> board, List<Cell> neighbours, double weight) {
         double score = 0;
 
         for (Cell cell : neighbours) {
-            if (board.isAlive(cell)) {
+            if (board.contains(cell)) {
                 score += weight;
             }
         }
@@ -65,13 +64,13 @@ public class HexGameOfLife implements GameOfLife {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
-        this.board.setAlive(x, y);
+        this.board.add(new Cell(x, y));
     }
 
     private Queryable<Cell> getLiveCellsAndNeighbours() {
-        Set<Cell> liveCellsAndNeighbours = new HashSet<>(board.getLiveCells());
+        Set<Cell> liveCellsAndNeighbours = new HashSet<>(board);
 
-        for (Cell cell : board.getLiveCells()) {
+        for (Cell cell : board) {
             liveCellsAndNeighbours.addAll(cell.getAllNeighbours());
         }
 
@@ -83,10 +82,10 @@ public class HexGameOfLife implements GameOfLife {
     }
 
     public boolean isAlive(Cell cell) {
-        return board.isAlive(cell);
+        return board.contains(cell);
     }
 
-    public Board getBoard() {
+    public List<Cell> getLiveCells() {
         return board;
     }
 }

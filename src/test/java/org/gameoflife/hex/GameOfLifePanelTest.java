@@ -66,7 +66,7 @@ class GameOfLifePanelTest {
             //gameOfLife.setAlive(x, y);
         }
 
-        SimpleLogger.variable("",gameOfLife.getBoard().getLiveCells());
+        SimpleLogger.variable("",gameOfLife.getLiveCells());
         Point[] points = {_(2,4), _(2,6), _(1,9), _(1,3), _(5,5), _(5,1), _(3,1), _(5,1), _(0,8), _(7,9)};
         for (Point point : points) {
             gameOfLife.setAlive(point.x, point.y);

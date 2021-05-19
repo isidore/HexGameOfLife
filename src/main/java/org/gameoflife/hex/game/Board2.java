@@ -3,7 +3,7 @@ package org.gameoflife.hex.game;
 
 import java.util.List;
 
-public class Board {
+public class Board2 {
     private List<Cell> liveCells;
 
     public List<Cell> getLiveCells() {
