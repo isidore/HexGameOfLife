@@ -62,7 +62,7 @@ class GameOfLifePanelTest {
         Point center = hexagon.getCenter();
 
         Dimension leftBottomEdge = new Dimension(center.x * 2, center.y * 2);
-        Dimension grid = GameOfLifePanel.getGridWidthAndHeightForPixels(20, leftBottomEdge);
+        Dimension grid = Hexagon.getGridWidthAndHeightForPixels(20, leftBottomEdge);
 
         assertEquals(gridCoordinates.getY() + 1, grid.height);
         assertEquals((gridCoordinates.getX() + 1) * 2, grid.width);

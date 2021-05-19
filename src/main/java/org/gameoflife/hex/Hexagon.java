@@ -40,6 +40,15 @@ public class Hexagon {
         return new Hexagon(radius,new Coordinates(0,0)).getPolygon().getBounds().getSize();
     }
 
+    public static Dimension getGridWidthAndHeightForPixels(int radius, Dimension sizeInPixel) {
+        Dimension hexDimensions = getDimensionsForRadius(radius);
+
+        int boardWidth = (int) (sizeInPixel.width / (double) hexDimensions.width) * 2;
+        int boardHeight = (int) (sizeInPixel.height / (double) hexDimensions.height * 1.5);
+
+        return new Dimension(boardWidth, boardHeight);
+    }
+
     Dimension getBoundingLowerRightPoint() {
         Rectangle boundingBox = getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;

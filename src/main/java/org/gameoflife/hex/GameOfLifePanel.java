@@ -30,15 +30,6 @@ public class GameOfLifePanel implements Paintable {
         return game;
     }
 
-    public static Dimension getGridWidthAndHeightForPixels(int radius, Dimension sizeInPixel) {
-        Dimension hexDimensions = Hexagon.getDimensionsForRadius(radius);
-
-        int boardWidth = (int) (sizeInPixel.width / (double) hexDimensions.width) * 2;
-        int boardHeight = (int) (sizeInPixel.height / (double) hexDimensions.height * 1.5);
-
-        return new Dimension(boardWidth, boardHeight);
-    }
-
     public static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
         return bottomRightHexagon.getBoundingLowerRightPoint();
@@ -46,7 +37,7 @@ public class GameOfLifePanel implements Paintable {
 
     void onResize(Dimension boardSizeInPixels) {
         this.sizeInPixels = boardSizeInPixels;
-        Dimension d = getGridWidthAndHeightForPixels(radius, boardSizeInPixels);
+        Dimension d = Hexagon.getGridWidthAndHeightForPixels(radius, boardSizeInPixels);
         this.widthInHexagons = d.width;
         this.heightInHexagons = d.height;
     }
