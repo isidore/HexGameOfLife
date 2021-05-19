@@ -1,15 +1,12 @@
 package org.gameoflife.hex;
 
-import com.spun.swing.Paintable;
 import com.spun.util.NumberUtils;
-import org.approvaltests.Approvals;
 import org.approvaltests.awt.AwtApprovals;
-import org.approvaltests.core.Options;
+import org.approvaltests.reporters.ImageWebReporter;
+import org.approvaltests.reporters.UseReporter;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.HexGameOfLifeTest;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.lambda.functions.Function1;
 
 import java.awt.*;
 import java.util.Optional;
@@ -41,20 +38,18 @@ class GameOfLifePanelTest {
         testGetPixelsForCoordinates(new Coordinates(2, 0));
     }
 
-    @Disabled
+    //@Disabled
     @Test
+    @UseReporter(ImageWebReporter.class)
     void testSequence() {
         // create game of life
         GameOfLifePanel panel = new GameOfLifePanel(setupInitialScenario());
-        verifyMultipleFrames(4, (frameNumber) -> {
+        AwtApprovals.verifySequence(4, (frameNumber) -> {
             panel.advanceTurn();
             return panel;
         });
     }
 
-    private void verifyMultipleFrames(int numberOfFrames, Function1<Integer, Paintable> frameGetter) {
-        Approvals.verify(new PaintableMultiframeWriter(numberOfFrames, frameGetter), new Options());
-    }
 
     //Only checking maintained functionality... This test is wrong...
     private void testGetPixelsForCoordinates(Coordinates gridCoordinates) {
