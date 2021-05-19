@@ -6,7 +6,7 @@ import java.util.List;
 public class Board {
     private List<Cell> liveCells;
 
-    List<Cell> getLiveCells() {
+    public List<Cell> getLiveCells() {
         return liveCells;
     }
 

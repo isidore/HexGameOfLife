@@ -86,4 +86,7 @@ public class HexGameOfLife implements GameOfLife {
         return board.isAlive(cell);
     }
 
+    public Board getBoard() {
+        return board;
+    }
 }
