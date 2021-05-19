@@ -32,9 +32,9 @@ public class GameOfLifePanel implements Paintable {
 
     public static Dimension getGridWidthAndHeightForPixels(int radius, Dimension sizeInPixel) {
         double hexWidth = Hexagon.getDimensionsForRadius(radius).width;
+        double hexHeight = new Hexagon(radius, new Coordinates(0, 0)).getCenter().y * 2;
 
         int boardWidth = (int) (sizeInPixel.width / hexWidth) * 2;
-        int hexHeight = new Hexagon(radius, new Coordinates(0, 0)).getCenter().y * 2;
         int boardHeight = (int) (sizeInPixel.height / hexHeight * 1.5);
 
         return new Dimension(boardWidth, boardHeight);
