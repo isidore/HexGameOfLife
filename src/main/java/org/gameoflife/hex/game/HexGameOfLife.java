@@ -7,10 +7,7 @@ import org.gameoflife.hex.GameOfLife;
 import org.gameoflife.hex.HexPrinter;
 import org.lambda.query.Queryable;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class HexGameOfLife implements GameOfLife {
 
@@ -22,6 +19,10 @@ public class HexGameOfLife implements GameOfLife {
 
     public HexGameOfLife(List<Cell> liveCells) {
         this.board = liveCells;
+    }
+
+    public HexGameOfLife(Cell[] liveCells) {
+        this(Arrays.asList(liveCells));
     }
 
     public static boolean survivesToNextTurn(double sum, boolean alive) {

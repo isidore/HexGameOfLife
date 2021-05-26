@@ -5,11 +5,13 @@ import com.spun.util.logger.SimpleLogger;
 import org.approvaltests.awt.AwtApprovals;
 import org.approvaltests.reporters.ImageWebReporter;
 import org.approvaltests.reporters.UseReporter;
+import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.HexGameOfLifeTest;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Optional;
 
 import static org.gameoflife.hex.GameOfLifeRunner.setupInitialScenario;
@@ -55,21 +57,12 @@ class GameOfLifePanelTest {
     @Test
     @UseReporter(ImageWebReporter.class)
     void testCompellingSequence() {
-        HexGameOfLife gameOfLife = new HexGameOfLife();
-        for (int i = 0; i < 10; i++) {
-            int x = NumberUtils.getRandomInt(0, 10);
-            int y = NumberUtils.getRandomInt(0, 10);
-            if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
-                y++;
-            }
-        }
+        // create game of life
+        generateRandomGameOfLife();
+        Cell[] points = {_(2,4), _(2,6), _(1,9), _(1,3), _(5,5), _(5,1), _(3,1), _(5,1), _(0,8), _(7,9)};
+        HexGameOfLife gameOfLife2 = new HexGameOfLife(points);
 
-        SimpleLogger.variable("", gameOfLife.getLiveCells());
-        Point[] points = {_(2, 4), _(2, 6), _(1, 9), _(1, 3), _(5, 5), _(5, 1), _(3, 1), _(5, 1), _(0, 8), _(7, 9)};
-        for (Point point : points) {
-            gameOfLife.setAlive(point.x, point.y);
-        }
-        HexGameOfLife game = gameOfLife;
+        HexGameOfLife game = gameOfLife2;
         GameOfLifePanel panel = new GameOfLifePanel(game);
         AwtApprovals.verifySequence(33, (frameNumber) -> {
             panel.advanceTurn();
@@ -77,8 +70,22 @@ class GameOfLifePanelTest {
         });
     }
 
-    private Point _(int x, int y) {
-        return new Point(x, y);
+    private void generateRandomGameOfLife() {
+        HexGameOfLife gameOfLife = new HexGameOfLife();
+        for (int i = 0; i < 10; i++) {
+            int x = NumberUtils.getRandomInt(0, 10);
+            int y = NumberUtils.getRandomInt(0, 10);
+            if(!GameOfLife.isValidCoordinates(new Coordinates(x,y))){
+                y++;
+            }
+            gameOfLife.setAlive(x, y);
+        }
+
+        SimpleLogger.variable("",gameOfLife.getLiveCells());
+    }
+
+    private Cell _(int x, int y) {
+        return new Cell(x, y);
     }
 
     //Only checking maintained functionality... This test is wrong...
