@@ -55,19 +55,17 @@ class GameOfLifePanelTest {
     @Test
     @UseReporter(ImageWebReporter.class)
     void testCompellingSequence() {
-        // create game of life
         HexGameOfLife gameOfLife = new HexGameOfLife();
         for (int i = 0; i < 10; i++) {
             int x = NumberUtils.getRandomInt(0, 10);
             int y = NumberUtils.getRandomInt(0, 10);
-            if(!GameOfLife.isValidCoordinates(new Coordinates(x,y))){
+            if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                 y++;
             }
-            //gameOfLife.setAlive(x, y);
         }
 
-        SimpleLogger.variable("",gameOfLife.getLiveCells());
-        Point[] points = {_(2,4), _(2,6), _(1,9), _(1,3), _(5,5), _(5,1), _(3,1), _(5,1), _(0,8), _(7,9)};
+        SimpleLogger.variable("", gameOfLife.getLiveCells());
+        Point[] points = {_(2, 4), _(2, 6), _(1, 9), _(1, 3), _(5, 5), _(5, 1), _(3, 1), _(5, 1), _(0, 8), _(7, 9)};
         for (Point point : points) {
             gameOfLife.setAlive(point.x, point.y);
         }
