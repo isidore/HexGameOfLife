@@ -21,7 +21,7 @@ public class HexGameOfLife implements GameOfLife {
         this.board = liveCells;
     }
 
-    public HexGameOfLife(Cell[] liveCells) {
+    public HexGameOfLife(Cell... liveCells) {
         this(Arrays.asList(liveCells));
     }
 
