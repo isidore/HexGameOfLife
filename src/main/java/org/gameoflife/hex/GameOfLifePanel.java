@@ -42,9 +42,10 @@ public class GameOfLifePanel implements Paintable {
         this.heightInHexagons = d.height;
     }
 
-    public void advanceTurn() {
+    public GameOfLifePanel advanceTurn() {
         this.game = game.advanceTurn();
         this.repaint();
+        return this;
     }
 
     @Override
@@ -113,5 +114,10 @@ public class GameOfLifePanel implements Paintable {
 
     public void registerRepaint(Action0 repaint) {
         this.repaint = repaint;
+    }
+
+    @Override
+    public String toString() {
+        return game.toString();
     }
 }
