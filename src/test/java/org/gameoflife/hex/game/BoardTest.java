@@ -2,10 +2,7 @@ package org.gameoflife.hex.game;
 
 import org.approvaltests.Approvals;
 import org.gameoflife.hex.Coordinates;
-import org.gameoflife.hex.GameOfLife;
 import org.gameoflife.hex.HexPrinter;
-import org.gameoflife.hex.game.Cell;
-import org.gameoflife.hex.game.HexGameOfLife;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -36,9 +33,9 @@ class BoardTest {
 
     @Test
     void oddsGoTogether() {
-        Assertions.assertTrue(GameOfLife.isValidCoordinates(new Coordinates(1, 1)));
-        assertTrue(GameOfLife.isValidCoordinates(new Coordinates(2, 2)));
-        assertFalse(GameOfLife.isValidCoordinates(new Coordinates(2, 1)));
-        assertFalse(GameOfLife.isValidCoordinates(new Coordinates(1, 2)));
+        Assertions.assertTrue(HexGameOfLife.isValidCoordinates(new Coordinates(1, 1)));
+        assertTrue(HexGameOfLife.isValidCoordinates(new Coordinates(2, 2)));
+        assertFalse(HexGameOfLife.isValidCoordinates(new Coordinates(2, 1)));
+        assertFalse(HexGameOfLife.isValidCoordinates(new Coordinates(1, 2)));
     }
 }

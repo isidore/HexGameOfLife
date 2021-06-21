@@ -3,13 +3,12 @@ package org.gameoflife.hex.game;
 import com.spun.util.FormattedException;
 import org.apache.commons.lang.math.DoubleRange;
 import org.gameoflife.hex.Coordinates;
-import org.gameoflife.hex.GameOfLife;
 import org.gameoflife.hex.HexPrinter;
 import org.lambda.query.Queryable;
 
 import java.util.*;
 
-public class HexGameOfLife implements GameOfLife {
+public class HexGameOfLife {
 
     final List<Cell> board;
 
@@ -32,6 +31,13 @@ public class HexGameOfLife implements GameOfLife {
         boolean survives = survivable.containsDouble(sum) && alive;
         boolean born = growth.containsDouble(sum);
         return survives || born;
+    }
+
+    public static boolean isValidCoordinates(Coordinates coordinates) {
+        boolean xIsEven = coordinates.getX() % 2 == 0;
+        boolean yIsEven = coordinates.getY() % 2 == 0;
+
+        return yIsEven == xIsEven;
     }
 
     public HexGameOfLife advanceTurn() {
@@ -61,7 +67,7 @@ public class HexGameOfLife implements GameOfLife {
     }
 
     public void setAlive(int x, int y) {
-        if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
+        if (!HexGameOfLife.isValidCoordinates(new Coordinates(x, y))) {
             throw new FormattedException("Invalid Location for (%s, %s)", x, y);
         }
 
@@ -78,6 +84,7 @@ public class HexGameOfLife implements GameOfLife {
         return Queryable.as(new ArrayList<>(liveCellsAndNeighbours));
     }
 
+    @Override
     public String toString() {
         return HexPrinter.print(this);
     }

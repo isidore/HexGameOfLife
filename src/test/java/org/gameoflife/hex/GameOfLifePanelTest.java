@@ -6,7 +6,6 @@ import com.spun.util.logger.SimpleLogger;
 import org.approvaltests.Approvals;
 import org.approvaltests.awt.AwtApprovals;
 import org.approvaltests.core.Options;
-import org.approvaltests.reporters.DelayedClipboardReporter;
 import org.approvaltests.reporters.ImageWebReporter;
 import org.approvaltests.reporters.UseReporter;
 import org.gameoflife.hex.game.Cell;
@@ -196,7 +195,7 @@ class GameOfLifePanelTest {
         for (int i = 0; i < numCells; i++) {
             int x = NumberUtils.getRandomInt(0, 10);
             int y = NumberUtils.getRandomInt(0, 10);
-            if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
+            if (!HexGameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                 y++;
             }
             gameOfLife.setAlive(x, y);
@@ -245,7 +244,7 @@ class GameOfLifePanelTest {
         int x = NumberUtils.getRandomInt(0, 10);
         int y = NumberUtils.getRandomInt(0, 9);
 
-        if (!GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
+        if (!HexGameOfLife.isValidCoordinates(new Coordinates(x, y))) {
             y++;
         }
 
@@ -256,7 +255,7 @@ class GameOfLifePanelTest {
     private void assertFindHex(int x, int y, String expected) {
         GameOfLifePanel gameOfLifePanel = new GameOfLifePanel();
         Coordinates gridAt = gameOfLifePanel.getGridCoordinatesAt(new Point(x, y)).get();
-        assertTrue(GameOfLife.isValidCoordinates(gridAt), "Invalid grid:" + gridAt);
+        assertTrue(HexGameOfLife.isValidCoordinates(gridAt), "Invalid grid:" + gridAt);
         assertEquals(expected, gridAt.toString());
     }
 }

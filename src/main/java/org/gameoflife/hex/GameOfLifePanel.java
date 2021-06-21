@@ -63,7 +63,7 @@ public class GameOfLifePanel implements Paintable {
     private void fillBoardWithHexagons(Graphics g, HexGameOfLife game) {
         for (int x = 0; x < widthInHexagons; x++) {
             for (int y = 0; y < heightInHexagons; y++) {
-                if (GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
+                if (HexGameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                     boolean isAlive = game.isAlive(new Cell(x,y));
                     paintHex(g, isAlive, new Coordinates(x, y));
                 }
@@ -87,7 +87,7 @@ public class GameOfLifePanel implements Paintable {
         Coordinates result = null;
         for (int x = 0; x < widthInHexagons; x++) {
             for (int y = 0; y < heightInHexagons; y++) {
-                if (GameOfLife.isValidCoordinates(new Coordinates(x, y))) {
+                if (HexGameOfLife.isValidCoordinates(new Coordinates(x, y))) {
                     Coordinates coordinates = new Coordinates(x, y);
                     Hexagon hexagon = new Hexagon(radius, coordinates);
                     if (hexagon.getPolygon().contains(point)) {
