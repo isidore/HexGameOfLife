@@ -1,4 +1,6 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.graphics;
+
+import org.gameoflife.hex.GameOfLifePanel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

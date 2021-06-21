@@ -5,6 +5,7 @@ import com.spun.swing.Paintables;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
 import org.gameoflife.hex.game.HexGameOfLife;
+import org.gameoflife.hex.graphics.MouseReleaseListener;
 
 public class GameOfLifeRunner {
     public static void main(String[] args) {
