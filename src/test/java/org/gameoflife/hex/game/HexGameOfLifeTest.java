@@ -13,7 +13,7 @@ public class HexGameOfLifeTest {
 
 
     @Test
-    static void testExceptionIsThrownForInvalidCoordinate() {
+    void testExceptionIsThrownForInvalidCoordinate() {
         Approvals.verifyException(() ->
         {
             HexGameOfLife hexGameOfLife = new HexGameOfLife();
