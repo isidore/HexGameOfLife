@@ -1,10 +1,11 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.graphics;
 
 import com.spun.swing.PaintablePanel;
 import com.spun.swing.Paintables;
 import com.spun.util.ThreadUtils;
 import com.spun.util.WindowUtils;
 import org.gameoflife.hex.game.HexGameOfLife;
+import org.gameoflife.hex.graphics.GameOfLifePanel;
 import org.gameoflife.hex.graphics.MouseReleaseListener;
 import org.gameoflife.hex.graphics.ResizeListener;
 

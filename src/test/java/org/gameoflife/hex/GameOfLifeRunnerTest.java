@@ -3,6 +3,7 @@ package org.gameoflife.hex;
 import org.approvaltests.awt.AwtApprovals;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.HexGameOfLifeTest;
+import org.gameoflife.hex.graphics.GameOfLifeRunner;
 import org.junit.jupiter.api.Test;
 
 class GameOfLifeRunnerTest {

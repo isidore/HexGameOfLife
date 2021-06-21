@@ -1,7 +1,8 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.graphics;
 
 import com.spun.swing.Paintable;
 import com.spun.util.Colors;
+import org.gameoflife.hex.Coordinates;
 import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.Hexagon;

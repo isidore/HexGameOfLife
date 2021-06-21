@@ -13,6 +13,7 @@ import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.HexGameOfLifeTest;
 import org.gameoflife.hex.game.Hexagon;
+import org.gameoflife.hex.graphics.GameOfLifePanel;
 import org.junit.jupiter.api.Test;
 import org.lambda.actions.Action1;
 import org.lambda.functions.Function1;
@@ -21,7 +22,7 @@ import org.lambda.query.Query;
 import java.awt.*;
 import java.util.Optional;
 
-import static org.gameoflife.hex.GameOfLifeRunner.setupInitialScenario;
+import static org.gameoflife.hex.graphics.GameOfLifeRunner.setupInitialScenario;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
