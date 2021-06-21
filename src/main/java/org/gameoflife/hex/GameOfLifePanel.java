@@ -4,6 +4,7 @@ import com.spun.swing.Paintable;
 import com.spun.util.Colors;
 import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
+import org.gameoflife.hex.game.Hexagon;
 import org.lambda.actions.Action0;
 
 import java.awt.*;
@@ -14,7 +15,8 @@ public class GameOfLifePanel implements Paintable {
     public int widthInHexagons = 20;
     public int heightInHexagons = 10;
     private Dimension sizeInPixels;
-    private Action0 repaint = () -> { };
+    private Action0 repaint = () -> {
+    };
     private HexGameOfLife game;
 
     public GameOfLifePanel(HexGameOfLife game) {
@@ -26,13 +28,13 @@ public class GameOfLifePanel implements Paintable {
         this(new HexGameOfLife());
     }
 
-    public HexGameOfLife getGame() {
-        return game;
-    }
-
     public static Dimension getPanelDimension(int radius, int width, int height) {
         Hexagon bottomRightHexagon = new Hexagon(radius, new Coordinates(width, height));
         return bottomRightHexagon.getBoundingLowerRightPoint();
+    }
+
+    public HexGameOfLife getGame() {
+        return game;
     }
 
     public void onResize(Dimension boardSizeInPixels) {
@@ -64,7 +66,7 @@ public class GameOfLifePanel implements Paintable {
         for (int x = 0; x < widthInHexagons; x++) {
             for (int y = 0; y < heightInHexagons; y++) {
                 if (HexGameOfLife.isValidCoordinates(new Coordinates(x, y))) {
-                    boolean isAlive = game.isAlive(new Cell(x,y));
+                    boolean isAlive = game.isAlive(new Cell(x, y));
                     paintHex(g, isAlive, new Coordinates(x, y));
                 }
             }
@@ -103,9 +105,12 @@ public class GameOfLifePanel implements Paintable {
 
     public void setAliveAt(Point point) {
         Optional<Coordinates> cell = getGridCoordinatesAt(point);
-        Coordinates hex = cell.get();
-        game.setAlive(hex.getX(), hex.getY());
+        if (cell.isPresent()) {
+            Coordinates hex = cell.get();
+            game.setAlive(hex.getX(), hex.getY());
+        }
         repaint();
+
     }
 
     private void repaint() {

@@ -4,6 +4,7 @@ import com.spun.swing.Paintable;
 import com.spun.util.NumberUtils;
 import com.spun.util.logger.SimpleLogger;
 import org.approvaltests.Approvals;
+import org.approvaltests.StoryBoard;
 import org.approvaltests.awt.AwtApprovals;
 import org.approvaltests.core.Options;
 import org.approvaltests.reporters.ImageWebReporter;
@@ -11,6 +12,7 @@ import org.approvaltests.reporters.UseReporter;
 import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.HexGameOfLifeTest;
+import org.gameoflife.hex.game.Hexagon;
 import org.junit.jupiter.api.Test;
 import org.lambda.actions.Action1;
 import org.lambda.functions.Function1;
@@ -49,25 +51,14 @@ class GameOfLifePanelTest {
     @Test
     @UseReporter(ImageWebReporter.class)
     void testSequence() {
-        // create game of life
         GameOfLifePanel panel = new GameOfLifePanel(setupInitialScenario());
         verifySequence(panel, 4, f -> panel.advanceTurn());
     }
 
     @Test
     void testTextSequence() {
-        // create game of life
         GameOfLifePanel panel = new GameOfLifePanel(setupInitialScenario());
-        verifyTextSequence(panel, 4, f -> panel.advanceTurn());
-    }
-
-    private void verifyTextSequence(Object initial, int numberOfFrames, Function1<Integer, Object> getNextInSequence) {
-        StringBuffer text = new StringBuffer();
-        text.append("Initial:\n" + initial + "\n\n");
-        for (int i = 1; i <= numberOfFrames; i++) {
-            text.append("frame #" + i + ":\n" + getNextInSequence.call(i) + "\n\n");
-        }
-        Approvals.verify(text);
+        Approvals.verify(StoryBoard.createSequence(panel, 4, panel::advanceTurn));
     }
 
     private void verifySequence(Paintable initial, int numberOfFrames, Function1<Integer, Paintable> getNextInSequence) {
@@ -85,7 +76,7 @@ class GameOfLifePanelTest {
     void testCompellingSequence() {
         // create game of life
         HexGameOfLife hexGameOfLife = generateRandomGameOfLife(10);
-        HexGameOfLife gameOfLife2 = new HexGameOfLife(_(2, 4), _(2, 6), _(1, 9), _(1, 3), _(5, 5), _(5, 1), _(3, 1), _(5, 1), _(0, 8), _(7, 9));
+        HexGameOfLife gameOfLife2 = new HexGameOfLife(__(2, 4), __(2, 6), __(1, 9), __(1, 3), __(5, 5), __(5, 1), __(3, 1), __(5, 1), __(0, 8), __(7, 9));
 
         verifyAnimation(gameOfLife2, 33);
     }
@@ -95,7 +86,7 @@ class GameOfLifePanelTest {
         // create game of life
         int numberOfFrames = 42;
         //HexGameOfLife hexGameOfLife = generateInterestingGameOfLife(numberOfFrames);
-        HexGameOfLife gameOfLife = new HexGameOfLife(_(2, 4), _(2, 6), _(1, 9), _(1, 3), _(5, 5), _(5, 1), _(3, 1), _(5, 1), _(0, 8), _(7, 9));
+        HexGameOfLife gameOfLife = new HexGameOfLife(__(2, 4), __(2, 6), __(1, 9), __(1, 3), __(5, 5), __(5, 1), __(3, 1), __(5, 1), __(0, 8), __(7, 9));
 
         verifyAnimation(gameOfLife, numberOfFrames);
     }
@@ -118,11 +109,11 @@ class GameOfLifePanelTest {
 
     @Test
     void testBlinker() {
-        HexGameOfLife game = new HexGameOfLife(_(2, 2), _(5, 3)
-                , _(2, 4)
-                , _(4, 4)
-                , _(1, 5)
-                , _(4, 6)
+        HexGameOfLife game = new HexGameOfLife(__(2, 2), __(5, 3)
+                , __(2, 4)
+                , __(4, 4)
+                , __(1, 5)
+                , __(4, 6)
         );
         verifyAnimation(game, 3);
     }
@@ -130,7 +121,7 @@ class GameOfLifePanelTest {
     @Test
     void testSymmetrical() {
         int offset = 5;
-        HexGameOfLife game = new HexGameOfLife(_(8 + offset, 4 + offset), _(12 + offset, 4 + offset), _(10 + offset, 6 + offset));
+        HexGameOfLife game = new HexGameOfLife(__(8 + offset, 4 + offset), __(12 + offset, 4 + offset), __(10 + offset, 6 + offset));
         verifyAnimation(game, 100, p -> p.onResize(new Dimension(800, 800)));
     }
 
@@ -205,7 +196,7 @@ class GameOfLifePanelTest {
         return gameOfLife;
     }
 
-    private Cell _(int x, int y) {
+    private Cell __(int x, int y) {
         return new Cell(x, y);
     }
 

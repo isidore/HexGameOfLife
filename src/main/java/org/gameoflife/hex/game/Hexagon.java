@@ -1,5 +1,6 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.game;
 
+import org.gameoflife.hex.Coordinates;
 import org.lambda.query.Queryable;
 
 import java.awt.*;
@@ -49,7 +50,7 @@ public class Hexagon {
         return new Dimension(boardWidth, boardHeight);
     }
 
-    Dimension getBoundingLowerRightPoint() {
+    public Dimension getBoundingLowerRightPoint() {
         Rectangle boundingBox = getPolygon().getBounds();
         int rightmostX = boundingBox.x + boundingBox.width + 1;
         int lowestY = boundingBox.y + boundingBox.height + 1;
