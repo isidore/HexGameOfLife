@@ -1,4 +1,4 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.graphics;
 
 import com.spun.swing.Paintable;
 import com.spun.util.NumberUtils;

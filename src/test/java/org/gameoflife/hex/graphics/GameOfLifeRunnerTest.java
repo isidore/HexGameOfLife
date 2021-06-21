@@ -1,4 +1,4 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.graphics;
 
 import org.approvaltests.awt.AwtApprovals;
 import org.gameoflife.hex.game.HexGameOfLife;
