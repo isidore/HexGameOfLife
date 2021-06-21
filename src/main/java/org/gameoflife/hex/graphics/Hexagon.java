@@ -1,6 +1,6 @@
 package org.gameoflife.hex.graphics;
 
-import org.gameoflife.hex.Coordinates;
+import org.gameoflife.hex.game.Coordinates;
 import org.lambda.query.Queryable;
 
 import java.awt.*;

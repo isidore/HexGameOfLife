@@ -1,8 +1,9 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.game;
 
 import dk.ilios.asciihexgrid.AsciiBoard;
 import dk.ilios.asciihexgrid.printers.SmallPointyAsciiHexPrinter;
 import org.gameoflife.hex.game.Cell;
+import org.gameoflife.hex.game.Coordinates;
 import org.gameoflife.hex.game.HexGameOfLife;
 
 public class HexPrinter {

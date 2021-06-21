@@ -1,4 +1,4 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.game;
 
 import java.util.Objects;
 

@@ -10,6 +10,7 @@ import org.approvaltests.core.Options;
 import org.approvaltests.reporters.ImageWebReporter;
 import org.approvaltests.reporters.UseReporter;
 import org.gameoflife.hex.game.Cell;
+import org.gameoflife.hex.game.Coordinates;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.HexGameOfLifeTest;
 import org.gameoflife.hex.graphics.Hexagon;
