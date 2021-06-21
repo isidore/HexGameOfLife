@@ -83,7 +83,6 @@ class GameOfLifePanelTest {
 
     //@Disabled
     @Test
-    @UseReporter(ImageWebReporter.class)
     void testCompellingSequence() {
         // create game of life
         HexGameOfLife hexGameOfLife = generateRandomGameOfLife(10);
@@ -93,14 +92,13 @@ class GameOfLifePanelTest {
     }
 
     @Test
-    @UseReporter(ImageWebReporter.class)
     void testMoreInterestingSequence() {
         // create game of life
         int numberOfFrames = 42;
-        HexGameOfLife hexGameOfLife = generateInterestingGameOfLife(numberOfFrames);
-        HexGameOfLife gameOfLife2 = new HexGameOfLife(_(2, 4), _(2, 6), _(1, 9), _(1, 3), _(5, 5), _(5, 1), _(3, 1), _(5, 1), _(0, 8), _(7, 9));
+        //HexGameOfLife hexGameOfLife = generateInterestingGameOfLife(numberOfFrames);
+        HexGameOfLife gameOfLife = new HexGameOfLife(_(2, 4), _(2, 6), _(1, 9), _(1, 3), _(5, 5), _(5, 1), _(3, 1), _(5, 1), _(0, 8), _(7, 9));
 
-        verifyAnimation(hexGameOfLife, numberOfFrames);
+        verifyAnimation(gameOfLife, numberOfFrames);
     }
 
     private void verifyAnimation(HexGameOfLife hexGameOfLife, int numberOfFrames) {
@@ -116,7 +114,7 @@ class GameOfLifePanelTest {
                 panel.advanceTurn();
             }
             return panel;
-        }, new Options(new DelayedClipboardReporter()));
+        }, new Options(new ImageWebReporter()));
     }
 
     @Test
