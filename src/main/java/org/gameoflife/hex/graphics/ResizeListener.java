@@ -1,9 +1,11 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.graphics;
+
+import org.gameoflife.hex.GameOfLifePanel;
 
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-class ResizeListener extends ComponentAdapter {
+public class ResizeListener extends ComponentAdapter {
     private final GameOfLifePanel gameOfLifePanel;
 
     public ResizeListener(GameOfLifePanel gameOfLifePanel) {

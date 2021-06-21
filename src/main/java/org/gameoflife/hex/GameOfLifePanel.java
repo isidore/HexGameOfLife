@@ -35,7 +35,7 @@ public class GameOfLifePanel implements Paintable {
         return bottomRightHexagon.getBoundingLowerRightPoint();
     }
 
-    void onResize(Dimension boardSizeInPixels) {
+    public void onResize(Dimension boardSizeInPixels) {
         this.sizeInPixels = boardSizeInPixels;
         Dimension d = Hexagon.getGridWidthAndHeightForPixels(radius, boardSizeInPixels);
         this.widthInHexagons = d.width;
