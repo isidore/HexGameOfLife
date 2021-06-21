@@ -2,9 +2,10 @@ package org.gameoflife.hex;
 
 import org.gameoflife.hex.game.Hexagon;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HexagonTest {
     @Test
