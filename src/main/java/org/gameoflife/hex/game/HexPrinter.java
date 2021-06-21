@@ -27,7 +27,6 @@ public class HexPrinter {
 
     private static int translateX(int x, int y) {
         int emptyspaces = (x + 1) / 2;
-        //return 10 + x - (y / 2) - emptyspaces;
         return x - emptyspaces;
     }
 }
