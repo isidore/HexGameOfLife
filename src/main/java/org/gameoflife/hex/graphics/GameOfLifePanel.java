@@ -5,7 +5,6 @@ import com.spun.util.Colors;
 import org.gameoflife.hex.Coordinates;
 import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
-import org.gameoflife.hex.game.Hexagon;
 import org.lambda.actions.Action0;
 
 import java.awt.*;

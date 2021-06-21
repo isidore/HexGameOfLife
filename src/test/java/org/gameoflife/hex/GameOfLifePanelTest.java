@@ -12,7 +12,7 @@ import org.approvaltests.reporters.UseReporter;
 import org.gameoflife.hex.game.Cell;
 import org.gameoflife.hex.game.HexGameOfLife;
 import org.gameoflife.hex.game.HexGameOfLifeTest;
-import org.gameoflife.hex.game.Hexagon;
+import org.gameoflife.hex.graphics.Hexagon;
 import org.gameoflife.hex.graphics.GameOfLifePanel;
 import org.junit.jupiter.api.Test;
 import org.lambda.actions.Action1;

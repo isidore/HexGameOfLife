@@ -1,4 +1,4 @@
-package org.gameoflife.hex.game;
+package org.gameoflife.hex.graphics;
 
 import org.gameoflife.hex.Coordinates;
 import org.lambda.query.Queryable;
