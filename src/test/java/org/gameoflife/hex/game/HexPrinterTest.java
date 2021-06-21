@@ -1,9 +1,6 @@
 package org.gameoflife.hex.game;
 
 import org.approvaltests.Approvals;
-import org.gameoflife.hex.game.Coordinates;
-import org.gameoflife.hex.game.HexGameOfLife;
-import org.gameoflife.hex.game.HexPrinter;
 import org.junit.jupiter.api.Test;
 
 class HexPrinterTest {

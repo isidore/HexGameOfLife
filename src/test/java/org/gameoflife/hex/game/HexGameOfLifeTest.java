@@ -1,7 +1,6 @@
 package org.gameoflife.hex.game;
 
 import org.approvaltests.Approvals;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

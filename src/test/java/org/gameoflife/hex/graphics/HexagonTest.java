@@ -1,6 +1,5 @@
 package org.gameoflife.hex.graphics;
 
-import org.gameoflife.hex.graphics.Hexagon;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
