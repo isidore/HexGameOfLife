@@ -1,10 +1,14 @@
 package org.gameoflife.hex.game;
 
 import org.approvaltests.Approvals;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HexGameOfLifeTest {
 
@@ -81,6 +85,32 @@ public class HexGameOfLifeTest {
         HexGameOfLife boardWithNeighbours = createGameWithNeighbours(2, 3, false);
         Approvals.verify(printAdvanceBoard("Centre (4,4) comes alive\n", boardWithNeighbours));
     }
+
+
+    @Test
+    void printWithCellsAtSpecifiedPosition() {
+        List<Cell> cells = new ArrayList<>();
+        cells.add(new Cell(4, 4));
+
+        HexGameOfLife game = new HexGameOfLife(cells);
+
+        Approvals.verify(game);
+    }
+
+    @Test
+    void testEmptyBoard() {
+        final HexGameOfLife hexGameOfLife = new HexGameOfLife();
+        Approvals.verify(HexPrinter.print(hexGameOfLife));
+    }
+
+    @Test
+    void oddsGoTogether() {
+        assertTrue(HexGameOfLife.isValidCoordinates(new Coordinates(1, 1)));
+        assertTrue(HexGameOfLife.isValidCoordinates(new Coordinates(2, 2)));
+        assertFalse(HexGameOfLife.isValidCoordinates(new Coordinates(2, 1)));
+        assertFalse(HexGameOfLife.isValidCoordinates(new Coordinates(1, 2)));
+    }
+
 
     public static HexGameOfLife createGameWithNeighbours(int numberOfLevelOneNeighbours, int numberOfLevelTwoNeighbours, boolean includeCentre) {
         Cell centre = new Cell(4, 4);
