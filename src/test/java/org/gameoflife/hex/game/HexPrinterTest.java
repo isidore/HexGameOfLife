@@ -1,4 +1,4 @@
-package org.gameoflife.hex;
+package org.gameoflife.hex.game;
 
 import org.approvaltests.Approvals;
 import org.gameoflife.hex.game.Coordinates;
